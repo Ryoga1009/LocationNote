@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		724DE64B51024D9ADB83AEA4 /* Pods_LocationNote_LocationNoteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E3C5730336A5398F3D8DD23 /* Pods_LocationNote_LocationNoteUITests.framework */; };
+		A5236E51790FE1D406B07EB8 /* Pods_LocationNoteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C531066F39FABA4D8BC31FB1 /* Pods_LocationNoteTests.framework */; };
 		BBA94A602906C7B000E9B2F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA94A5F2906C7B000E9B2F7 /* AppDelegate.swift */; };
 		BBA94A622906C7B000E9B2F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA94A612906C7B000E9B2F7 /* SceneDelegate.swift */; };
 		BBA94A642906C7B000E9B2F7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA94A632906C7B000E9B2F7 /* ViewController.swift */; };
@@ -17,6 +19,7 @@
 		BBA94A7A2906C7B200E9B2F7 /* LocationNoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA94A792906C7B200E9B2F7 /* LocationNoteTests.swift */; };
 		BBA94A842906C7B300E9B2F7 /* LocationNoteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA94A832906C7B300E9B2F7 /* LocationNoteUITests.swift */; };
 		BBA94A862906C7B300E9B2F7 /* LocationNoteUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA94A852906C7B300E9B2F7 /* LocationNoteUITestsLaunchTests.swift */; };
+		F47224C14C2B9A6E561CFF40 /* Pods_LocationNote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B035DDBCBAC3CB750286DD0 /* Pods_LocationNote.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +40,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		309144EFE87BF932BE3377E4 /* Pods-LocationNoteTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocationNoteTests.debug.xcconfig"; path = "Target Support Files/Pods-LocationNoteTests/Pods-LocationNoteTests.debug.xcconfig"; sourceTree = "<group>"; };
+		490359AFCBCE665A775DF913 /* Pods-LocationNote-LocationNoteUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocationNote-LocationNoteUITests.debug.xcconfig"; path = "Target Support Files/Pods-LocationNote-LocationNoteUITests/Pods-LocationNote-LocationNoteUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		4B035DDBCBAC3CB750286DD0 /* Pods_LocationNote.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocationNote.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B34969A1B9F4007BD19AFB2 /* Pods-LocationNote-LocationNoteUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocationNote-LocationNoteUITests.release.xcconfig"; path = "Target Support Files/Pods-LocationNote-LocationNoteUITests/Pods-LocationNote-LocationNoteUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5E8E40245F3326C60EFEF4C6 /* Pods-LocationNote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocationNote.debug.xcconfig"; path = "Target Support Files/Pods-LocationNote/Pods-LocationNote.debug.xcconfig"; sourceTree = "<group>"; };
+		6E3C5730336A5398F3D8DD23 /* Pods_LocationNote_LocationNoteUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocationNote_LocationNoteUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B53D729CD0EF0D2CD3ADA11 /* Pods-LocationNote.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocationNote.release.xcconfig"; path = "Target Support Files/Pods-LocationNote/Pods-LocationNote.release.xcconfig"; sourceTree = "<group>"; };
 		BBA94A5C2906C7B000E9B2F7 /* LocationNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocationNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBA94A5F2906C7B000E9B2F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBA94A612906C7B000E9B2F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +61,8 @@
 		BBA94A7F2906C7B300E9B2F7 /* LocationNoteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocationNoteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBA94A832906C7B300E9B2F7 /* LocationNoteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNoteUITests.swift; sourceTree = "<group>"; };
 		BBA94A852906C7B300E9B2F7 /* LocationNoteUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNoteUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C531066F39FABA4D8BC31FB1 /* Pods_LocationNoteTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocationNoteTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC2B9D561C0B4B736AE4BC60 /* Pods-LocationNoteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocationNoteTests.release.xcconfig"; path = "Target Support Files/Pods-LocationNoteTests/Pods-LocationNoteTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F47224C14C2B9A6E561CFF40 /* Pods_LocationNote.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5236E51790FE1D406B07EB8 /* Pods_LocationNoteTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +86,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				724DE64B51024D9ADB83AEA4 /* Pods_LocationNote_LocationNoteUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C89392741D96DEFB80C5CC7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4B035DDBCBAC3CB750286DD0 /* Pods_LocationNote.framework */,
+				6E3C5730336A5398F3D8DD23 /* Pods_LocationNote_LocationNoteUITests.framework */,
+				C531066F39FABA4D8BC31FB1 /* Pods_LocationNoteTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		41863F6398DD0EA1EB177CAC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5E8E40245F3326C60EFEF4C6 /* Pods-LocationNote.debug.xcconfig */,
+				8B53D729CD0EF0D2CD3ADA11 /* Pods-LocationNote.release.xcconfig */,
+				490359AFCBCE665A775DF913 /* Pods-LocationNote-LocationNoteUITests.debug.xcconfig */,
+				5B34969A1B9F4007BD19AFB2 /* Pods-LocationNote-LocationNoteUITests.release.xcconfig */,
+				309144EFE87BF932BE3377E4 /* Pods-LocationNoteTests.debug.xcconfig */,
+				CC2B9D561C0B4B736AE4BC60 /* Pods-LocationNoteTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		BBA94A532906C7B000E9B2F7 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +124,8 @@
 				BBA94A782906C7B200E9B2F7 /* LocationNoteTests */,
 				BBA94A822906C7B300E9B2F7 /* LocationNoteUITests */,
 				BBA94A5D2906C7B000E9B2F7 /* Products */,
+				41863F6398DD0EA1EB177CAC /* Pods */,
+				0C89392741D96DEFB80C5CC7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -161,6 +202,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BBA94A892906C7B300E9B2F7 /* Build configuration list for PBXNativeTarget "LocationNote" */;
 			buildPhases = (
+				5116D39342FE3157075CA96A /* [CP] Check Pods Manifest.lock */,
 				BBA94A582906C7B000E9B2F7 /* Sources */,
 				BBA94A592906C7B000E9B2F7 /* Frameworks */,
 				BBA94A5A2906C7B000E9B2F7 /* Resources */,
@@ -178,6 +220,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BBA94A8C2906C7B300E9B2F7 /* Build configuration list for PBXNativeTarget "LocationNoteTests" */;
 			buildPhases = (
+				3DAE13C44BD6F252947BE85C /* [CP] Check Pods Manifest.lock */,
 				BBA94A712906C7B200E9B2F7 /* Sources */,
 				BBA94A722906C7B200E9B2F7 /* Frameworks */,
 				BBA94A732906C7B200E9B2F7 /* Resources */,
@@ -196,6 +239,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BBA94A8F2906C7B300E9B2F7 /* Build configuration list for PBXNativeTarget "LocationNoteUITests" */;
 			buildPhases = (
+				90E744C8B6BE58FB91986124 /* [CP] Check Pods Manifest.lock */,
 				BBA94A7B2906C7B300E9B2F7 /* Sources */,
 				BBA94A7C2906C7B300E9B2F7 /* Frameworks */,
 				BBA94A7D2906C7B300E9B2F7 /* Resources */,
@@ -279,6 +323,75 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3DAE13C44BD6F252947BE85C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LocationNoteTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5116D39342FE3157075CA96A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LocationNote-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		90E744C8B6BE58FB91986124 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LocationNote-LocationNoteUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BBA94A582906C7B000E9B2F7 /* Sources */ = {
@@ -460,6 +573,7 @@
 		};
 		BBA94A8A2906C7B300E9B2F7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E8E40245F3326C60EFEF4C6 /* Pods-LocationNote.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -488,6 +602,7 @@
 		};
 		BBA94A8B2906C7B300E9B2F7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B53D729CD0EF0D2CD3ADA11 /* Pods-LocationNote.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -516,6 +631,7 @@
 		};
 		BBA94A8D2906C7B300E9B2F7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 309144EFE87BF932BE3377E4 /* Pods-LocationNoteTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -536,6 +652,7 @@
 		};
 		BBA94A8E2906C7B300E9B2F7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC2B9D561C0B4B736AE4BC60 /* Pods-LocationNoteTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -556,6 +673,7 @@
 		};
 		BBA94A902906C7B300E9B2F7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 490359AFCBCE665A775DF913 /* Pods-LocationNote-LocationNoteUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -574,6 +692,7 @@
 		};
 		BBA94A912906C7B300E9B2F7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5B34969A1B9F4007BD19AFB2 /* Pods-LocationNote-LocationNoteUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
