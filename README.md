@@ -34,7 +34,7 @@
 ![color:ff69b4](https://img.shields.io/badge/XCode-14.0.1-ff69b4.svg?longCache=true)
 
 ### 対応OS
-- 14.0以上
+- 15.0以上
 
 ### 使用言語
 Swift
