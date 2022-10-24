@@ -101,10 +101,8 @@
 		BBA94A5E2906C7B000E9B2F7 /* LocationNote */ = {
 			isa = PBXGroup;
 			children = (
-				BBA94A5F2906C7B000E9B2F7 /* AppDelegate.swift */,
-				BBA94A612906C7B000E9B2F7 /* SceneDelegate.swift */,
-				BBA94A632906C7B000E9B2F7 /* ViewController.swift */,
-				BBA94A652906C7B000E9B2F7 /* Main.storyboard */,
+				BBA94A942906C87B00E9B2F7 /* Screen */,
+				BBA94A932906C86700E9B2F7 /* Shared */,
 				BBA94A6B2906C7B200E9B2F7 /* Assets.xcassets */,
 				BBA94A6D2906C7B200E9B2F7 /* LaunchScreen.storyboard */,
 				BBA94A702906C7B200E9B2F7 /* Info.plist */,
@@ -128,6 +126,32 @@
 				BBA94A852906C7B300E9B2F7 /* LocationNoteUITestsLaunchTests.swift */,
 			);
 			path = LocationNoteUITests;
+			sourceTree = "<group>";
+		};
+		BBA94A932906C86700E9B2F7 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				BBA94A612906C7B000E9B2F7 /* SceneDelegate.swift */,
+				BBA94A5F2906C7B000E9B2F7 /* AppDelegate.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		BBA94A942906C87B00E9B2F7 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				BBA94A952906C88B00E9B2F7 /* Main */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		BBA94A952906C88B00E9B2F7 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				BBA94A632906C7B000E9B2F7 /* ViewController.swift */,
+				BBA94A652906C7B000E9B2F7 /* Main.storyboard */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
