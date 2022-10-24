@@ -12,7 +12,7 @@
 
 |メモのタイトル表示|メモ詳細表示|
 |---|---|
-|<img width=150 src="./image/memo_small.png"/>|<img width=150 src="./image/memo_large.png"/>|
+|<img width=150 src="./images/memo_small.png"/>|<img width=150 src="./images/memo_large.png"/>|
 
 ### 使い時
 飲食店の注意点をリマインドしたいとき
