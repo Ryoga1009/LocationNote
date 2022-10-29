@@ -9,30 +9,38 @@ import UIKit
 
 class SearchBar: UIView {
 
-    @IBOutlet weak var stackView: UIStackView!
-    @IBOutlet weak var textField: UITextField!
-    @IBOutlet weak var clearButton: UIButton!
+    @IBOutlet private var stackView: UIStackView!
+    @IBOutlet private var textField: UITextField!
+    @IBOutlet private var clearButton: UIButton!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setUpView()
+        loadView()
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setUpView()
+        loadView()
     }
 
 }
 
 extension SearchBar {
-    func setUpView() {
+    func loadView() {
         guard let view = R.nib.searchBar(owner: self) else {
             fatalError("error")
         }
-
         view.frame = self.bounds
         addSubview(view)
+
+        setUpView()
+    }
+
+    func setUpView() {
+        stackView.layer.borderWidth = 1.0
+        stackView.layer.borderColor = R.color.black2()?.cgColor
+        stackView.layer.cornerRadius = 14
+
     }
 
 }

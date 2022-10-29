@@ -398,6 +398,7 @@ struct _R: Rswift.Validatable {
         if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "clear.fill") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'clear.fill' is used in nib 'SearchBar', but couldn't be loaded.") } }
         if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "magnifyingglass") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'magnifyingglass' is used in nib 'SearchBar', but couldn't be loaded.") } }
         if #available(iOS 11.0, tvOS 11.0, *) {
+          if UIKit.UIColor(named: "black1", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'black1' is used in nib 'SearchBar', but couldn't be loaded.") }
           if UIKit.UIColor(named: "black2", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'black2' is used in nib 'SearchBar', but couldn't be loaded.") }
         }
       }
@@ -447,7 +448,6 @@ struct _R: Rswift.Validatable {
       static func validate() throws {
         if #available(iOS 11.0, tvOS 11.0, *) {
           if UIKit.UIColor(named: "AccentColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'AccentColor' is used in storyboard 'Main', but couldn't be loaded.") }
-          if UIKit.UIColor(named: "black2", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'black2' is used in storyboard 'Main', but couldn't be loaded.") }
         }
       }
 
