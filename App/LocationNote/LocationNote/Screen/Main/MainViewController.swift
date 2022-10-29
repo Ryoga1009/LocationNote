@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: BaseViewController {
 
     static func initFromStoryboard() -> MainViewController {
         let storyboard = UIStoryboard(name: R.storyboard.main.name, bundle: nil)
