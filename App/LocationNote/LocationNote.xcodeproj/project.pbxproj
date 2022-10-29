@@ -19,6 +19,7 @@
 		BBA94A7A2906C7B200E9B2F7 /* LocationNoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA94A792906C7B200E9B2F7 /* LocationNoteTests.swift */; };
 		BBA94A842906C7B300E9B2F7 /* LocationNoteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA94A832906C7B300E9B2F7 /* LocationNoteUITests.swift */; };
 		BBA94A862906C7B300E9B2F7 /* LocationNoteUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA94A852906C7B300E9B2F7 /* LocationNoteUITestsLaunchTests.swift */; };
+		BBB5346B290D1BA10007AE3E /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB5346A290D1BA10007AE3E /* R.generated.swift */; };
 		F47224C14C2B9A6E561CFF40 /* Pods_LocationNote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B035DDBCBAC3CB750286DD0 /* Pods_LocationNote.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +62,7 @@
 		BBA94A7F2906C7B300E9B2F7 /* LocationNoteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocationNoteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBA94A832906C7B300E9B2F7 /* LocationNoteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNoteUITests.swift; sourceTree = "<group>"; };
 		BBA94A852906C7B300E9B2F7 /* LocationNoteUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNoteUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BBB5346A290D1BA10007AE3E /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		C531066F39FABA4D8BC31FB1 /* Pods_LocationNoteTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocationNoteTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC2B9D561C0B4B736AE4BC60 /* Pods-LocationNoteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocationNoteTests.release.xcconfig"; path = "Target Support Files/Pods-LocationNoteTests/Pods-LocationNoteTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -171,6 +173,7 @@
 		BBA94A932906C86700E9B2F7 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				BBB5346A290D1BA10007AE3E /* R.generated.swift */,
 				BBA94A612906C7B000E9B2F7 /* SceneDelegate.swift */,
 				BBA94A5F2906C7B000E9B2F7 /* AppDelegate.swift */,
 			);
@@ -202,10 +205,12 @@
 			buildConfigurationList = BBA94A892906C7B300E9B2F7 /* Build configuration list for PBXNativeTarget "LocationNote" */;
 			buildPhases = (
 				5116D39342FE3157075CA96A /* [CP] Check Pods Manifest.lock */,
+				BBB53469290D1A2F0007AE3E /* RSwift Script */,
 				BBA94A582906C7B000E9B2F7 /* Sources */,
 				BBA94A592906C7B000E9B2F7 /* Frameworks */,
 				BBA94A5A2906C7B000E9B2F7 /* Resources */,
 				BB572681290CCC5A009F0F1B /* SwiftLint Script */,
+				4C7230F89BF4CCECD232ECE5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -243,6 +248,7 @@
 				BBA94A7B2906C7B300E9B2F7 /* Sources */,
 				BBA94A7C2906C7B300E9B2F7 /* Frameworks */,
 				BBA94A7D2906C7B300E9B2F7 /* Resources */,
+				ACA340CA49346BDF7C39FA68 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -347,6 +353,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		4C7230F89BF4CCECD232ECE5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LocationNote/Pods-LocationNote-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LocationNote/Pods-LocationNote-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LocationNote/Pods-LocationNote-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		5116D39342FE3157075CA96A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -391,8 +414,26 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		ACA340CA49346BDF7C39FA68 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LocationNote-LocationNoteUITests/Pods-LocationNote-LocationNoteUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-LocationNote-LocationNoteUITests/Pods-LocationNote-LocationNoteUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-LocationNote-LocationNoteUITests/Pods-LocationNote-LocationNoteUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		BB572681290CCC5A009F0F1B /* SwiftLint Script */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -409,6 +450,26 @@
 			shellPath = /bin/sh;
 			shellScript = "if which \"${PODS_ROOT}/SwiftLint/swiftlint\" >/dev/null; then\n${PODS_ROOT}/SwiftLint/swiftlint --fix\n${PODS_ROOT}/SwiftLint/swiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
+		BBB53469290D1A2F0007AE3E /* RSwift Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "RSwift Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -418,6 +479,7 @@
 			files = (
 				BBA94A6A2906C7B000E9B2F7 /* LocationNote.xcdatamodeld in Sources */,
 				BBA94A642906C7B000E9B2F7 /* ViewController.swift in Sources */,
+				BBB5346B290D1BA10007AE3E /* R.generated.swift in Sources */,
 				BBA94A602906C7B000E9B2F7 /* AppDelegate.swift in Sources */,
 				BBA94A622906C7B000E9B2F7 /* SceneDelegate.swift in Sources */,
 			);
