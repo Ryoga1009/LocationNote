@@ -10,6 +10,8 @@ import UIKit
 class MainViewController: BaseViewController {
 
     @IBOutlet weak var searchBar: SearchBar!
+    @IBOutlet weak var locateButton: UIButton!
+    @IBOutlet weak var addButton: UIButton!
 
     static func initFromStoryboard() -> UIViewController {
         let storyboard = UIStoryboard(name: R.storyboard.main.name, bundle: nil)
@@ -20,5 +22,12 @@ class MainViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+    }
+
+    @IBAction func onLocateButtonTapped(_ sender: Any) {
+    }
+
+    @IBAction func onAddButtonTapped(_ sender: Any) {
     }
 }

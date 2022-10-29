@@ -37,9 +37,12 @@
                                     <constraint firstAttribute="height" constant="55" id="v9K-OU-JCt"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled">
-                                    <imageReference key="image" image="plus.circle.fill" catalog="system" symbolScale="large"/>
+                                <buttonConfiguration key="configuration" style="filled" cornerStyle="capsule">
+                                    <imageReference key="image" image="plus" catalog="system" symbolScale="large"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="onLocateButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SZQ-mS-5gt"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rbo-Ct-al8">
                                 <rect key="frame" x="311" y="616" width="55" height="55"/>
@@ -48,7 +51,10 @@
                                     <constraint firstAttribute="height" constant="55" id="slW-kV-ENZ"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" image="paperplane.fill" catalog="system"/>
+                                <buttonConfiguration key="configuration" style="filled" image="paperplane.fill" catalog="system" cornerStyle="capsule"/>
+                                <connections>
+                                    <action selector="onAddButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XR0-Zs-qNx"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -70,6 +76,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addButton" destination="OLw-NZ-Eik" id="0E1-D0-JWW"/>
+                        <outlet property="locateButton" destination="rbo-Ct-al8" id="BkW-Q5-3TD"/>
                         <outlet property="searchBar" destination="BVP-Hn-ftq" id="3nd-UK-SGT"/>
                     </connections>
                 </viewController>
@@ -80,7 +88,7 @@
     </scenes>
     <resources>
         <image name="paperplane.fill" catalog="system" width="128" height="119"/>
-        <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <namedColor name="white1">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
