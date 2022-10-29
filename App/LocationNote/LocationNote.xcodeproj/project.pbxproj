@@ -11,7 +11,7 @@
 		A5236E51790FE1D406B07EB8 /* Pods_LocationNoteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C531066F39FABA4D8BC31FB1 /* Pods_LocationNoteTests.framework */; };
 		BBA94A602906C7B000E9B2F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA94A5F2906C7B000E9B2F7 /* AppDelegate.swift */; };
 		BBA94A622906C7B000E9B2F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA94A612906C7B000E9B2F7 /* SceneDelegate.swift */; };
-		BBA94A642906C7B000E9B2F7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA94A632906C7B000E9B2F7 /* ViewController.swift */; };
+		BBA94A642906C7B000E9B2F7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA94A632906C7B000E9B2F7 /* MainViewController.swift */; };
 		BBA94A672906C7B000E9B2F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBA94A652906C7B000E9B2F7 /* Main.storyboard */; };
 		BBA94A6A2906C7B000E9B2F7 /* LocationNote.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BBA94A682906C7B000E9B2F7 /* LocationNote.xcdatamodeld */; };
 		BBA94A6C2906C7B200E9B2F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBA94A6B2906C7B200E9B2F7 /* Assets.xcassets */; };
@@ -20,6 +20,8 @@
 		BBA94A842906C7B300E9B2F7 /* LocationNoteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA94A832906C7B300E9B2F7 /* LocationNoteUITests.swift */; };
 		BBA94A862906C7B300E9B2F7 /* LocationNoteUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA94A852906C7B300E9B2F7 /* LocationNoteUITestsLaunchTests.swift */; };
 		BBB5346B290D1BA10007AE3E /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB5346A290D1BA10007AE3E /* R.generated.swift */; };
+		BBF8F7EA290D5347003C06D1 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF8F7E9290D5347003C06D1 /* MainRouter.swift */; };
+		BBF8F7EC290D539F003C06D1 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF8F7EB290D539F003C06D1 /* RootViewController.swift */; };
 		F47224C14C2B9A6E561CFF40 /* Pods_LocationNote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B035DDBCBAC3CB750286DD0 /* Pods_LocationNote.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,7 +53,7 @@
 		BBA94A5C2906C7B000E9B2F7 /* LocationNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocationNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBA94A5F2906C7B000E9B2F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBA94A612906C7B000E9B2F7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BBA94A632906C7B000E9B2F7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BBA94A632906C7B000E9B2F7 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		BBA94A662906C7B000E9B2F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BBA94A692906C7B000E9B2F7 /* LocationNote.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LocationNote.xcdatamodel; sourceTree = "<group>"; };
 		BBA94A6B2906C7B200E9B2F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -63,6 +65,8 @@
 		BBA94A832906C7B300E9B2F7 /* LocationNoteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNoteUITests.swift; sourceTree = "<group>"; };
 		BBA94A852906C7B300E9B2F7 /* LocationNoteUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNoteUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		BBB5346A290D1BA10007AE3E /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		BBF8F7E9290D5347003C06D1 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
+		BBF8F7EB290D539F003C06D1 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		C531066F39FABA4D8BC31FB1 /* Pods_LocationNoteTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocationNoteTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC2B9D561C0B4B736AE4BC60 /* Pods-LocationNoteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocationNoteTests.release.xcconfig"; path = "Target Support Files/Pods-LocationNoteTests/Pods-LocationNoteTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -184,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				BBA94A952906C88B00E9B2F7 /* Main */,
+				BBF8F7E8290D52DA003C06D1 /* Root */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -191,10 +196,19 @@
 		BBA94A952906C88B00E9B2F7 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				BBA94A632906C7B000E9B2F7 /* ViewController.swift */,
+				BBA94A632906C7B000E9B2F7 /* MainViewController.swift */,
 				BBA94A652906C7B000E9B2F7 /* Main.storyboard */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		BBF8F7E8290D52DA003C06D1 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				BBF8F7E9290D5347003C06D1 /* MainRouter.swift */,
+				BBF8F7EB290D539F003C06D1 /* RootViewController.swift */,
+			);
+			path = Root;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -478,10 +492,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBA94A6A2906C7B000E9B2F7 /* LocationNote.xcdatamodeld in Sources */,
-				BBA94A642906C7B000E9B2F7 /* ViewController.swift in Sources */,
+				BBA94A642906C7B000E9B2F7 /* MainViewController.swift in Sources */,
 				BBB5346B290D1BA10007AE3E /* R.generated.swift in Sources */,
+				BBF8F7EC290D539F003C06D1 /* RootViewController.swift in Sources */,
 				BBA94A602906C7B000E9B2F7 /* AppDelegate.swift in Sources */,
 				BBA94A622906C7B000E9B2F7 /* SceneDelegate.swift in Sources */,
+				BBF8F7EA290D5347003C06D1 /* MainRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,7 +603,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -641,7 +657,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -663,8 +679,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LocationNote/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -694,8 +711,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LocationNote/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
