@@ -7,11 +7,17 @@
 
 import UIKit
 
+protocol SearchBarDelegate: AnyObject {
+    func onSearchTextFieldChanged(searchText: String)
+}
+
 class SearchBar: UIView {
 
     @IBOutlet private var stackView: UIStackView!
     @IBOutlet private var textField: UITextField!
     @IBOutlet private var clearButton: UIButton!
+
+    var delegate: SearchBarDelegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -71,5 +77,7 @@ extension SearchBar: UITextFieldDelegate {
 
     func textFieldDidChangeSelection(_ textField: UITextField) {
         clearButton.isHidden = textField.text?.isEmpty ?? true
+
+        delegate?.onSearchTextFieldChanged(searchText: textField.text ?? "")
     }
 }
