@@ -9,11 +9,11 @@ import UIKit
 
 class MainViewController: BaseViewController {
 
-    static func initFromStoryboard() -> MainViewController {
+    static func initFromStoryboard() -> UIViewController {
         let storyboard = UIStoryboard(name: R.storyboard.main.name, bundle: nil)
         let viewController = storyboard.instantiateInitialViewController() as! MainViewController
 
-        return viewController
+        return UINavigationController(rootViewController: viewController)
     }
 
     override func viewDidLoad() {
