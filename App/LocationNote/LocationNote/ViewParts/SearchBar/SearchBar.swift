@@ -42,6 +42,8 @@ extension SearchBar {
         view.frame = self.bounds
         addSubview(view)
 
+        addShadow()
+
         setUpView()
     }
 

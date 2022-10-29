@@ -23,6 +23,8 @@ class MainViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        locateButton.addShadow()
+        addButton.addShadow()
     }
 
     @IBAction func onLocateButtonTapped(_ sender: Any) {
