@@ -4,9 +4,10 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,29 +19,70 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Main" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BNn-Ph-DcS">
-                                <rect key="frame" x="174" y="412" width="37" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" name="AccentColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n5R-c8-iYt">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BVP-Hn-ftq" customClass="SearchBar" customModule="LocationNote" customModuleProvider="target">
+                                <rect key="frame" x="24" y="47" width="342" height="44"/>
+                                <color key="backgroundColor" name="white1"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="3sX-mw-5Te"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OLw-NZ-Eik">
+                                <rect key="frame" x="311" y="707" width="55" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="OLw-NZ-Eik" secondAttribute="height" multiplier="1:1" id="HFu-bu-cjj"/>
+                                    <constraint firstAttribute="height" constant="55" id="v9K-OU-JCt"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled">
+                                    <imageReference key="image" image="plus.circle.fill" catalog="system" symbolScale="large"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rbo-Ct-al8">
+                                <rect key="frame" x="311" y="616" width="55" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="rbo-Ct-al8" secondAttribute="height" multiplier="1:1" id="JfY-5Z-ncR"/>
+                                    <constraint firstAttribute="height" constant="55" id="slW-kV-ENZ"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="paperplane.fill" catalog="system"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" name="white1"/>
+                        <constraints>
+                            <constraint firstItem="BVP-Hn-ftq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="3gl-hA-V91"/>
+                            <constraint firstItem="n5R-c8-iYt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="68K-3C-8q2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rbo-Ct-al8" secondAttribute="trailing" constant="24" id="865-hA-OGi"/>
+                            <constraint firstItem="n5R-c8-iYt" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="AMH-70-Egt"/>
+                            <constraint firstItem="rbo-Ct-al8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" symbolic="YES" id="CNa-zm-uzH"/>
+                            <constraint firstItem="OLw-NZ-Eik" firstAttribute="top" secondItem="rbo-Ct-al8" secondAttribute="bottom" constant="36" id="EGW-le-66s"/>
+                            <constraint firstItem="OLw-NZ-Eik" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" symbolic="YES" id="Kb9-3c-Bvz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OLw-NZ-Eik" secondAttribute="bottom" constant="48" id="Ouu-48-Ue3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OLw-NZ-Eik" secondAttribute="trailing" constant="24" id="aGb-EH-Iri"/>
+                            <constraint firstAttribute="bottom" secondItem="n5R-c8-iYt" secondAttribute="bottom" id="ejy-g3-pLq"/>
+                            <constraint firstAttribute="trailing" secondItem="BVP-Hn-ftq" secondAttribute="trailing" constant="24" id="phv-2q-6sa"/>
+                            <constraint firstAttribute="trailing" secondItem="n5R-c8-iYt" secondAttribute="trailing" id="tkI-lc-Ks1"/>
+                            <constraint firstItem="BVP-Hn-ftq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="w9v-sM-ASs"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="searchBar" destination="BVP-Hn-ftq" id="3nd-UK-SGT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="58" y="-2"/>
+            <point key="canvasLocation" x="56.92307692307692" y="-2.1327014218009479"/>
         </scene>
     </scenes>
     <resources>
-        <namedColor name="AccentColor">
-            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <image name="paperplane.fill" catalog="system" width="128" height="119"/>
+        <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
+        <namedColor name="white1">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

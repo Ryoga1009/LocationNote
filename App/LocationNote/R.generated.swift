@@ -447,8 +447,10 @@ struct _R: Rswift.Validatable {
       let name = "Main"
 
       static func validate() throws {
+        if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "paperplane.fill") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'paperplane.fill' is used in storyboard 'Main', but couldn't be loaded.") } }
+        if #available(iOS 13.0, *) { if UIKit.UIImage(systemName: "plus.circle.fill") == nil { throw Rswift.ValidationError(description: "[R.swift] System image named 'plus.circle.fill' is used in storyboard 'Main', but couldn't be loaded.") } }
         if #available(iOS 11.0, tvOS 11.0, *) {
-          if UIKit.UIColor(named: "AccentColor", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'AccentColor' is used in storyboard 'Main', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "white1", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'white1' is used in storyboard 'Main', but couldn't be loaded.") }
         }
       }
 

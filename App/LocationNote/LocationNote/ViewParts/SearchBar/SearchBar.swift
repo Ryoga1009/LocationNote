@@ -13,7 +13,6 @@ protocol SearchBarDelegate: AnyObject {
 
 class SearchBar: UIView {
 
-    @IBOutlet private var stackView: UIStackView!
     @IBOutlet private var textField: UITextField!
     @IBOutlet private var clearButton: UIButton!
 
@@ -47,21 +46,21 @@ extension SearchBar {
     }
 
     func setUpView() {
-        stackView.layer.borderWidth = 1.0
-        stackView.layer.borderColor = R.color.black2()?.cgColor
-        stackView.layer.cornerRadius = 14
+        layer.borderWidth = 1.0
+        layer.borderColor = R.color.black2()?.cgColor
+        layer.cornerRadius = 16
 
         textField.delegate = self
     }
 
     func setDefaultLayout() {
-        stackView.layer.borderWidth = 1.0
-        stackView.layer.borderColor = R.color.black2()?.cgColor
+        layer.borderWidth = 1.0
+        layer.borderColor = R.color.black2()?.cgColor
     }
 
     func setEdditingLayout() {
-        stackView.layer.borderWidth = 3.0
-        stackView.layer.borderColor = R.color.blue1()?.cgColor
+        layer.borderWidth = 3.0
+        layer.borderColor = R.color.blue1()?.cgColor
     }
 }
 
