@@ -20,24 +20,24 @@ class RootViewController: UIViewController {
 }
 
 extension RootViewController {
-    func replaceContent(_ newContentViewController: UIViewController, animated: Bool) {
-        newContentViewController.view.alpha = 0
+    func replaceContent(_ newViewController: UIViewController, animated: Bool) {
+        newViewController.view.alpha = 0
 
-        addChild(newContentViewController)
-        view.addSubview(newContentViewController.view)
+        addChild(newViewController)
+        view.addSubview(newViewController.view)
 
         UIView.animate(
             withDuration: animated ? 0.2 : 0.0,
             animations: {
-                newContentViewController.view.alpha = 1
+                newViewController.view.alpha = 1
             },
             completion: { _ in
-                newContentViewController.didMove(toParent: self)
+                newViewController.didMove(toParent: self)
 
                 self.currentContent?.willMove(toParent: nil)
                 self.currentContent?.view.removeFromSuperview()
                 self.currentContent?.removeFromParent()
-                self.currentContent = newContentViewController
+                self.currentContent = newViewController
             }
         )
     }
