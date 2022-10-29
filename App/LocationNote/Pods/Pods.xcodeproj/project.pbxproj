@@ -6,25 +6,52 @@
 	objectVersion = 56;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		52B60EC2A583F24ACBB69C113F5488B9 /* SwiftLint */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = AE7B4FB01588B9E6DF09CB79FC7CE7BD /* Build configuration list for PBXAggregateTarget "SwiftLint" */;
+			buildPhases = (
+			);
+			dependencies = (
+			);
+			name = SwiftLint;
+			productName = SwiftLint;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
+		00C9CA93B950A6F615C1B8B969798044 /* Pods-LocationNote-LocationNoteUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DD4AF7679468B929E4CE22B7D386B8E /* Pods-LocationNote-LocationNoteUITests-dummy.m */; };
+		323F3D7E66D12E3D63E357017CCF56F5 /* Pods-LocationNote-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 214337ECC6A5F356D471C584641E74DD /* Pods-LocationNote-dummy.m */; };
 		3DDC08650ED15A078EFC3565766BDCD4 /* Pods-LocationNoteTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 92FC0DAA49E564B6776A47821F98AD05 /* Pods-LocationNoteTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		46DEFF7F102BD5BBC46C7B4409EA2B23 /* Pods-LocationNoteTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C30F3E6A95F85D6DD67F3800106BD50 /* Pods-LocationNoteTests-dummy.m */; };
-		5AEAE1C2773616C24C325450B315F830 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		939BBCA9926C959455034D91D12B7A2C /* Pods-LocationNote-LocationNoteUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DD4AF7679468B929E4CE22B7D386B8E /* Pods-LocationNote-LocationNoteUITests-dummy.m */; };
-		CEA5E672514E02DD51CB64966485FCA4 /* Pods-LocationNote-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 73975CDD2E07AEEFE1288927C79BDD53 /* Pods-LocationNote-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D0E4A4C671FE87A9369432E4D4666DD1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		718D1027011EADF2C700B0A346A0D443 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		963D8495F369295C6FDF0E904D810284 /* Pods-LocationNote-LocationNoteUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D7BCBA7806834536BB4B2DDD6588DCE1 /* Pods-LocationNote-LocationNoteUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A505F8B75CF7B61699DB0BDFEF53BD0A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		DAB6072FF8F9A40CCAE89CA7A6DC818F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		E9B9068377B8F6B9779A3C5834C64BDF /* Pods-LocationNote-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 214337ECC6A5F356D471C584641E74DD /* Pods-LocationNote-dummy.m */; };
-		EB0A61CDA1383CBC0F55D5FE52BEFBE2 /* Pods-LocationNote-LocationNoteUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D7BCBA7806834536BB4B2DDD6588DCE1 /* Pods-LocationNote-LocationNoteUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FF390A175192C6E2848CE5D26F69B039 /* Pods-LocationNote-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 73975CDD2E07AEEFE1288927C79BDD53 /* Pods-LocationNote-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		BC3181C29DDFD1BA5F1B9C87FF56C1B6 /* PBXContainerItemProxy */ = {
+		4BCF4D296C32418F196D0A98F38F5F0F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = E6E29EA121A170099605BE014D76AAFD;
 			remoteInfo = "Pods-LocationNote";
+		};
+		B8084912898C9BADAE0361D31D684667 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52B60EC2A583F24ACBB69C113F5488B9;
+			remoteInfo = SwiftLint;
+		};
+		D37283C68DE496B3CFACD36AC3B547A6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52B60EC2A583F24ACBB69C113F5488B9;
+			remoteInfo = SwiftLint;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -36,6 +63,7 @@
 		2C30F3E6A95F85D6DD67F3800106BD50 /* Pods-LocationNoteTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-LocationNoteTests-dummy.m"; sourceTree = "<group>"; };
 		2E211D8AC687490C6ECE272F583ACB56 /* Pods-LocationNoteTests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-LocationNoteTests"; path = Pods_LocationNoteTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		39616FE77EA46AFFC32094ED74D53CA2 /* Pods-LocationNote-LocationNoteUITests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-LocationNote-LocationNoteUITests"; path = Pods_LocationNote_LocationNoteUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EC0124719FE8EF5FDDD72C26F8A2F57 /* SwiftLint.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftLint.debug.xcconfig; sourceTree = "<group>"; };
 		3F425F013CD9E3EB5D882FDB28A14198 /* Pods-LocationNote-LocationNoteUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-LocationNote-LocationNoteUITests.modulemap"; sourceTree = "<group>"; };
 		3FDFB7DCFCA637386AB20E472F43D04E /* Pods-LocationNote-LocationNoteUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LocationNote-LocationNoteUITests-acknowledgements.plist"; sourceTree = "<group>"; };
 		45348F5A9F7F3BB8284F650FEA74444A /* Pods-LocationNote.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LocationNote.release.xcconfig"; sourceTree = "<group>"; };
@@ -45,9 +73,10 @@
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		73975CDD2E07AEEFE1288927C79BDD53 /* Pods-LocationNote-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-LocationNote-umbrella.h"; sourceTree = "<group>"; };
 		7815F006060D04EF058865C55028640D /* Pods-LocationNoteTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LocationNoteTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7EAB1DA481EDDC005A251D3A5E6BE4CD /* SwiftLint.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftLint.release.xcconfig; sourceTree = "<group>"; };
 		848AB539251E06B49B2A72D4F60E1DC1 /* Pods-LocationNoteTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LocationNoteTests-Info.plist"; sourceTree = "<group>"; };
 		92FC0DAA49E564B6776A47821F98AD05 /* Pods-LocationNoteTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-LocationNoteTests-umbrella.h"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A04243F6382EEA3860673AB5CBCF998A /* Pods-LocationNoteTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LocationNoteTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		A15522BF432A4B02C29D2ACA001363B7 /* Pods-LocationNote-LocationNoteUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-LocationNote-LocationNoteUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A242CDF3BF89A028A05CB22A693AB3D2 /* Pods-LocationNote-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-LocationNote-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -61,6 +90,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		21014AE2A49EF189A34EB3F46E0AD04D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				718D1027011EADF2C700B0A346A0D443 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2E9370AFB149148415458E24FCB70F9F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -69,19 +106,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		4545F1BEFF42BF28CDAC47F25A06B874 /* Frameworks */ = {
+		95779E71166A6CF5241A512BAA62BB01 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0E4A4C671FE87A9369432E4D4666DD1 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6E5C4ACB623CE9167C946879484F1F3F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5AEAE1C2773616C24C325450B315F830 /* Foundation.framework in Frameworks */,
+				A505F8B75CF7B61699DB0BDFEF53BD0A /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,6 +167,24 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
+		7FDA596DBE0337ACDFE55A210D54EF26 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				3EC0124719FE8EF5FDDD72C26F8A2F57 /* SwiftLint.debug.xcconfig */,
+				7EAB1DA481EDDC005A251D3A5E6BE4CD /* SwiftLint.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SwiftLint";
+			sourceTree = "<group>";
+		};
+		965877409E01FB3D85D85E90E6B30185 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D96179D43A67C5D5323B0682D32C133C /* SwiftLint */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		9E718436F9010D24E1CD0F4C2CBAC875 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +216,7 @@
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				965877409E01FB3D85D85E90E6B30185 /* Pods */,
 				0E9C9DE513AE4FEDEEE3DA1DF68A6B9D /* Products */,
 				9E718436F9010D24E1CD0F4C2CBAC875 /* Targets Support Files */,
 			);
@@ -182,22 +230,30 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D96179D43A67C5D5323B0682D32C133C /* SwiftLint */ = {
+			isa = PBXGroup;
+			children = (
+				7FDA596DBE0337ACDFE55A210D54EF26 /* Support Files */,
+			);
+			path = SwiftLint;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		35A55D749B97F258B296FE93E15C9180 /* Headers */ = {
+		6FC1234779BC729A7A330C9C9CF7E063 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB0A61CDA1383CBC0F55D5FE52BEFBE2 /* Pods-LocationNote-LocationNoteUITests-umbrella.h in Headers */,
+				963D8495F369295C6FDF0E904D810284 /* Pods-LocationNote-LocationNoteUITests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7C161C6485E86109A1E9ACA800FFF50A /* Headers */ = {
+		AB713E2A4B2F103494071B5332B1B546 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEA5E672514E02DD51CB64966485FCA4 /* Pods-LocationNote-umbrella.h in Headers */,
+				FF390A175192C6E2848CE5D26F69B039 /* Pods-LocationNote-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,7 +280,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				403AC2B2179389EBA8064FEC820CCC75 /* PBXTargetDependency */,
+				69ED39074CCDC327D6784CC806E5B5AD /* PBXTargetDependency */,
 			);
 			name = "Pods-LocationNoteTests";
 			productName = Pods_LocationNoteTests;
@@ -233,16 +289,17 @@
 		};
 		E6E29EA121A170099605BE014D76AAFD /* Pods-LocationNote */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 642B009DD5341E273E0B530FE7554337 /* Build configuration list for PBXNativeTarget "Pods-LocationNote" */;
+			buildConfigurationList = 8E1BB9F7F5D3559A0A61CE448C8EE29E /* Build configuration list for PBXNativeTarget "Pods-LocationNote" */;
 			buildPhases = (
-				7C161C6485E86109A1E9ACA800FFF50A /* Headers */,
-				642F6FD3067C646C38779AD3EB7D2CB7 /* Sources */,
-				4545F1BEFF42BF28CDAC47F25A06B874 /* Frameworks */,
-				7D1EA69626810C0067E90A5E8BD3D0A6 /* Resources */,
+				AB713E2A4B2F103494071B5332B1B546 /* Headers */,
+				28AA446DC6F39CFE9318BA9DD6B759E2 /* Sources */,
+				21014AE2A49EF189A34EB3F46E0AD04D /* Frameworks */,
+				2B40624BA387D87D2C158A1BB96788DC /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				0690950E799082B7883F4D4840375D39 /* PBXTargetDependency */,
 			);
 			name = "Pods-LocationNote";
 			productName = Pods_LocationNote;
@@ -251,16 +308,17 @@
 		};
 		EE48B9FD3C7086B111303DBDEBD55C83 /* Pods-LocationNote-LocationNoteUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6190C2C8BE5A0A4AFF1B4B9F412D20B2 /* Build configuration list for PBXNativeTarget "Pods-LocationNote-LocationNoteUITests" */;
+			buildConfigurationList = 1C50AADBAFEDAAE3903CA3E62D98B625 /* Build configuration list for PBXNativeTarget "Pods-LocationNote-LocationNoteUITests" */;
 			buildPhases = (
-				35A55D749B97F258B296FE93E15C9180 /* Headers */,
-				DA5BFDD9F3A21B384EFFC400EA7FBEA6 /* Sources */,
-				6E5C4ACB623CE9167C946879484F1F3F /* Frameworks */,
-				A0331D36C6633C5F5CA65858CB75C35D /* Resources */,
+				6FC1234779BC729A7A330C9C9CF7E063 /* Headers */,
+				B461A7EA6FF6BB0D5A2DAE01A7EFB4B5 /* Sources */,
+				95779E71166A6CF5241A512BAA62BB01 /* Frameworks */,
+				410E0AD0D080974306CAE85282C40A7C /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				476BC26D134F453C5792FB45B7F5D42B /* PBXTargetDependency */,
 			);
 			name = "Pods-LocationNote-LocationNoteUITests";
 			productName = Pods_LocationNote_LocationNoteUITests;
@@ -274,7 +332,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1300;
-				LastUpgradeCheck = 1300;
+				LastUpgradeCheck = 1400;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 14.0";
@@ -292,19 +350,20 @@
 				E6E29EA121A170099605BE014D76AAFD /* Pods-LocationNote */,
 				EE48B9FD3C7086B111303DBDEBD55C83 /* Pods-LocationNote-LocationNoteUITests */,
 				C3F0D8C4955A2D016DA72AD1F579FC8F /* Pods-LocationNoteTests */,
+				52B60EC2A583F24ACBB69C113F5488B9 /* SwiftLint */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		7D1EA69626810C0067E90A5E8BD3D0A6 /* Resources */ = {
+		2B40624BA387D87D2C158A1BB96788DC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A0331D36C6633C5F5CA65858CB75C35D /* Resources */ = {
+		410E0AD0D080974306CAE85282C40A7C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -321,11 +380,11 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		642F6FD3067C646C38779AD3EB7D2CB7 /* Sources */ = {
+		28AA446DC6F39CFE9318BA9DD6B759E2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9B9068377B8F6B9779A3C5834C64BDF /* Pods-LocationNote-dummy.m in Sources */,
+				323F3D7E66D12E3D63E357017CCF56F5 /* Pods-LocationNote-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,239 +396,39 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DA5BFDD9F3A21B384EFFC400EA7FBEA6 /* Sources */ = {
+		B461A7EA6FF6BB0D5A2DAE01A7EFB4B5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				939BBCA9926C959455034D91D12B7A2C /* Pods-LocationNote-LocationNoteUITests-dummy.m in Sources */,
+				00C9CA93B950A6F615C1B8B969798044 /* Pods-LocationNote-LocationNoteUITests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		403AC2B2179389EBA8064FEC820CCC75 /* PBXTargetDependency */ = {
+		0690950E799082B7883F4D4840375D39 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftLint;
+			target = 52B60EC2A583F24ACBB69C113F5488B9 /* SwiftLint */;
+			targetProxy = B8084912898C9BADAE0361D31D684667 /* PBXContainerItemProxy */;
+		};
+		476BC26D134F453C5792FB45B7F5D42B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftLint;
+			target = 52B60EC2A583F24ACBB69C113F5488B9 /* SwiftLint */;
+			targetProxy = D37283C68DE496B3CFACD36AC3B547A6 /* PBXContainerItemProxy */;
+		};
+		69ED39074CCDC327D6784CC806E5B5AD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "Pods-LocationNote";
 			target = E6E29EA121A170099605BE014D76AAFD /* Pods-LocationNote */;
-			targetProxy = BC3181C29DDFD1BA5F1B9C87FF56C1B6 /* PBXContainerItemProxy */;
+			targetProxy = 4BCF4D296C32418F196D0A98F38F5F0F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		03877B65D29A68378EDA4C2F7EAE34BC /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = F4515B8E4FA4DE4B0C0453B98DCDA554 /* Pods-LocationNoteTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-LocationNoteTests/Pods-LocationNoteTests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-LocationNoteTests/Pods-LocationNoteTests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		05118719E5C58FAA89C28731657D9B4D /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 45348F5A9F7F3BB8284F650FEA74444A /* Pods-LocationNote.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-LocationNote/Pods-LocationNote-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-LocationNote/Pods-LocationNote.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		28DC3F5CEECD62FEB2AAC4EE3BFC57AC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 23BFDC09B979EA80DFA57D88929F3A44 /* Pods-LocationNote.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-LocationNote/Pods-LocationNote-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-LocationNote/Pods-LocationNote.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		30E0B9EFD9A5C45D0D351231E81B30B3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_RELEASE=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 5.0;
-				SYMROOT = "${SRCROOT}/../build";
-			};
-			name = Release;
-		};
-		40B67ADC38A52D7AB6AFACD0AF4C7B54 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = FC944050471312DDE6ADEE0D87518D5C /* Pods-LocationNote-LocationNoteUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-LocationNote-LocationNoteUITests/Pods-LocationNote-LocationNoteUITests-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-LocationNote-LocationNoteUITests/Pods-LocationNote-LocationNoteUITests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		548E9ECAC21863A5C2042D1329A53146 /* Debug */ = {
+		2CB0BA6037850F3CB39AB43A62FCEB0F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7815F006060D04EF058865C55028640D /* Pods-LocationNoteTests.debug.xcconfig */;
 			buildSettings = {
@@ -585,7 +444,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-LocationNoteTests/Pods-LocationNoteTests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -606,7 +465,44 @@
 			};
 			name = Debug;
 		};
-		F025E7F8097314443C6A7AAF1DD1921A /* Release */ = {
+		49EB64ECFCA70A108A4E30F2423B175D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FC944050471312DDE6ADEE0D87518D5C /* Pods-LocationNote-LocationNoteUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-LocationNote-LocationNoteUITests/Pods-LocationNote-LocationNoteUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-LocationNote-LocationNoteUITests/Pods-LocationNote-LocationNoteUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6B20772AD8CE21B1E42A6F8CAA75DC72 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A15522BF432A4B02C29D2ACA001363B7 /* Pods-LocationNote-LocationNoteUITests.release.xcconfig */;
 			buildSettings = {
@@ -622,7 +518,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Target Support Files/Pods-LocationNote-LocationNoteUITests/Pods-LocationNote-LocationNoteUITests-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -644,7 +540,45 @@
 			};
 			name = Release;
 		};
-		F4FF6A0D1970CA9705974E3CB2134802 /* Debug */ = {
+		7108DDE7ED5AAB8FE68431A0CAA59A15 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45348F5A9F7F3BB8284F650FEA74444A /* Pods-LocationNote.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-LocationNote/Pods-LocationNote-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-LocationNote/Pods-LocationNote.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		90D4D09BCB6A4660E43ACBE9ECB6FE9A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -679,6 +613,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -697,7 +632,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -710,14 +645,194 @@
 			};
 			name = Debug;
 		};
+		9553C89E183877A5CB2F3C6801BEC129 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		9FA59FCBA38D671F5AADFE71AFA41DBF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F4515B8E4FA4DE4B0C0453B98DCDA554 /* Pods-LocationNoteTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-LocationNoteTests/Pods-LocationNoteTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-LocationNoteTests/Pods-LocationNoteTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		AD81E62ACCB0B7A923FC8AA288F9921E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7EAB1DA481EDDC005A251D3A5E6BE4CD /* SwiftLint.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C71798686553F133C431525E47789BFD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23BFDC09B979EA80DFA57D88929F3A44 /* Pods-LocationNote.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-LocationNote/Pods-LocationNote-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-LocationNote/Pods-LocationNote.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		EADD1F50ABC8096A0D6CB18822BB4EE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3EC0124719FE8EF5FDDD72C26F8A2F57 /* SwiftLint.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1C50AADBAFEDAAE3903CA3E62D98B625 /* Build configuration list for PBXNativeTarget "Pods-LocationNote-LocationNoteUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				49EB64ECFCA70A108A4E30F2423B175D /* Debug */,
+				6B20772AD8CE21B1E42A6F8CAA75DC72 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2BEF6157275C4A140D5CED0D9DE1648F /* Build configuration list for PBXNativeTarget "Pods-LocationNoteTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				548E9ECAC21863A5C2042D1329A53146 /* Debug */,
-				03877B65D29A68378EDA4C2F7EAE34BC /* Release */,
+				2CB0BA6037850F3CB39AB43A62FCEB0F /* Debug */,
+				9FA59FCBA38D671F5AADFE71AFA41DBF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -725,26 +840,26 @@
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F4FF6A0D1970CA9705974E3CB2134802 /* Debug */,
-				30E0B9EFD9A5C45D0D351231E81B30B3 /* Release */,
+				90D4D09BCB6A4660E43ACBE9ECB6FE9A /* Debug */,
+				9553C89E183877A5CB2F3C6801BEC129 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6190C2C8BE5A0A4AFF1B4B9F412D20B2 /* Build configuration list for PBXNativeTarget "Pods-LocationNote-LocationNoteUITests" */ = {
+		8E1BB9F7F5D3559A0A61CE448C8EE29E /* Build configuration list for PBXNativeTarget "Pods-LocationNote" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				40B67ADC38A52D7AB6AFACD0AF4C7B54 /* Debug */,
-				F025E7F8097314443C6A7AAF1DD1921A /* Release */,
+				C71798686553F133C431525E47789BFD /* Debug */,
+				7108DDE7ED5AAB8FE68431A0CAA59A15 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		642B009DD5341E273E0B530FE7554337 /* Build configuration list for PBXNativeTarget "Pods-LocationNote" */ = {
+		AE7B4FB01588B9E6DF09CB79FC7CE7BD /* Build configuration list for PBXAggregateTarget "SwiftLint" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				28DC3F5CEECD62FEB2AAC4EE3BFC57AC /* Debug */,
-				05118719E5C58FAA89C28731657D9B4D /* Release */,
+				EADD1F50ABC8096A0D6CB18822BB4EE4 /* Debug */,
+				AD81E62ACCB0B7A923FC8AA288F9921E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
