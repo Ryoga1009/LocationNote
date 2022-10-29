@@ -23,6 +23,10 @@ class SearchBar: UIView {
         loadView()
     }
 
+    @IBAction func onClearButtonTapped(_ sender: Any) {
+        textField.text = ""
+    }
+
 }
 
 extension SearchBar {
@@ -41,6 +45,31 @@ extension SearchBar {
         stackView.layer.borderColor = R.color.black2()?.cgColor
         stackView.layer.cornerRadius = 14
 
+        textField.delegate = self
     }
 
+    func setDefaultLayout() {
+        stackView.layer.borderWidth = 1.0
+        stackView.layer.borderColor = R.color.black2()?.cgColor
+    }
+
+    func setEdditingLayout() {
+        stackView.layer.borderWidth = 3.0
+        stackView.layer.borderColor = R.color.blue1()?.cgColor
+    }
+}
+
+extension SearchBar: UITextFieldDelegate {
+
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        setEdditingLayout()
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        setDefaultLayout()
+    }
+
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        clearButton.isHidden = textField.text?.isEmpty ?? true
+    }
 }

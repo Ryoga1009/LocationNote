@@ -55,10 +55,11 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="s7d-M6-U6P" userLabel="textField">
-                            <rect key="frame" x="44" y="0.0" width="74" height="39"/>
+                            <rect key="frame" x="44" y="0.0" width="62" height="39"/>
                             <subviews>
                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="タイトル/コメントで検索" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6UH-8W-1pY">
-                                    <rect key="frame" x="0.0" y="0.0" width="74" height="39"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="62" height="39"/>
+                                    <color key="tintColor" name="Blue1"/>
                                     <color key="textColor" name="black1"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                     <textInputTraits key="textInputTraits"/>
@@ -73,14 +74,14 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MoY-W6-ZWU" userLabel="margin">
-                            <rect key="frame" x="118" y="0.0" width="12" height="39"/>
+                            <rect key="frame" x="106" y="0.0" width="12" height="39"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="12" id="SDx-ny-leR"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fgR-iH-IPB" userLabel="deleteButton">
-                            <rect key="frame" x="130" y="0.0" width="20" height="39"/>
+                            <rect key="frame" x="118" y="0.0" width="20" height="39"/>
                             <subviews>
                                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rn9-JX-hBd">
                                     <rect key="frame" x="0.0" y="9.6666666666666679" width="20" height="20"/>
@@ -91,6 +92,9 @@
                                     <color key="tintColor" name="black2"/>
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" image="clear.fill" catalog="system"/>
+                                    <connections>
+                                        <action selector="onClearButtonTapped:" destination="-1" eventType="touchUpInside" id="ePk-YL-Sac"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -101,10 +105,10 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yab-WZ-vxr" userLabel="margin">
-                            <rect key="frame" x="150" y="0.0" width="12" height="39"/>
+                            <rect key="frame" x="138" y="0.0" width="24" height="39"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="12" id="n55-Yi-025"/>
+                                <constraint firstAttribute="width" constant="24" id="n55-Yi-025"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -129,6 +133,9 @@
     <resources>
         <image name="clear.fill" catalog="system" width="128" height="114"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
+        <namedColor name="Blue1">
+            <color red="0.33725490196078434" green="0.75686274509803919" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="black1">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
