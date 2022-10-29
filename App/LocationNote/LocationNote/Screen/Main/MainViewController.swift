@@ -9,7 +9,11 @@ import UIKit
 
 class MainViewController: BaseViewController {
 
-    static func initFromStoryboard() -> MainViewController {
+    @IBOutlet weak var searchBar: SearchBar!
+    @IBOutlet weak var locateButton: UIButton!
+    @IBOutlet weak var addButton: UIButton!
+
+    static func initFromStoryboard() -> UIViewController {
         let storyboard = UIStoryboard(name: R.storyboard.main.name, bundle: nil)
         let viewController = storyboard.instantiateInitialViewController() as! MainViewController
 
@@ -18,5 +22,14 @@ class MainViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        locateButton.addShadow()
+        addButton.addShadow()
+    }
+
+    @IBAction func onLocateButtonTapped(_ sender: Any) {
+    }
+
+    @IBAction func onAddButtonTapped(_ sender: Any) {
     }
 }
