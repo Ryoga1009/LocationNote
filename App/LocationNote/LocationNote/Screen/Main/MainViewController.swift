@@ -7,10 +7,11 @@
 
 import UIKit
 import RxSwift
-import CoreLocation
+import MapKit
 
 class MainViewController: BaseViewController {
 
+    @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var searchBar: SearchBar!
     @IBOutlet weak var locateButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
@@ -31,54 +32,16 @@ class MainViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestWhenInUseAuthorization()
-
         locateButton.addShadow()
         addButton.addShadow()
-
-        bind()
     }
 
     @IBAction func onLocateButtonTapped(_ sender: Any) {
-        locationManager.requestLocation()
+        let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        let region = MKCoordinateRegion(center: self.mapView.userLocation.coordinate, span: span)
+        self.mapView.region = region
     }
 
     @IBAction func onAddButtonTapped(_ sender: Any) {
     }
-}
-
-extension MainViewController {
-    func bind() {
-        mainViewmodel.locationObservable.bind(onNext: { location in
-            guard let location = location else {
-                return
-            }
-
-            print(location)
-        }).disposed(by: disposeBag)
-    }
-}
-
-extension MainViewController: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-
-        guard let loc = locations.last else { return }
-
-        CLGeocoder().reverseGeocodeLocation(loc, completionHandler: {(_, error) in
-
-            if let error = error {
-                print("reverseGeocodeLocation Failed: \(error.localizedDescription)")
-                return
-            }
-
-            self.mainViewmodel.onLocationUpdated(lat: loc.coordinate.latitude, lon: loc.coordinate.longitude)
-        })
-    }
-
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print(error)
-    }
-
 }

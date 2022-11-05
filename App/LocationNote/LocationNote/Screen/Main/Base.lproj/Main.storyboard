@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n5R-c8-iYt">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n5R-c8-iYt">
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
@@ -78,6 +78,7 @@
                     <connections>
                         <outlet property="addButton" destination="OLw-NZ-Eik" id="0E1-D0-JWW"/>
                         <outlet property="locateButton" destination="rbo-Ct-al8" id="BkW-Q5-3TD"/>
+                        <outlet property="mapView" destination="n5R-c8-iYt" id="KLe-L9-DVP"/>
                         <outlet property="searchBar" destination="BVP-Hn-ftq" id="3nd-UK-SGT"/>
                     </connections>
                 </viewController>
