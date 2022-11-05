@@ -33,6 +33,7 @@ class MainViewController: BaseViewController {
         addButton.addShadow()
 
         bind()
+        setMapLongPressRecRecognizer()
     }
 
     @IBAction func onLocateButtonTapped(_ sender: Any) {
@@ -55,5 +56,49 @@ extension MainViewController {
             self.mapView.region = region
 
         }).disposed(by: disposeBag)
+    }
+
+    func setMapLongPressRecRecognizer() {
+        let longPressRecognizer: UILongPressGestureRecognizer = UILongPressGestureRecognizer()
+        longPressRecognizer.addTarget(self, action: #selector(self.recognizeLongPress(sender:)))
+
+        mapView.addGestureRecognizer(longPressRecognizer)
+    }
+
+    @objc func recognizeLongPress(sender: UILongPressGestureRecognizer) {
+        // 長押しの最中に何度もピンを生成しないようにする.
+        if sender.state != UIGestureRecognizer.State.began {
+            return
+        }
+
+        let location = sender.location(in: mapView)
+        let coordinate: CLLocationCoordinate2D = mapView.convert(location, toCoordinateFrom: mapView)
+
+        addPin(location: coordinate)
+    }
+
+    func addPin(location: CLLocationCoordinate2D) {
+        let pin: MKPointAnnotation = MKPointAnnotation()
+
+        pin.coordinate = location
+        pin.title = "タイトル"
+        pin.subtitle = "サブタイトル"
+
+        mapView.addAnnotation(pin)
+    }
+
+}
+
+extension MainViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+
+        let pinIdentifier = "PinAnnotationIdentifier"
+        let pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: pinIdentifier)
+
+        pinView.animatesDrop = true
+        pinView.canShowCallout = true
+        pinView.annotation = annotation
+
+        return pinView
     }
 }
