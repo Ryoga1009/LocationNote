@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n5R-c8-iYt">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n5R-c8-iYt">
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
@@ -41,7 +41,7 @@
                                     <imageReference key="image" image="plus" catalog="system" symbolScale="large"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="onLocateButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SZQ-mS-5gt"/>
+                                    <action selector="onAddButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="w0i-Gq-1io"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rbo-Ct-al8">
@@ -53,7 +53,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" image="paperplane.fill" catalog="system" cornerStyle="capsule"/>
                                 <connections>
-                                    <action selector="onAddButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XR0-Zs-qNx"/>
+                                    <action selector="onLocateButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J2M-0M-vKa"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -78,6 +78,7 @@
                     <connections>
                         <outlet property="addButton" destination="OLw-NZ-Eik" id="0E1-D0-JWW"/>
                         <outlet property="locateButton" destination="rbo-Ct-al8" id="BkW-Q5-3TD"/>
+                        <outlet property="mapView" destination="n5R-c8-iYt" id="KLe-L9-DVP"/>
                         <outlet property="searchBar" destination="BVP-Hn-ftq" id="3nd-UK-SGT"/>
                     </connections>
                 </viewController>
