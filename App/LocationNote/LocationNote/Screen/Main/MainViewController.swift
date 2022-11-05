@@ -18,6 +18,7 @@ class MainViewController: BaseViewController {
 
     private var mainViewmodel = MainViewModel()
     private let disposeBag = DisposeBag()
+    private var locationManager = CLLocationManager()
 
     static func initFromStoryboard() -> UIViewController {
         let storyboard = UIStoryboard(name: R.storyboard.main.name, bundle: nil)
@@ -32,6 +33,7 @@ class MainViewController: BaseViewController {
         locateButton.addShadow()
         addButton.addShadow()
 
+        checkLocationPermission()
         bind()
         setMapLongPressRecRecognizer()
     }
@@ -58,6 +60,13 @@ extension MainViewController {
         }).disposed(by: disposeBag)
     }
 
+    func checkLocationPermission() {
+        let status = locationManager.authorizationStatus
+        if status == CLAuthorizationStatus.notDetermined {
+            locationManager.requestWhenInUseAuthorization()
+        }
+    }
+
     func setMapLongPressRecRecognizer() {
         let longPressRecognizer: UILongPressGestureRecognizer = UILongPressGestureRecognizer()
         longPressRecognizer.addTarget(self, action: #selector(self.recognizeLongPress(sender:)))
@@ -74,7 +83,7 @@ extension MainViewController {
         let location = sender.location(in: mapView)
         let coordinate: CLLocationCoordinate2D = mapView.convert(location, toCoordinateFrom: mapView)
 
-        addPin(location: coordinate)
+        navigateToAddMemoScreen()
     }
 
     func addPin(location: CLLocationCoordinate2D) {
@@ -85,6 +94,10 @@ extension MainViewController {
         pin.subtitle = "サブタイトル"
 
         mapView.addAnnotation(pin)
+    }
+
+    func navigateToAddMemoScreen() {
+        self.router.replaceViewController(AddMemoViewController.initFromStoryboard(), animated: true)
     }
 
 }
