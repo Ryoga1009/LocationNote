@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -171,22 +171,18 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pod-dx-7Dh" userLabel="button">
                                         <rect key="frame" x="0.0" y="691" width="342" height="48"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R0f-DF-vAA">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pH2-PQ-g1O" customClass="PrimaryButton" customModule="LocationNote" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="342" height="48"/>
-                                                <color key="backgroundColor" name="Blue1"/>
-                                                <color key="tintColor" name="Blue1"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" title="Button">
-                                                    <color key="baseForegroundColor" name="white1"/>
-                                                </buttonConfiguration>
+                                                <buttonConfiguration key="configuration" style="plain" title="追加"/>
                                             </button>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="R0f-DF-vAA" secondAttribute="trailing" id="Cnr-Ck-cLf"/>
-                                            <constraint firstItem="R0f-DF-vAA" firstAttribute="top" secondItem="pod-dx-7Dh" secondAttribute="top" id="cCC-Fa-FXN"/>
+                                            <constraint firstAttribute="trailing" secondItem="pH2-PQ-g1O" secondAttribute="trailing" id="9Fz-s7-AB7"/>
+                                            <constraint firstItem="pH2-PQ-g1O" firstAttribute="top" secondItem="pod-dx-7Dh" secondAttribute="top" id="E4s-q3-QPi"/>
+                                            <constraint firstItem="pH2-PQ-g1O" firstAttribute="leading" secondItem="pod-dx-7Dh" secondAttribute="leading" id="ZHK-V8-OSX"/>
                                             <constraint firstAttribute="height" constant="48" id="hay-gI-MsC"/>
-                                            <constraint firstItem="R0f-DF-vAA" firstAttribute="leading" secondItem="pod-dx-7Dh" secondAttribute="leading" id="iSa-WV-PEq"/>
-                                            <constraint firstAttribute="bottom" secondItem="R0f-DF-vAA" secondAttribute="bottom" id="xjt-3U-d5w"/>
+                                            <constraint firstAttribute="bottom" secondItem="pH2-PQ-g1O" secondAttribute="bottom" id="u4B-iJ-ubj"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PnX-rp-hEv" userLabel="margin">
@@ -208,6 +204,12 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="PDZ-HT-DpJ" secondAttribute="trailing" constant="24" id="PTQ-aq-LeP"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="detailTextField" destination="Uad-sN-i3N" id="FxF-F8-huV"/>
+                        <outlet property="locationLabel" destination="wni-WF-FCk" id="Csc-Za-42R"/>
+                        <outlet property="tagTextField" destination="T2x-rv-vIm" id="Pg5-Nd-EOf"/>
+                        <outlet property="titleTextField" destination="hMO-9U-LmX" id="VlK-hL-2sp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -215,14 +217,8 @@
         </scene>
     </scenes>
     <resources>
-        <namedColor name="Blue1">
-            <color red="0.33725490196078434" green="0.75686274509803919" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="black2">
             <color red="0.36862745098039218" green="0.36862745098039218" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="white1">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

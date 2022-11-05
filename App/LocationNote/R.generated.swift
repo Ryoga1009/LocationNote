@@ -443,6 +443,8 @@ struct _R: Rswift.Validatable {
 
       static func validate() throws {
         if #available(iOS 11.0, tvOS 11.0, *) {
+          if UIKit.UIColor(named: "black2", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'black2' is used in storyboard 'AddMemo', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "white1", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'white1' is used in storyboard 'AddMemo', but couldn't be loaded.") }
         }
       }
 
