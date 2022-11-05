@@ -207,6 +207,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addButton" destination="pH2-PQ-g1O" id="7b0-Xj-aPA"/>
                         <outlet property="detailTextField" destination="Uad-sN-i3N" id="FxF-F8-huV"/>
                         <outlet property="locationLabel" destination="wni-WF-FCk" id="Csc-Za-42R"/>
                         <outlet property="tagTextField" destination="T2x-rv-vIm" id="Pg5-Nd-EOf"/>
