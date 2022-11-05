@@ -10,6 +10,7 @@
 		724DE64B51024D9ADB83AEA4 /* Pods_LocationNote_LocationNoteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E3C5730336A5398F3D8DD23 /* Pods_LocationNote_LocationNoteUITests.framework */; };
 		A5236E51790FE1D406B07EB8 /* Pods_LocationNoteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C531066F39FABA4D8BC31FB1 /* Pods_LocationNoteTests.framework */; };
 		BB21E3B5291629AD00FB0486 /* MainViewmodel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB21E3B4291629AD00FB0486 /* MainViewmodel.swift */; };
+		BB21E3B929162FAF00FB0486 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB21E3B829162FAF00FB0486 /* LocationModel.swift */; };
 		BB8F1CE7290D7D05005C97A2 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8F1CE6290D7D05005C97A2 /* ViewExtension.swift */; };
 		BBA94A602906C7B000E9B2F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA94A5F2906C7B000E9B2F7 /* AppDelegate.swift */; };
 		BBA94A622906C7B000E9B2F7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA94A612906C7B000E9B2F7 /* SceneDelegate.swift */; };
@@ -56,6 +57,7 @@
 		6E3C5730336A5398F3D8DD23 /* Pods_LocationNote_LocationNoteUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocationNote_LocationNoteUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B53D729CD0EF0D2CD3ADA11 /* Pods-LocationNote.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocationNote.release.xcconfig"; path = "Target Support Files/Pods-LocationNote/Pods-LocationNote.release.xcconfig"; sourceTree = "<group>"; };
 		BB21E3B4291629AD00FB0486 /* MainViewmodel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewmodel.swift; sourceTree = "<group>"; };
+		BB21E3B829162FAF00FB0486 /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		BB8F1CE6290D7D05005C97A2 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		BBA94A5C2906C7B000E9B2F7 /* LocationNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LocationNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBA94A5F2906C7B000E9B2F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -132,6 +134,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		BB21E3B629162F6E00FB0486 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BB21E3B829162FAF00FB0486 /* LocationModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		BB8F1CE5290D7CF1005C97A2 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +175,7 @@
 		BBA94A5E2906C7B000E9B2F7 /* LocationNote */ = {
 			isa = PBXGroup;
 			children = (
+				BB21E3B629162F6E00FB0486 /* Model */,
 				BBF8F7F7290D60D8003C06D1 /* ViewParts */,
 				BBA94A942906C87B00E9B2F7 /* Screen */,
 				BB8F1CE5290D7CF1005C97A2 /* Extension */,
@@ -543,6 +554,7 @@
 				BBA94A642906C7B000E9B2F7 /* MainViewController.swift in Sources */,
 				BBB5346B290D1BA10007AE3E /* R.generated.swift in Sources */,
 				BBF8F7EC290D539F003C06D1 /* RootViewController.swift in Sources */,
+				BB21E3B929162FAF00FB0486 /* LocationModel.swift in Sources */,
 				BB8F1CE7290D7D05005C97A2 /* ViewExtension.swift in Sources */,
 				BBA94A602906C7B000E9B2F7 /* AppDelegate.swift in Sources */,
 				BBF8F7FA290D610D003C06D1 /* SearchBar.swift in Sources */,

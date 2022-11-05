@@ -8,6 +8,11 @@
 import Foundation
 import RxSwift
 
-final class MainViewModel{
-    
+final class MainViewModel {
+
+    private var disposeBag = DisposeBag()
+
+    func onLocationButtonTapped() {
+
+    }
 }
