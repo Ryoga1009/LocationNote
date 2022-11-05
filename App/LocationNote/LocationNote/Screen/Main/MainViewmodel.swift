@@ -7,17 +7,19 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 import CoreLocation
 
 final class MainViewModel {
 
     private var disposeBag = DisposeBag()
 
-    func onLocationButtonTapped() {
-
+    private var locationDriver = BehaviorRelay<LocationModel?>(value: nil)
+    var locationObservable: Observable<LocationModel?> {
+        return locationDriver.asObservable()
     }
 
     func onLocationUpdated(lat: CLLocationDegrees, lon: CLLocationDegrees) {
-        print("\(lat)  \(lon)")
+        locationDriver.accept(LocationModel.init(latitude: lat, longitude: lon))
     }
 }

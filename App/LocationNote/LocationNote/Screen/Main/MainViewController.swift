@@ -42,7 +42,6 @@ class MainViewController: BaseViewController {
     }
 
     @IBAction func onLocateButtonTapped(_ sender: Any) {
-        mainViewmodel.onLocationButtonTapped()
         locationManager.requestLocation()
     }
 
@@ -52,7 +51,13 @@ class MainViewController: BaseViewController {
 
 extension MainViewController {
     func bind() {
+        mainViewmodel.locationObservable.bind(onNext: { location in
+            guard let location = location else {
+                return
+            }
 
+            print(location)
+        }).disposed(by: disposeBag)
     }
 }
 
@@ -61,7 +66,7 @@ extension MainViewController: CLLocationManagerDelegate {
 
         guard let loc = locations.last else { return }
 
-        CLGeocoder().reverseGeocodeLocation(loc, completionHandler: {(placemarks, error) in
+        CLGeocoder().reverseGeocodeLocation(loc, completionHandler: {(_, error) in
 
             if let error = error {
                 print("reverseGeocodeLocation Failed: \(error.localizedDescription)")
