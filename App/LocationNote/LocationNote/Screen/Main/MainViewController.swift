@@ -43,6 +43,7 @@ class MainViewController: BaseViewController {
     }
 
     @IBAction func onAddButtonTapped(_ sender: Any) {
+        navigateToAddMemoScreen(location: self.mapView.userLocation.coordinate)
     }
 }
 
