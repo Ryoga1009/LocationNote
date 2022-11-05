@@ -7,6 +7,7 @@
 
 import Foundation
 import RxSwift
+import CoreLocation
 
 final class MainViewModel {
 
@@ -14,5 +15,9 @@ final class MainViewModel {
 
     func onLocationButtonTapped() {
 
+    }
+
+    func onLocationUpdated(lat: CLLocationDegrees, lon: CLLocationDegrees) {
+        print("\(lat)  \(lon)")
     }
 }

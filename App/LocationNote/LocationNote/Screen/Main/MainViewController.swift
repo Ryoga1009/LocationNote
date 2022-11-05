@@ -68,20 +68,7 @@ extension MainViewController: CLLocationManagerDelegate {
                 return
             }
 
-            if let placemark = placemarks?[0] {
-
-                var locInfo = ""
-                locInfo += "Latitude: \(loc.coordinate.latitude)\n"
-                locInfo += "Longitude: \(loc.coordinate.longitude)\n\n"
-
-                locInfo += "Country: \(placemark.country ?? "")\n"
-                locInfo += "State/Province: \(placemark.administrativeArea ?? "")\n"
-                locInfo += "City: \(placemark.locality ?? "")\n"
-                locInfo += "PostalCode: \(placemark.postalCode ?? "")\n"
-                locInfo += "Name: \(placemark.name ?? "")"
-
-                print(locInfo)
-            }
+            self.mainViewmodel.onLocationUpdated(lat: loc.coordinate.latitude, lon: loc.coordinate.longitude)
         })
     }
 
