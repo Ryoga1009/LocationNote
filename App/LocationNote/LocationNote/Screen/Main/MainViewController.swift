@@ -17,10 +17,6 @@ class MainViewController: BaseViewController {
     @IBOutlet weak var addButton: UIButton!
 
     private var mainViewmodel = MainViewModel()
-    private let disposeBag = DisposeBag()
-    private let locationManager = CLLocationManager()
-
-    private var isStarted = false
 
     static func initFromStoryboard() -> UIViewController {
         let storyboard = UIStoryboard(name: R.storyboard.main.name, bundle: nil)

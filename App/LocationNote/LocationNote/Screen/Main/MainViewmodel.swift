@@ -12,6 +12,5 @@ import CoreLocation
 
 final class MainViewModel {
 
-    private var disposeBag = DisposeBag()
 
 }
