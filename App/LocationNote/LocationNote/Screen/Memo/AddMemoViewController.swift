@@ -17,6 +17,8 @@ class AddMemoViewController: BaseViewController {
 
     private var closeButtonItem: UIBarButtonItem!
 
+    private var addMemoViewModel = AddMemoViewModel()
+
     static func initFromStoryboard() -> UIViewController {
         let storyboard = UIStoryboard(name: R.storyboard.addMemo.name, bundle: nil)
         let viewController = storyboard.instantiateInitialViewController() as! AddMemoViewController
