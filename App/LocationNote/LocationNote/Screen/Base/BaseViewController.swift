@@ -9,7 +9,7 @@ import UIKit
 
 class BaseViewController: UIViewController {
 
-    private lazy var router = MainRouter()
+    lazy var router = MainRouter()
 
     override func viewDidLoad() {
         super.viewDidLoad()
