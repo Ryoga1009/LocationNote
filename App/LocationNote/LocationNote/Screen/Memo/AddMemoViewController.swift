@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class AddMemoViewController: BaseViewController {
 
@@ -19,9 +20,12 @@ class AddMemoViewController: BaseViewController {
 
     private var addMemoViewModel = AddMemoViewModel()
 
-    static func initFromStoryboard() -> UIViewController {
+    private var location: CLLocationCoordinate2D?
+
+    static func initFromStoryboard(location: CLLocationCoordinate2D) -> UIViewController {
         let storyboard = UIStoryboard(name: R.storyboard.addMemo.name, bundle: nil)
         let viewController = storyboard.instantiateInitialViewController() as! AddMemoViewController
+        viewController.location = location
 
         return NavigationViewController.init(rootViewController: viewController)
     }
@@ -33,6 +37,8 @@ class AddMemoViewController: BaseViewController {
         closeButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(closeButtonTapped(_:)))
         closeButtonItem.tintColor = R.color.white1()
         self.navigationItem.rightBarButtonItem = closeButtonItem
+
+        setLayout()
     }
 
 }
@@ -42,4 +48,11 @@ extension AddMemoViewController {
         self.dismiss(animated: true)
     }
 
+    func setLayout() {
+        guard let location = self.location else {
+            return
+        }
+
+        locationLabel.setLocationText(location: location)
+    }
 }
