@@ -15,4 +15,8 @@ class BaseViewController: UIViewController {
         super.viewDidLoad()
 
     }
+
+    func modalViewController(_ vc: UIViewController, animated: Bool) {
+        self.present(vc, animated: animated)
+    }
 }

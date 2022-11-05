@@ -97,7 +97,7 @@ extension MainViewController {
     }
 
     func navigateToAddMemoScreen() {
-        self.router.replaceViewController(AddMemoViewController.initFromStoryboard(), animated: true)
+        self.modalViewController(AddMemoViewController.initFromStoryboard(), animated: true)
     }
 
 }
