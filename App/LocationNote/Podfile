@@ -8,6 +8,8 @@ target 'LocationNote' do
   # Pods for LocationNote
   pod 'SwiftLint'
   pod 'R.swift'
+  pod 'RxSwift'
+  pod 'RxCocoa'
 
   target 'LocationNoteTests' do
     inherit! :search_paths
