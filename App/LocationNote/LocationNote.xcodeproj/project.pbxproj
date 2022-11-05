@@ -32,6 +32,7 @@
 		BBF8F7FA290D610D003C06D1 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF8F7F9290D610D003C06D1 /* SearchBar.swift */; };
 		BBF8F7FC290D611A003C06D1 /* SearchBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBF8F7FB290D611A003C06D1 /* SearchBar.xib */; };
 		BBF9B4A52916AD050020F7CB /* AddMemoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF9B4A42916AD050020F7CB /* AddMemoViewModel.swift */; };
+		BBF9B4A72916AE7B0020F7CB /* LabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF9B4A62916AE7B0020F7CB /* LabelExtension.swift */; };
 		F47224C14C2B9A6E561CFF40 /* Pods_LocationNote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B035DDBCBAC3CB750286DD0 /* Pods_LocationNote.framework */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +88,7 @@
 		BBF8F7F9290D610D003C06D1 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		BBF8F7FB290D611A003C06D1 /* SearchBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchBar.xib; sourceTree = "<group>"; };
 		BBF9B4A42916AD050020F7CB /* AddMemoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemoViewModel.swift; sourceTree = "<group>"; };
+		BBF9B4A62916AE7B0020F7CB /* LabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelExtension.swift; sourceTree = "<group>"; };
 		C531066F39FABA4D8BC31FB1 /* Pods_LocationNoteTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocationNoteTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC2B9D561C0B4B736AE4BC60 /* Pods-LocationNoteTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocationNoteTests.release.xcconfig"; path = "Target Support Files/Pods-LocationNoteTests/Pods-LocationNoteTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -172,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				BB8F1CE6290D7D05005C97A2 /* ViewExtension.swift */,
+				BBF9B4A62916AE7B0020F7CB /* LabelExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -591,6 +594,7 @@
 				BBF8F7FA290D610D003C06D1 /* SearchBar.swift in Sources */,
 				BBF8F7F4290D5F4B003C06D1 /* BaseViewController.swift in Sources */,
 				BBA94A622906C7B000E9B2F7 /* SceneDelegate.swift in Sources */,
+				BBF9B4A72916AE7B0020F7CB /* LabelExtension.swift in Sources */,
 				BBF8F7EA290D5347003C06D1 /* MainRouter.swift in Sources */,
 				BB76C49129169568007C96FC /* NavigationViewController.swift in Sources */,
 				BB21E3B5291629AD00FB0486 /* MainViewModel.swift in Sources */,
