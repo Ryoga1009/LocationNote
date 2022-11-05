@@ -43,6 +43,7 @@ class MainViewController: BaseViewController {
     }
 
     @IBAction func onAddButtonTapped(_ sender: Any) {
+        navigateToAddMemoScreen(location: self.mapView.userLocation.coordinate)
     }
 }
 
@@ -83,7 +84,7 @@ extension MainViewController {
         let location = sender.location(in: mapView)
         let coordinate: CLLocationCoordinate2D = mapView.convert(location, toCoordinateFrom: mapView)
 
-        navigateToAddMemoScreen()
+        navigateToAddMemoScreen(location: coordinate)
     }
 
     func addPin(location: CLLocationCoordinate2D) {
@@ -96,8 +97,8 @@ extension MainViewController {
         mapView.addAnnotation(pin)
     }
 
-    func navigateToAddMemoScreen() {
-        self.modalViewController(AddMemoViewController.initFromStoryboard(), animated: true)
+    func navigateToAddMemoScreen(location: CLLocationCoordinate2D) {
+        self.modalViewController(AddMemoViewController.initFromStoryboard(location: location), animated: true)
     }
 
 }
