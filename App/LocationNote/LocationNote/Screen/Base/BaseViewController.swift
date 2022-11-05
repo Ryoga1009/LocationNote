@@ -9,10 +9,14 @@ import UIKit
 
 class BaseViewController: UIViewController {
 
-    private lazy var router = MainRouter()
+    lazy var router = MainRouter()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+    }
+
+    func modalViewController(_ vc: UIViewController, animated: Bool) {
+        self.present(vc, animated: animated)
     }
 }

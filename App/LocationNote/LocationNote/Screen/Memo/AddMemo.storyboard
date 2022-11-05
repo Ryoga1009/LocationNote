@@ -173,10 +173,9 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pH2-PQ-g1O" customClass="PrimaryButton" customModule="LocationNote" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="342" height="48"/>
+                                                <color key="tintColor" name="white1"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="追加">
-                                                    <color key="baseForegroundColor" name="white1"/>
-                                                </buttonConfiguration>
+                                                <buttonConfiguration key="configuration" style="plain" title="追加"/>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -207,6 +206,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addButton" destination="pH2-PQ-g1O" id="7b0-Xj-aPA"/>
                         <outlet property="detailTextField" destination="Uad-sN-i3N" id="FxF-F8-huV"/>
                         <outlet property="locationLabel" destination="wni-WF-FCk" id="Csc-Za-42R"/>
                         <outlet property="tagTextField" destination="T2x-rv-vIm" id="Pg5-Nd-EOf"/>
