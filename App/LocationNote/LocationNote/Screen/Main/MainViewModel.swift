@@ -32,7 +32,10 @@ final class MainViewModel {
     }
 
     func viewDidAppear(location: CLLocationCoordinate2D) {
-        locationDriver.accept(location)
+        if location.latitude != 0 || location.longitude != 0 {
+            locationDriver.accept(location)
+        }
+
         loadMapPinList()
     }
 
