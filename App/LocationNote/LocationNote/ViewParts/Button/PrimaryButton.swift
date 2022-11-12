@@ -16,7 +16,7 @@ class PrimaryButton: UIButton {
 
     override var isHighlighted: Bool {
         didSet {
-            backgroundColor = isHighlighted ? R.color.blue1() : R.color.blue2()
+            backgroundColor = isHighlighted ? R.color.blue2() : R.color.blue1()
         }
     }
 
