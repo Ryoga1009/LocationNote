@@ -7,6 +7,8 @@
 
 import UIKit
 import CoreLocation
+import RxSwift
+import RxCocoa
 
 class AddMemoViewController: BaseViewController {
 
@@ -19,8 +21,9 @@ class AddMemoViewController: BaseViewController {
     private var closeButtonItem: UIBarButtonItem!
 
     private var addMemoViewModel = AddMemoViewModel()
-
     private var location: CLLocationCoordinate2D?
+
+    private let disposeBag = DisposeBag()
 
     static func initFromStoryboard(location: CLLocationCoordinate2D) -> UIViewController {
         let storyboard = UIStoryboard(name: R.storyboard.addMemo.name, bundle: nil)
@@ -39,6 +42,7 @@ class AddMemoViewController: BaseViewController {
         self.navigationItem.rightBarButtonItem = closeButtonItem
 
         setLayout()
+        bind()
     }
 
 }
@@ -54,5 +58,34 @@ extension AddMemoViewController {
         }
 
         locationLabel.setLocationText(location: location)
+    }
+
+    func bind() {
+        titleTextField.rx.text.orEmpty
+            .asDriver()
+            .drive(addMemoViewModel.title)
+            .disposed(by: disposeBag)
+
+        detailTextField.rx.text.orEmpty
+            .asDriver()
+            .drive(addMemoViewModel.detail)
+            .disposed(by: disposeBag)
+
+        tagTextField.rx.text.orEmpty
+            .asDriver()
+            .drive(addMemoViewModel.tag)
+            .disposed(by: disposeBag)
+
+        addButton.rx.tap
+            .asDriver()
+            .drive(onNext: {
+                self.addMemoViewModel.onAddButtonTapped()
+            })
+            .disposed(by: disposeBag)
+
+        addMemoViewModel.buttonEnabled
+            .drive(addButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+
     }
 }
