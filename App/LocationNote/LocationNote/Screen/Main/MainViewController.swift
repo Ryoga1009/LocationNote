@@ -38,6 +38,12 @@ class MainViewController: BaseViewController {
         setMapLongPressRecRecognizer()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        mainViewmodel.viewDidAppear(location: self.mapView.userLocation.coordinate)
+    }
+
     @IBAction func onLocateButtonTapped(_ sender: Any) {
         mainViewmodel.onLocationButtonTapped(location: self.mapView.userLocation.coordinate)
     }
@@ -57,7 +63,10 @@ extension MainViewController {
             let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
             let region = MKCoordinateRegion(center: location, span: span)
             self.mapView.region = region
+        }).disposed(by: disposeBag)
 
+        mainViewmodel.memoListObservable.bind(onNext: { memoList in
+            self.addPin(mapPinList: memoList)
         }).disposed(by: disposeBag)
     }
 
@@ -87,18 +96,21 @@ extension MainViewController {
         navigateToAddMemoScreen(location: coordinate)
     }
 
-    func addPin(location: CLLocationCoordinate2D) {
-        let pin: MKPointAnnotation = MKPointAnnotation()
+    func addPin(mapPinList: [Memo]) {
+        mapPinList.forEach({
+            let pin: MKPointAnnotation = MKPointAnnotation()
 
-        pin.coordinate = location
-        pin.title = "タイトル"
-        pin.subtitle = "サブタイトル"
+            pin.coordinate = CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude)
+            pin.title = $0.title
+            pin.subtitle = $0.detail
 
-        mapView.addAnnotation(pin)
+            mapView.addAnnotation(pin)
+        })
     }
 
     func navigateToAddMemoScreen(location: CLLocationCoordinate2D) {
-        self.modalViewController(AddMemoViewController.initFromStoryboard(location: location), animated: true)
+        let nextView = AddMemoViewController.initFromStoryboard(location: location, parent: self)
+        self.modalViewController(nextView, animated: true)
     }
 
 }
@@ -114,5 +126,11 @@ extension MainViewController: MKMapViewDelegate {
         pinView.annotation = annotation
 
         return pinView
+    }
+}
+
+extension MainViewController: UIAdaptivePresentationControllerDelegate {
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        self.mainViewmodel.onPresentationControllerDidDismiss()
     }
 }
