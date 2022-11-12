@@ -37,6 +37,7 @@ final class AddMemoViewModel {
     }
 
     private let disposeBag = DisposeBag()
+    private let dataStore = DataStore()
 
     init(location: CLLocationCoordinate2D) {
         self.location = location
@@ -45,5 +46,17 @@ final class AddMemoViewModel {
             .map({!$0.isEmpty})
             .bind(to: _buttonEnabled)
             .disposed(by: disposeBag)
+    }
+}
+
+extension AddMemoViewModel {
+    func onAddButtonTapped() {
+        guard let title = try? _title.value(), let detail = try? _detail.value(), let tag = try? _tag.value() else {
+            return
+        }
+
+        let memo = Memo.init(title: title, detail: detail, tag: tag, latitude: location.latitude, longitude: location.longitude)
+
+        dataStore.saveMmemo(memo: memo)
     }
 }
