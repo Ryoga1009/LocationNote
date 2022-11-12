@@ -75,11 +75,13 @@
                                                         <color key="textColor" name="black2"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="詳細情報を入力" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uad-sN-i3N">
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BTp-4k-IxZ">
                                                         <rect key="frame" x="0.0" y="25" width="342" height="336"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <color key="textColor" systemColor="labelColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
@@ -207,7 +209,7 @@
                     </view>
                     <connections>
                         <outlet property="addButton" destination="pH2-PQ-g1O" id="7b0-Xj-aPA"/>
-                        <outlet property="detailTextField" destination="Uad-sN-i3N" id="FxF-F8-huV"/>
+                        <outlet property="detailTextView" destination="BTp-4k-IxZ" id="z2D-tk-0Sn"/>
                         <outlet property="locationLabel" destination="wni-WF-FCk" id="Csc-Za-42R"/>
                         <outlet property="tagTextField" destination="T2x-rv-vIm" id="Pg5-Nd-EOf"/>
                         <outlet property="titleTextField" destination="hMO-9U-LmX" id="VlK-hL-2sp"/>
@@ -225,6 +227,9 @@
         <namedColor name="white1">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
