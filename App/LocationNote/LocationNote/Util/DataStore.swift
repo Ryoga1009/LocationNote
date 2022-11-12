@@ -24,6 +24,10 @@ struct DataStore {
         if let data = UserDefaults.standard.data(forKey: DataStoreKey.MEMO.rawValue) {
             return try? JSONDecoder().decode([Memo].self, from: data)
         }
-        return nil
+        return []
+    }
+
+    func clearMemo() {
+        UserDefaults.standard.set([], forKey: DataStoreKey.MEMO.rawValue)
     }
 }
