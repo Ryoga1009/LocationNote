@@ -13,7 +13,7 @@ import RxCocoa
 class AddMemoViewController: BaseViewController {
 
     @IBOutlet weak var titleTextField: UITextField!
-    @IBOutlet weak var detailTextField: UITextField!
+    @IBOutlet weak var detailTextView: UITextView!
     @IBOutlet weak var tagTextField: UITextField!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var addButton: PrimaryButton!
@@ -58,6 +58,18 @@ extension AddMemoViewController {
         }
 
         locationLabel.setLocationText(location: location)
+
+        titleTextField.layer.borderColor = R.color.white2()?.cgColor
+        titleTextField.layer.borderWidth = 1
+        titleTextField.layer.cornerRadius = 4
+
+        detailTextView.layer.borderWidth = 1
+        detailTextView.layer.borderColor = R.color.white2()?.cgColor
+        detailTextView.layer.cornerRadius = 4
+
+        tagTextField.layer.borderColor = R.color.white2()?.cgColor
+        tagTextField.layer.borderWidth = 1
+        tagTextField.layer.cornerRadius = 4
     }
 
     func bind() {
@@ -66,7 +78,7 @@ extension AddMemoViewController {
             .drive(addMemoViewModel.title)
             .disposed(by: disposeBag)
 
-        detailTextField.rx.text.orEmpty
+        detailTextView.rx.text.orEmpty
             .asDriver()
             .drive(addMemoViewModel.detail)
             .disposed(by: disposeBag)
@@ -79,7 +91,7 @@ extension AddMemoViewController {
         addButton.rx.tap
             .asDriver()
             .drive(onNext: {
-                self.addMemoViewModel.onAddButtonTapped()
+//                self.addMemoViewModel.onAddButtonTapped()
             })
             .disposed(by: disposeBag)
 
