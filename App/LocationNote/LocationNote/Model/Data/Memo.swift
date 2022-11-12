@@ -8,6 +8,8 @@
 import Foundation
 import CoreLocation
 
+// データ保存用のメモクラス
+// CLLocationCoordinate2DがCodableに対応していないためlat/lonをDoubleで保持
 struct Memo: Codable {
 
     let title: String
