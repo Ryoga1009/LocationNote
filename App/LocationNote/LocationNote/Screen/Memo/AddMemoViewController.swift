@@ -97,7 +97,7 @@ extension AddMemoViewController {
         addButton.rx.tap
             .asDriver()
             .drive(onNext: {
-//                self.addMemoViewModel?.onButtonTapped()
+                self.addMemoViewModel?.onAddButtonTapped()
             })
             .disposed(by: disposeBag)
 

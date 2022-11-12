@@ -25,6 +25,8 @@
 		BBA94A7A2906C7B200E9B2F7 /* LocationNoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA94A792906C7B200E9B2F7 /* LocationNoteTests.swift */; };
 		BBA94A842906C7B300E9B2F7 /* LocationNoteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA94A832906C7B300E9B2F7 /* LocationNoteUITests.swift */; };
 		BBA94A862906C7B300E9B2F7 /* LocationNoteUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA94A852906C7B300E9B2F7 /* LocationNoteUITestsLaunchTests.swift */; };
+		BBB0D767291FDA91004BAE94 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB0D766291FDA91004BAE94 /* DataStore.swift */; };
+		BBB0D76B291FDAD2004BAE94 /* Memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB0D76A291FDAD2004BAE94 /* Memo.swift */; };
 		BBB5346B290D1BA10007AE3E /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB5346A290D1BA10007AE3E /* R.generated.swift */; };
 		BBF8F7EA290D5347003C06D1 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF8F7E9290D5347003C06D1 /* MainRouter.swift */; };
 		BBF8F7EC290D539F003C06D1 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBF8F7EB290D539F003C06D1 /* RootViewController.swift */; };
@@ -81,6 +83,8 @@
 		BBA94A7F2906C7B300E9B2F7 /* LocationNoteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocationNoteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBA94A832906C7B300E9B2F7 /* LocationNoteUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNoteUITests.swift; sourceTree = "<group>"; };
 		BBA94A852906C7B300E9B2F7 /* LocationNoteUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationNoteUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BBB0D766291FDA91004BAE94 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		BBB0D76A291FDAD2004BAE94 /* Memo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memo.swift; sourceTree = "<group>"; };
 		BBB5346A290D1BA10007AE3E /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		BBF8F7E9290D5347003C06D1 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		BBF8F7EB290D539F003C06D1 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -204,9 +208,11 @@
 		BBA94A5E2906C7B000E9B2F7 /* LocationNote */ = {
 			isa = PBXGroup;
 			children = (
+				BBB0D768291FDAA9004BAE94 /* Model */,
 				BBF8F7F7290D60D8003C06D1 /* ViewParts */,
-				BBA94A942906C87B00E9B2F7 /* Screen */,
 				BB8F1CE5290D7CF1005C97A2 /* Extension */,
+				BBA94A942906C87B00E9B2F7 /* Screen */,
+				BBB0D765291FDA6B004BAE94 /* Util */,
 				BBA94A932906C86700E9B2F7 /* Shared */,
 				BBA94A6B2906C7B200E9B2F7 /* Assets.xcassets */,
 				BBA94A6D2906C7B200E9B2F7 /* LaunchScreen.storyboard */,
@@ -262,6 +268,30 @@
 				BBA94A652906C7B000E9B2F7 /* Main.storyboard */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		BBB0D765291FDA6B004BAE94 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				BBB0D766291FDA91004BAE94 /* DataStore.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		BBB0D768291FDAA9004BAE94 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BBB0D769291FDAB0004BAE94 /* Data */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BBB0D769291FDAB0004BAE94 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				BBB0D76A291FDAD2004BAE94 /* Memo.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		BBF8F7E8290D52DA003C06D1 /* Root */ = {
@@ -584,6 +614,7 @@
 			files = (
 				BB59CDA92916842100AB1A2A /* AddMemoViewController.swift in Sources */,
 				BBA94A6A2906C7B000E9B2F7 /* LocationNote.xcdatamodeld in Sources */,
+				BBB0D767291FDA91004BAE94 /* DataStore.swift in Sources */,
 				BBA94A642906C7B000E9B2F7 /* MainViewController.swift in Sources */,
 				BBB5346B290D1BA10007AE3E /* R.generated.swift in Sources */,
 				BBF8F7EC290D539F003C06D1 /* RootViewController.swift in Sources */,
@@ -596,6 +627,7 @@
 				BBA94A622906C7B000E9B2F7 /* SceneDelegate.swift in Sources */,
 				BBF9B4A72916AE7B0020F7CB /* LabelExtension.swift in Sources */,
 				BBF8F7EA290D5347003C06D1 /* MainRouter.swift in Sources */,
+				BBB0D76B291FDAD2004BAE94 /* Memo.swift in Sources */,
 				BB76C49129169568007C96FC /* NavigationViewController.swift in Sources */,
 				BB21E3B5291629AD00FB0486 /* MainViewModel.swift in Sources */,
 			);

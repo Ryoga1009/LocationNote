@@ -10,7 +10,7 @@ import UIKit
 class PrimaryButton: UIButton {
     override var isEnabled: Bool {
         didSet {
-            backgroundColor = isEnabled ? R.color.blue1() : R.color.black2()
+            backgroundColor = isEnabled ? R.color.blue1() : R.color.white2()
         }
     }
 
