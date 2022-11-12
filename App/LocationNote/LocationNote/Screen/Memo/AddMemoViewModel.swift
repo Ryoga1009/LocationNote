@@ -8,8 +8,11 @@
 import Foundation
 import RxCocoa
 import RxSwift
+import CoreLocation
 
 final class AddMemoViewModel {
+
+    private var location: CLLocationCoordinate2D
 
     // Input
     private let _title = BehaviorSubject<String>(value: "")
@@ -35,7 +38,9 @@ final class AddMemoViewModel {
 
     private let disposeBag = DisposeBag()
 
-    init() {
+    init(location: CLLocationCoordinate2D) {
+        self.location = location
+
         _title.asObserver()
             .map({!$0.isEmpty})
             .bind(to: _buttonEnabled)

@@ -20,7 +20,7 @@ class AddMemoViewController: BaseViewController {
 
     private var closeButtonItem: UIBarButtonItem!
 
-    private var addMemoViewModel = AddMemoViewModel()
+    private var addMemoViewModel: AddMemoViewModel?
     private var location: CLLocationCoordinate2D?
 
     private let disposeBag = DisposeBag()
@@ -40,6 +40,8 @@ class AddMemoViewController: BaseViewController {
         closeButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(closeButtonTapped(_:)))
         closeButtonItem.tintColor = R.color.white1()
         self.navigationItem.rightBarButtonItem = closeButtonItem
+
+        addMemoViewModel = AddMemoViewModel.init(location: self.location!)
 
         setLayout()
         bind()
@@ -73,6 +75,10 @@ extension AddMemoViewController {
     }
 
     func bind() {
+        guard let addMemoViewModel = self.addMemoViewModel else {
+            return
+        }
+
         titleTextField.rx.text.orEmpty
             .asDriver()
             .drive(addMemoViewModel.title)
@@ -91,7 +97,7 @@ extension AddMemoViewController {
         addButton.rx.tap
             .asDriver()
             .drive(onNext: {
-//                self.addMemoViewModel.onAddButtonTapped()
+//                self.addMemoViewModel?.onButtonTapped()
             })
             .disposed(by: disposeBag)
 
