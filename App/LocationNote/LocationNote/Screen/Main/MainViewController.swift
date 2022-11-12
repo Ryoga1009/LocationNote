@@ -98,7 +98,8 @@ extension MainViewController {
     }
 
     func navigateToAddMemoScreen(location: CLLocationCoordinate2D) {
-        self.modalViewController(AddMemoViewController.initFromStoryboard(location: location), animated: true)
+        let nextView = AddMemoViewController.initFromStoryboard(location: location, parent: self)
+        self.modalViewController(nextView, animated: true)
     }
 
 }
@@ -114,5 +115,11 @@ extension MainViewController: MKMapViewDelegate {
         pinView.annotation = annotation
 
         return pinView
+    }
+}
+
+extension MainViewController: UIAdaptivePresentationControllerDelegate {
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        print("come back")
     }
 }

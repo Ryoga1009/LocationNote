@@ -25,10 +25,11 @@ class AddMemoViewController: BaseViewController {
 
     private let disposeBag = DisposeBag()
 
-    static func initFromStoryboard(location: CLLocationCoordinate2D) -> UIViewController {
+    static func initFromStoryboard(location: CLLocationCoordinate2D, parent: UIAdaptivePresentationControllerDelegate) -> UIViewController {
         let storyboard = UIStoryboard(name: R.storyboard.addMemo.name, bundle: nil)
         let viewController = storyboard.instantiateInitialViewController() as! AddMemoViewController
         viewController.location = location
+        viewController.presentationController?.delegate = parent
 
         return NavigationViewController.init(rootViewController: viewController)
     }
@@ -45,6 +46,14 @@ class AddMemoViewController: BaseViewController {
 
         setLayout()
         bind()
+    }
+
+    override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
+        guard let presentationController = presentationController else {
+            return
+        }
+        presentationController.delegate?.presentationControllerDidDismiss?(presentationController)
+        super.dismiss(animated: flag, completion: completion)
     }
 
 }
@@ -98,6 +107,7 @@ extension AddMemoViewController {
             .asDriver()
             .drive(onNext: {
                 self.addMemoViewModel?.onAddButtonTapped()
+                self.dismiss(animated: true)
             })
             .disposed(by: disposeBag)
 
