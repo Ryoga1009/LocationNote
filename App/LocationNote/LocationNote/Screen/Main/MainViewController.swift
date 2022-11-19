@@ -29,6 +29,7 @@ class MainViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        mapView.delegate = self
 
         locateButton.addShadow()
         addButton.addShadow()
@@ -68,6 +69,10 @@ extension MainViewController {
         mainViewmodel.memoListObservable.bind(onNext: { memoList in
             self.addPin(mapPinList: memoList)
         }).disposed(by: disposeBag)
+
+        mainViewmodel.editMemoObservable.bind(onNext: { _ in
+            // TODO 編集画面に画面遷移
+        }).disposed(by: disposeBag)
     }
 
     func checkLocationPermission() {
@@ -96,14 +101,8 @@ extension MainViewController {
         navigateToAddMemoScreen(location: coordinate)
     }
 
-    func addPin(mapPinList: [Memo]) {
-        mapPinList.forEach({
-            let pin: MKPointAnnotation = MKPointAnnotation()
-
-            pin.coordinate = CLLocationCoordinate2D(latitude: $0.latitude, longitude: $0.longitude)
-            pin.title = $0.title
-            pin.subtitle = $0.detail
-
+    func addPin(mapPinList: [MKAnnotation]) {
+        mapPinList.forEach({ pin in
             mapView.addAnnotation(pin)
         })
     }
@@ -117,6 +116,7 @@ extension MainViewController {
 
 extension MainViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard annotation as? MKUserLocation != mapView.userLocation else { return nil }
 
         let pinIdentifier = "PinAnnotationIdentifier"
         let pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: pinIdentifier)
@@ -126,6 +126,16 @@ extension MainViewController: MKMapViewDelegate {
         pinView.annotation = annotation
 
         return pinView
+    }
+
+    func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
+        for view in views {
+            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+        }
+    }
+
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        mainViewmodel.onCalloutAccessoryTapped(annotation: view.annotation!)
     }
 }
 

@@ -9,6 +9,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 import CoreLocation
+import MapKit
 
 final class MainViewModel {
     private let dataStore = DataStore()
@@ -17,14 +18,19 @@ final class MainViewModel {
     // Input
 
     // Output
-    private let _memoListDriver = BehaviorRelay<[Memo]>(value: [])
-    var memoListObservable: Observable<[Memo]> {
+    private let _memoListDriver = BehaviorRelay<[MKAnnotation]>(value: [])
+    var memoListObservable: Observable<[MKAnnotation]> {
         _memoListDriver.asObservable()
     }
 
     private var locationDriver = BehaviorRelay<CLLocationCoordinate2D?>(value: nil)
     var locationObservable: Observable<CLLocationCoordinate2D?> {
         return locationDriver.asObservable()
+    }
+
+    private var _editMemoDriver = BehaviorRelay<Memo?>(value: nil)
+    var editMemoObservable: Observable<Memo?> {
+        _editMemoDriver.asObservable()
     }
 
     func onLocationButtonTapped(location: CLLocationCoordinate2D) {
@@ -44,6 +50,30 @@ final class MainViewModel {
     }
 
    private func loadMapPinList() {
-        _memoListDriver.accept(dataStore.loadMemo() ?? [])
+       var annotationArray: [MKAnnotation] = []
+       let savedMemoList = dataStore.loadMemo() ?? []
+
+       savedMemoList.forEach { memo in
+           let annotation = MKPointAnnotation()
+           annotation.coordinate = CLLocationCoordinate2DMake(memo.latitude, memo.longitude)
+
+           annotation.title = memo.title
+
+           // タグがある場合はセパレータをつけて合体させる
+           annotation.subtitle = memo.detail  + Memo.SEPARATOR + memo.tag
+
+           annotationArray.append(annotation)
+       }
+
+       _memoListDriver.accept(annotationArray)
+    }
+
+    func onCalloutAccessoryTapped(annotation: MKAnnotation) {
+        var memo: Memo
+        let detailTagArray = annotation.subtitle??.components(separatedBy: Memo.SEPARATOR)
+
+        memo = Memo(title: (annotation.title ?? "") ?? "", detail: detailTagArray?[0] ?? "", tag: detailTagArray?[1] ?? "", latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude)
+
+        _editMemoDriver.accept(memo)
     }
 }
