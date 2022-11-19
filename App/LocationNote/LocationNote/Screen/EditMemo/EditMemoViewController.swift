@@ -63,13 +63,17 @@ extension EditMemoViewController {
         titleTextField.layer.borderColor = R.color.white2()?.cgColor
         titleTextField.layer.borderWidth = 1
         titleTextField.layer.cornerRadius = 4
+        titleTextField.text = memo?.title
 
         detailTextView.layer.borderWidth = 1
         detailTextView.layer.borderColor = R.color.white2()?.cgColor
         detailTextView.layer.cornerRadius = 4
+        detailTextView.text = memo?.detail
 
         tagTextField.layer.borderColor = R.color.white2()?.cgColor
         tagTextField.layer.borderWidth = 1
         tagTextField.layer.cornerRadius = 4
+        tagTextField.text = memo?.tag
+
     }
 }
