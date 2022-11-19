@@ -123,6 +123,7 @@ extension MainViewController: MKMapViewDelegate {
 
         pinView.animatesDrop = true
         pinView.canShowCallout = true
+        pinView.annotation = annotation
 
         return pinView
     }
