@@ -26,7 +26,7 @@ class AddMemoViewController: BaseViewController {
     private let disposeBag = DisposeBag()
 
     static func initFromStoryboard(location: CLLocationCoordinate2D, parent: UIAdaptivePresentationControllerDelegate) -> UIViewController {
-        let storyboard = UIStoryboard(name: R.storyboard.addMemo.name, bundle: nil)
+        let storyboard = UIStoryboard(name: R.storyboard.addMemoViewController.name, bundle: nil)
         let viewController = storyboard.instantiateInitialViewController() as! AddMemoViewController
         viewController.location = location
         viewController.presentationController?.delegate = parent

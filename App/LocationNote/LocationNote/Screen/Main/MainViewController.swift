@@ -70,8 +70,11 @@ extension MainViewController {
             self.addPin(mapPinList: memoList)
         }).disposed(by: disposeBag)
 
-        mainViewmodel.editMemoObservable.bind(onNext: { _ in
-            // TODO 編集画面に画面遷移
+        mainViewmodel.editMemoObservable.bind(onNext: { memo in
+            guard let memo: Memo = memo else {
+                return
+            }
+            self.navigateToEditMemoScreen(memo: memo)
         }).disposed(by: disposeBag)
     }
 
@@ -109,6 +112,11 @@ extension MainViewController {
 
     func navigateToAddMemoScreen(location: CLLocationCoordinate2D) {
         let nextView = AddMemoViewController.initFromStoryboard(location: location, parent: self)
+        self.modalViewController(nextView, animated: true)
+    }
+
+    func navigateToEditMemoScreen(memo: Memo) {
+        let nextView = EditMemoViewController.initFromStoryboard(memo: memo, parent: self)
         self.modalViewController(nextView, animated: true)
     }
 
