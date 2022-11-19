@@ -10,7 +10,10 @@
 		724DE64B51024D9ADB83AEA4 /* Pods_LocationNote_LocationNoteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E3C5730336A5398F3D8DD23 /* Pods_LocationNote_LocationNoteUITests.framework */; };
 		A5236E51790FE1D406B07EB8 /* Pods_LocationNoteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C531066F39FABA4D8BC31FB1 /* Pods_LocationNoteTests.framework */; };
 		BB21E3B5291629AD00FB0486 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB21E3B4291629AD00FB0486 /* MainViewModel.swift */; };
-		BB59CDA72916840200AB1A2A /* AddMemo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB59CDA62916840200AB1A2A /* AddMemo.storyboard */; };
+		BB35A3B629292BDE00B81327 /* EditMemoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB35A3B529292BDE00B81327 /* EditMemoViewController.storyboard */; };
+		BB35A3B829292CC000B81327 /* EditMemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB35A3B729292CC000B81327 /* EditMemoViewController.swift */; };
+		BB35A3BA29292E4000B81327 /* EditMemoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB35A3B929292E4000B81327 /* EditMemoViewModel.swift */; };
+		BB59CDA72916840200AB1A2A /* AddMemoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB59CDA62916840200AB1A2A /* AddMemoViewController.storyboard */; };
 		BB59CDA92916842100AB1A2A /* AddMemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB59CDA82916842100AB1A2A /* AddMemoViewController.swift */; };
 		BB59CDAC29168C1100AB1A2A /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB59CDAB29168C1100AB1A2A /* PrimaryButton.swift */; };
 		BB76C49129169568007C96FC /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB76C49029169568007C96FC /* NavigationViewController.swift */; };
@@ -64,7 +67,10 @@
 		6E3C5730336A5398F3D8DD23 /* Pods_LocationNote_LocationNoteUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LocationNote_LocationNoteUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B53D729CD0EF0D2CD3ADA11 /* Pods-LocationNote.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LocationNote.release.xcconfig"; path = "Target Support Files/Pods-LocationNote/Pods-LocationNote.release.xcconfig"; sourceTree = "<group>"; };
 		BB21E3B4291629AD00FB0486 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
-		BB59CDA62916840200AB1A2A /* AddMemo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddMemo.storyboard; sourceTree = "<group>"; };
+		BB35A3B529292BDE00B81327 /* EditMemoViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditMemoViewController.storyboard; sourceTree = "<group>"; };
+		BB35A3B729292CC000B81327 /* EditMemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMemoViewController.swift; sourceTree = "<group>"; };
+		BB35A3B929292E4000B81327 /* EditMemoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMemoViewModel.swift; sourceTree = "<group>"; };
+		BB59CDA62916840200AB1A2A /* AddMemoViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddMemoViewController.storyboard; sourceTree = "<group>"; };
 		BB59CDA82916842100AB1A2A /* AddMemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemoViewController.swift; sourceTree = "<group>"; };
 		BB59CDAB29168C1100AB1A2A /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		BB76C49029169568007C96FC /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
@@ -148,10 +154,20 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		BB35A3B429292BC000B81327 /* EditMemo */ = {
+			isa = PBXGroup;
+			children = (
+				BB35A3B529292BDE00B81327 /* EditMemoViewController.storyboard */,
+				BB35A3B729292CC000B81327 /* EditMemoViewController.swift */,
+				BB35A3B929292E4000B81327 /* EditMemoViewModel.swift */,
+			);
+			path = EditMemo;
+			sourceTree = "<group>";
+		};
 		BB59CDA5291683E500AB1A2A /* Memo */ = {
 			isa = PBXGroup;
 			children = (
-				BB59CDA62916840200AB1A2A /* AddMemo.storyboard */,
+				BB59CDA62916840200AB1A2A /* AddMemoViewController.storyboard */,
 				BB59CDA82916842100AB1A2A /* AddMemoViewController.swift */,
 				BBF9B4A42916AD050020F7CB /* AddMemoViewModel.swift */,
 			);
@@ -252,6 +268,7 @@
 		BBA94A942906C87B00E9B2F7 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				BB35A3B429292BC000B81327 /* EditMemo */,
 				BB59CDA5291683E500AB1A2A /* Memo */,
 				BBA94A952906C88B00E9B2F7 /* Main */,
 				BBF8F7F2290D5F32003C06D1 /* Base */,
@@ -442,10 +459,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBA94A6F2906C7B200E9B2F7 /* LaunchScreen.storyboard in Resources */,
-				BB59CDA72916840200AB1A2A /* AddMemo.storyboard in Resources */,
+				BB59CDA72916840200AB1A2A /* AddMemoViewController.storyboard in Resources */,
 				BBF8F7FC290D611A003C06D1 /* SearchBar.xib in Resources */,
 				BBA94A6C2906C7B200E9B2F7 /* Assets.xcassets in Resources */,
 				BBA94A672906C7B000E9B2F7 /* Main.storyboard in Resources */,
+				BB35A3B629292BDE00B81327 /* EditMemoViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -620,6 +638,7 @@
 				BBF8F7EC290D539F003C06D1 /* RootViewController.swift in Sources */,
 				BB59CDAC29168C1100AB1A2A /* PrimaryButton.swift in Sources */,
 				BB8F1CE7290D7D05005C97A2 /* ViewExtension.swift in Sources */,
+				BB35A3B829292CC000B81327 /* EditMemoViewController.swift in Sources */,
 				BBA94A602906C7B000E9B2F7 /* AppDelegate.swift in Sources */,
 				BBF9B4A52916AD050020F7CB /* AddMemoViewModel.swift in Sources */,
 				BBF8F7FA290D610D003C06D1 /* SearchBar.swift in Sources */,
@@ -629,6 +648,7 @@
 				BBF8F7EA290D5347003C06D1 /* MainRouter.swift in Sources */,
 				BBB0D76B291FDAD2004BAE94 /* Memo.swift in Sources */,
 				BB76C49129169568007C96FC /* NavigationViewController.swift in Sources */,
+				BB35A3BA29292E4000B81327 /* EditMemoViewModel.swift in Sources */,
 				BB21E3B5291629AD00FB0486 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
