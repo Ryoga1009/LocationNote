@@ -13,4 +13,8 @@ extension UILabel {
     func setLocationText(location: CLLocationCoordinate2D) {
         self.text = "lon: \(location.longitude) \nlat: \(location.latitude)"
     }
+
+    func setLocationText(memo: Memo) {
+        self.text = "lon: \(memo.longitude) \nlat: \(memo.latitude)"
+    }
 }
