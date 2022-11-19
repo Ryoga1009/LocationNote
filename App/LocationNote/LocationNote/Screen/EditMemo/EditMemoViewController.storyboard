@@ -177,7 +177,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="345" height="48"/>
                                                 <color key="tintColor" name="white1"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="追加"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="変更"/>
                                             </button>
                                         </subviews>
                                         <constraints>
