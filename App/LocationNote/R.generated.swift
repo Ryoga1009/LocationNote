@@ -89,19 +89,28 @@ struct R: Rswift.Validatable {
   }
 
   #if os(iOS) || os(tvOS)
-  /// This `R.storyboard` struct is generated, and contains static references to 3 storyboards.
+  /// This `R.storyboard` struct is generated, and contains static references to 4 storyboards.
   struct storyboard {
-    /// Storyboard `AddMemo`.
-    static let addMemo = _R.storyboard.addMemo()
+    /// Storyboard `AddMemoViewController`.
+    static let addMemoViewController = _R.storyboard.addMemoViewController()
+    /// Storyboard `EditMemoViewController`.
+    static let editMemoViewController = _R.storyboard.editMemoViewController()
     /// Storyboard `LaunchScreen`.
     static let launchScreen = _R.storyboard.launchScreen()
     /// Storyboard `Main`.
     static let main = _R.storyboard.main()
 
     #if os(iOS) || os(tvOS)
-    /// `UIStoryboard(name: "AddMemo", bundle: ...)`
-    static func addMemo(_: Void = ()) -> UIKit.UIStoryboard {
-      return UIKit.UIStoryboard(resource: R.storyboard.addMemo)
+    /// `UIStoryboard(name: "AddMemoViewController", bundle: ...)`
+    static func addMemoViewController(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.addMemoViewController)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIStoryboard(name: "EditMemoViewController", bundle: ...)`
+    static func editMemoViewController(_: Void = ()) -> UIKit.UIStoryboard {
+      return UIKit.UIStoryboard(resource: R.storyboard.editMemoViewController)
     }
     #endif
 
@@ -424,7 +433,10 @@ struct _R: Rswift.Validatable {
   struct storyboard: Rswift.Validatable {
     static func validate() throws {
       #if os(iOS) || os(tvOS)
-      try addMemo.validate()
+      try addMemoViewController.validate()
+      #endif
+      #if os(iOS) || os(tvOS)
+      try editMemoViewController.validate()
       #endif
       #if os(iOS) || os(tvOS)
       try launchScreen.validate()
@@ -435,16 +447,34 @@ struct _R: Rswift.Validatable {
     }
 
     #if os(iOS) || os(tvOS)
-    struct addMemo: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+    struct addMemoViewController: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
       typealias InitialController = AddMemoViewController
 
       let bundle = R.hostingBundle
-      let name = "AddMemo"
+      let name = "AddMemoViewController"
 
       static func validate() throws {
         if #available(iOS 11.0, tvOS 11.0, *) {
-          if UIKit.UIColor(named: "black2", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'black2' is used in storyboard 'AddMemo', but couldn't be loaded.") }
-          if UIKit.UIColor(named: "white1", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'white1' is used in storyboard 'AddMemo', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "black2", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'black2' is used in storyboard 'AddMemoViewController', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "white1", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'white1' is used in storyboard 'AddMemoViewController', but couldn't be loaded.") }
+        }
+      }
+
+      fileprivate init() {}
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    struct editMemoViewController: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
+      typealias InitialController = EditMemoViewController
+
+      let bundle = R.hostingBundle
+      let name = "EditMemoViewController"
+
+      static func validate() throws {
+        if #available(iOS 11.0, tvOS 11.0, *) {
+          if UIKit.UIColor(named: "black2", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'black2' is used in storyboard 'EditMemoViewController', but couldn't be loaded.") }
+          if UIKit.UIColor(named: "white1", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Color named 'white1' is used in storyboard 'EditMemoViewController', but couldn't be loaded.") }
         }
       }
 
