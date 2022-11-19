@@ -29,6 +29,7 @@ class MainViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        mapView.delegate = self
 
         locateButton.addShadow()
         addButton.addShadow()
@@ -117,15 +118,25 @@ extension MainViewController {
 
 extension MainViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard annotation as? MKUserLocation != mapView.userLocation else { return nil }
 
         let pinIdentifier = "PinAnnotationIdentifier"
         let pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: pinIdentifier)
 
         pinView.animatesDrop = true
         pinView.canShowCallout = true
-        pinView.annotation = annotation
 
         return pinView
+    }
+
+    func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
+        for view in views {
+            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+        }
+    }
+
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        print("\(view.annotation?.title) \(view.annotation?.subtitle) \(control)")
     }
 }
 
