@@ -164,14 +164,14 @@
 			path = EditMemo;
 			sourceTree = "<group>";
 		};
-		BB59CDA5291683E500AB1A2A /* Memo */ = {
+		BB59CDA5291683E500AB1A2A /* AddMemo */ = {
 			isa = PBXGroup;
 			children = (
 				BB59CDA62916840200AB1A2A /* AddMemoViewController.storyboard */,
 				BB59CDA82916842100AB1A2A /* AddMemoViewController.swift */,
 				BBF9B4A42916AD050020F7CB /* AddMemoViewModel.swift */,
 			);
-			path = Memo;
+			path = AddMemo;
 			sourceTree = "<group>";
 		};
 		BB59CDAA29168BF200AB1A2A /* Button */ = {
@@ -269,7 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				BB35A3B429292BC000B81327 /* EditMemo */,
-				BB59CDA5291683E500AB1A2A /* Memo */,
+				BB59CDA5291683E500AB1A2A /* AddMemo */,
 				BBA94A952906C88B00E9B2F7 /* Main */,
 				BBF8F7F2290D5F32003C06D1 /* Base */,
 				BBF8F7E8290D52DA003C06D1 /* Root */,
