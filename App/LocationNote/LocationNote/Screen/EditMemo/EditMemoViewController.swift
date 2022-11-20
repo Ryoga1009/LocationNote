@@ -8,6 +8,7 @@
 import UIKit
 import CoreLocation
 
+// MARK: LifeCycle
 class EditMemoViewController: BaseViewController {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var detailTextView: UITextView!
@@ -36,26 +37,10 @@ class EditMemoViewController: BaseViewController {
         setNavigationBarItem()
         setLayout()
     }
-
-    override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
-        guard let presentationController = presentationController else {
-            return
-        }
-        presentationController.delegate?.presentationControllerDidDismiss?(presentationController)
-        super.dismiss(animated: flag, completion: completion)
-    }
 }
 
+// MARK: Layout
 extension EditMemoViewController {
-    @objc func closeButtonTapped(_ sender: UIBarButtonItem) {
-        self.dismiss(animated: true)
-    }
-
-    @objc func deleteButtonTapped(_ sender: UIBarButtonItem) {
-        let deleteMemo = Memo(title: titleTextField.text ?? "", detail: detailTextView.text ?? "", tag: tagTextField.text ?? "", latitude: self.memo!.latitude, longitude: self.memo!.longitude)
-        viewModel.onDeleteButtonTapped(memo: deleteMemo)
-        self.dismiss(animated: true)
-    }
 
     func setNavigationBarItem() {
         let closeButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(closeButtonTapped(_:)))
@@ -84,6 +69,31 @@ extension EditMemoViewController {
         tagTextField.layer.borderWidth = 1
         tagTextField.layer.cornerRadius = 4
         tagTextField.text = memo?.tag
+    }
+}
 
+// MARK: Navigation View Button
+extension EditMemoViewController{
+    
+    @objc func closeButtonTapped(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true)
+    }
+
+    @objc func deleteButtonTapped(_ sender: UIBarButtonItem) {
+        self.showAleart(title: "このメモを削除しますか？", subtitle: nil, confirmButtonTitle: "削除", onConfirm: { self.dismissWithDelete() })
+    }
+    
+    func dismissWithDelete() {
+        let deleteMemo = Memo(title: titleTextField.text ?? "", detail: detailTextView.text ?? "", tag: tagTextField.text ?? "", latitude: self.memo!.latitude, longitude: self.memo!.longitude)
+        viewModel.onDeleteButtonTapped(memo: deleteMemo)
+        self.dismiss(animated: true)
+    }
+    
+    override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
+        guard let presentationController = presentationController else {
+            return
+        }
+        presentationController.delegate?.presentationControllerDidDismiss?(presentationController)
+        super.dismiss(animated: flag, completion: completion)
     }
 }
