@@ -81,10 +81,15 @@ extension MainViewController {
     }
 
     func checkLocationPermission() {
-        let status = locationManager.authorizationStatus
-        if status == CLAuthorizationStatus.notDetermined {
-            locationManager.requestWhenInUseAuthorization()
+        locationManager.requestAlwaysAuthorization()
+        locationManager.requestWhenInUseAuthorization()
+
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
         }
+
     }
 
     func setMapLongPressRecRecognizer() {
@@ -153,5 +158,14 @@ extension MainViewController: MKMapViewDelegate {
 extension MainViewController: UIAdaptivePresentationControllerDelegate {
     func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
         self.mainViewmodel.onPresentationControllerDidDismiss()
+    }
+}
+
+extension MainViewController: CLLocationManagerDelegate {
+
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
     }
 }
