@@ -124,7 +124,7 @@ extension EditMemoViewController {
         editButton.rx.tap
             .asDriver()
             .drive(onNext: {
-//                self.viewModel?.onAddButtonTapped()
+                self.viewModel?.onEditButtonTapped()
                 self.dismiss(animated: true)
             })
             .disposed(by: disposeBag)

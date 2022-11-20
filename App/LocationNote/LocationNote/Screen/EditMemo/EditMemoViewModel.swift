@@ -45,14 +45,28 @@ final class EditMemoViewModel {
             .bind(to: _buttonEnabled)
             .disposed(by: disposeBag)
     }
+}
 
-    func onDeleteButtonTapped() {
+extension EditMemoViewModel {
+    func createMemo() -> Memo? {
         guard let title = try? _title.value(), let detail = try? _detail.value(), let tag = try? _tag.value() else {
-            return
+            return nil
         }
 
-        let memo = Memo.init(title: title, detail: detail, tag: tag, latitude: memo.latitude, longitude: memo.longitude)
+        return Memo.init(title: title, detail: detail, tag: tag, latitude: memo.latitude, longitude: memo.longitude)
+    }
 
+    func onDeleteButtonTapped() {
+        guard let memo = createMemo() else {
+            return
+        }
         dataStore.deleteMemo(memo: memo)
+    }
+
+    func onEditButtonTapped() {
+        guard let memo = createMemo() else {
+            return
+        }
+        dataStore.editMemo(memo: memo)
     }
 }
