@@ -18,8 +18,8 @@ final class MainViewModel {
     // Input
 
     // Output
-    private let _memoListDriver = BehaviorRelay<[MKAnnotation]>(value: [])
-    var memoListObservable: Observable<[MKAnnotation]> {
+    private let _memoListDriver = BehaviorRelay<[MKPointAnnotation]>(value: [])
+    var memoListObservable: Observable<[MKPointAnnotation]> {
         _memoListDriver.asObservable()
     }
 
@@ -50,7 +50,7 @@ final class MainViewModel {
     }
 
    private func loadMapPinList() {
-       var annotationArray: [MKAnnotation] = []
+       var annotationArray: [MKPointAnnotation] = []
        let savedMemoList = dataStore.loadMemo() ?? []
 
        savedMemoList.forEach { memo in
