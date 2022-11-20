@@ -20,11 +20,33 @@ struct DataStore {
         UserDefaults.standard.set(memoList, forKey: DataStoreKey.MEMO.rawValue)
     }
 
+    func saveMmemoList(memoList: [Memo]) {
+       clearMemo()
+        guard let memoList = try? JSONEncoder().encode(memoList) else { return }
+        UserDefaults.standard.set(memoList, forKey: DataStoreKey.MEMO.rawValue)
+    }
+
     func loadMemo() -> [Memo]? {
         if let data = UserDefaults.standard.data(forKey: DataStoreKey.MEMO.rawValue) {
             return try? JSONDecoder().decode([Memo].self, from: data)
         }
         return []
+    }
+
+    func deleteMemo(memo: Memo) {
+        var data = loadMemo()
+        if data?.count == 0 {
+            return
+        }
+
+        guard let index = data?.firstIndex(where: {$0.latitude.isEqual(to: memo.latitude) && $0.longitude.isEqual(to: memo.longitude)
+        }) else {
+            return
+        }
+
+        data?.remove(at: index)
+
+        saveMmemoList(memoList: data ?? [])
     }
 
     func clearMemo() {
