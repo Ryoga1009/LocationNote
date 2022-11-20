@@ -19,6 +19,7 @@ class MainViewController: BaseViewController {
     private var mainViewmodel = MainViewModel()
     private let disposeBag = DisposeBag()
     private var locationManager = CLLocationManager()
+    private var showingAnnotationList: [MKPointAnnotation] = []
 
     static func initFromStoryboard() -> UIViewController {
         let storyboard = UIStoryboard(name: R.storyboard.main.name, bundle: nil)
@@ -68,6 +69,7 @@ extension MainViewController {
 
         mainViewmodel.memoListObservable.bind(onNext: { memoList in
             self.addPin(mapPinList: memoList)
+            self.showingAnnotationList = memoList
         }).disposed(by: disposeBag)
 
         mainViewmodel.editMemoObservable.bind(onNext: { memo in
@@ -105,6 +107,7 @@ extension MainViewController {
     }
 
     func addPin(mapPinList: [MKAnnotation]) {
+        mapView.removeAnnotations(showingAnnotationList)
         mapPinList.forEach({ pin in
             mapView.addAnnotation(pin)
         })
