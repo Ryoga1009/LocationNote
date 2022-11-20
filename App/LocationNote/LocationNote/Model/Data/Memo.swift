@@ -13,9 +13,9 @@ import CoreLocation
 struct Memo: Codable {
     static let SEPARATOR = "\n #"
 
-    let title: String
-    let detail: String
-    let tag: String
+    var title: String
+    var detail: String
+    var tag: String
     let latitude: Double
     let longitude: Double
 }
