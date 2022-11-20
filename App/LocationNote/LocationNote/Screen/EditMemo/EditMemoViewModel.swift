@@ -8,5 +8,9 @@
 import Foundation
 
 final class EditMemoViewModel {
+    private let dataStore = DataStore()
 
+    func onDeleteButtonTapped(memo: Memo) {
+        dataStore.deleteMemo(memo: memo)
+    }
 }
