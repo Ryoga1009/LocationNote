@@ -36,6 +36,14 @@ class EditMemoViewController: BaseViewController {
         setNavigationBarItem()
         setLayout()
     }
+
+    override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
+        guard let presentationController = presentationController else {
+            return
+        }
+        presentationController.delegate?.presentationControllerDidDismiss?(presentationController)
+        super.dismiss(animated: flag, completion: completion)
+    }
 }
 
 extension EditMemoViewController {
@@ -44,6 +52,8 @@ extension EditMemoViewController {
     }
 
     @objc func deleteButtonTapped(_ sender: UIBarButtonItem) {
+        let deleteMemo = Memo(title: titleTextField.text ?? "", detail: detailTextView.text ?? "", tag: tagTextField.text ?? "", latitude: self.memo!.latitude, longitude: self.memo!.longitude)
+        viewModel.onDeleteButtonTapped(memo: deleteMemo)
         self.dismiss(animated: true)
     }
 
