@@ -21,11 +21,6 @@ class BaseViewController: UIViewController {
     }
 }
 
-protocol AleratTappedListener: AnyObject {
-    func onConfirmButtonTapped()
-    func onCancellButtonTapped()
-}
-
 extension BaseViewController {
 
     func showAleart(title: String, subtitle: String?, confirmButtonTitle: String, onConfirm: @escaping () -> Void) {
