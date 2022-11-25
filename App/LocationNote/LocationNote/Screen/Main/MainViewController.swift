@@ -47,7 +47,11 @@ class MainViewController: BaseViewController {
     }
 
     @IBAction func onLocateButtonTapped(_ sender: Any) {
-        mainViewmodel.onLocationButtonTapped(location: self.mapView.userLocation.coordinate)
+        if self.mapView.userLocation.coordinate.longitude != -180 && self.mapView.userLocation.coordinate.latitude != -180 {
+            mainViewmodel.onLocationButtonTapped(location: self.mapView.userLocation.coordinate)
+        } else {
+            showAleart(title: "読み込みエラー", subtitle: "マップの読み込みに失敗しました。\nアプリを再起動してください。", confirmButtonTitle: "OK", onConfirm: {})
+        }
     }
 
     @IBAction func onAddButtonTapped(_ sender: Any) {
@@ -81,10 +85,25 @@ extension MainViewController {
     }
 
     func checkLocationPermission() {
-        let status = locationManager.authorizationStatus
-        if status == CLAuthorizationStatus.notDetermined {
-            locationManager.requestWhenInUseAuthorization()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+
+        switch locationManager.authorizationStatus {
+        case .notDetermined:
+            locationManager.requestAlwaysAuthorization()
+        case .authorizedWhenInUse:
+            locationManager.startUpdatingLocation()
+        case .authorizedAlways:
+            locationManager.startUpdatingLocation()
+            locationManager.allowsBackgroundLocationUpdates = true
+        case .restricted:
+            print("権限なし")
+        case .denied:
+            print("権限なし")
+        @unknown default:
+            print("権限なし")
         }
+
     }
 
     func setMapLongPressRecRecognizer() {
@@ -153,5 +172,26 @@ extension MainViewController: MKMapViewDelegate {
 extension MainViewController: UIAdaptivePresentationControllerDelegate {
     func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
         self.mainViewmodel.onPresentationControllerDidDismiss()
+    }
+}
+
+extension MainViewController: CLLocationManagerDelegate {
+
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let horizontalAccuracy = self.mapView.userLocation.location?.horizontalAccuracy
+        if horizontalAccuracy != nil && horizontalAccuracy! >= 0 {
+            guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+            print("locations = \(locValue.latitude) \(locValue.longitude)")
+        }
+
+    }
+
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedWhenInUse {
+            locationManager.startUpdatingLocation()
+        } else if status == .authorizedAlways {
+            locationManager.allowsBackgroundLocationUpdates = true
+            locationManager.startUpdatingLocation()
+        }
     }
 }
