@@ -17,9 +17,10 @@ class MainViewController: BaseViewController {
     @IBOutlet weak var addButton: UIButton!
 
     private var mainViewmodel = MainViewModel()
-    private let disposeBag = DisposeBag()
     private var locationManager = CLLocationManager()
     private var showingAnnotationList: [MKPointAnnotation] = []
+
+    private let disposeBag = DisposeBag()
 
     static func initFromStoryboard() -> UIViewController {
         let storyboard = UIStoryboard(name: R.storyboard.main.name, bundle: nil)
@@ -28,6 +29,7 @@ class MainViewController: BaseViewController {
         return viewController
     }
 
+// MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
@@ -59,6 +61,7 @@ class MainViewController: BaseViewController {
     }
 }
 
+// MARK: Methods
 extension MainViewController {
     func bind() {
         mainViewmodel.locationObservable.bind(onNext: { location in
@@ -82,11 +85,20 @@ extension MainViewController {
             }
             self.navigateToEditMemoScreen(memo: memo)
         }).disposed(by: disposeBag)
+
+        mainViewmodel.nearbyPinObservable.bind(onNext: { pin in
+            guard let nearbyPin = pin else {
+                return
+            }
+            // TODO 通知出す?
+            print(nearbyPin)
+        }).disposed(by: disposeBag)
     }
 
     func checkLocationPermission() {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        locationManager.distanceFilter = 5 // 5mごとに通知
 
         switch locationManager.authorizationStatus {
         case .notDetermined:
@@ -144,6 +156,7 @@ extension MainViewController {
 
 }
 
+// MARK: MKMapViewDelegate
 extension MainViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard annotation as? MKUserLocation != mapView.userLocation else { return nil }
@@ -169,12 +182,14 @@ extension MainViewController: MKMapViewDelegate {
     }
 }
 
+// MARK: UIAdaptivePresentationControllerDelegate
 extension MainViewController: UIAdaptivePresentationControllerDelegate {
     func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
         self.mainViewmodel.onPresentationControllerDidDismiss()
     }
 }
 
+// MARK: CLLocationManagerDelegate
 extension MainViewController: CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -182,6 +197,8 @@ extension MainViewController: CLLocationManagerDelegate {
         if horizontalAccuracy != nil && horizontalAccuracy! >= 0 {
             guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
             print("locations = \(locValue.latitude) \(locValue.longitude)")
+
+            mainViewmodel.didUpdateLocations(location: locValue)
         }
 
     }

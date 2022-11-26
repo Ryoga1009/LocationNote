@@ -14,6 +14,8 @@ import MapKit
 final class MainViewModel {
     private let dataStore = DataStore()
     private let disposeBag = DisposeBag()
+    // ピントとの距離が近いと判定する範囲
+    private let DETERMINE_AREA: Double = 80.0
 
     // Input
 
@@ -31,6 +33,11 @@ final class MainViewModel {
     private var _editMemoDriver = BehaviorRelay<Memo?>(value: nil)
     var editMemoObservable: Observable<Memo?> {
         _editMemoDriver.asObservable()
+    }
+
+    private var _nearbyPinDriver = BehaviorRelay<MKPointAnnotation?>(value: nil)
+    var nearbyPinObservable: Observable<MKPointAnnotation?> {
+        _nearbyPinDriver.asObservable()
     }
 
     func onLocationButtonTapped(location: CLLocationCoordinate2D) {
@@ -75,5 +82,23 @@ final class MainViewModel {
         memo = Memo(title: (annotation.title ?? "") ?? "", detail: detailTagArray?[0] ?? "", tag: detailTagArray?[1] ?? "", latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude)
 
         _editMemoDriver.accept(memo)
+    }
+
+    // 近いピンがあるか判定を行う
+    func didUpdateLocations(location: CLLocationCoordinate2D) {
+        if _memoListDriver.value.isEmpty {
+            return
+        }
+
+        let clLocation = CLLocation(latitude: location.latitude, longitude: location.longitude)
+        _memoListDriver.value.forEach { pin in
+            let pinLocation = CLLocation(latitude: pin.coordinate.latitude, longitude: pin.coordinate.longitude)
+            let distance = clLocation.distance(from: pinLocation)
+
+            if distance < DETERMINE_AREA {
+                _nearbyPinDriver.accept(pin)
+                return
+            }
+        }
     }
 }
