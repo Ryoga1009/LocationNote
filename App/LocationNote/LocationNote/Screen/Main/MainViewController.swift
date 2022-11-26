@@ -19,8 +19,6 @@ class MainViewController: BaseViewController {
     private var mainViewmodel = MainViewModel()
     private var locationManager = CLLocationManager()
     private var showingAnnotationList: [MKPointAnnotation] = []
-    private var hasShowNotification = false
-
     private let disposeBag = DisposeBag()
 
     static func initFromStoryboard() -> UIViewController {
@@ -91,19 +89,15 @@ extension MainViewController {
             guard let request = request else {
                 return
             }
-
-            if !self.hasShowNotification {
-                self.hasShowNotification = true
-
-                UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-            }
+            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
         }).disposed(by: disposeBag)
     }
 
     func checkLocationPermission() {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-        locationManager.distanceFilter = 5 // 5mごとに通知
+        // 距離10mごとに位置の変更を通知
+        locationManager.distanceFilter = 10
 
         switch locationManager.authorizationStatus {
         case .notDetermined:
