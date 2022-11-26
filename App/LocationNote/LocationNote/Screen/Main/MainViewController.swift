@@ -42,10 +42,6 @@ class MainViewController: BaseViewController {
         checkLocationPermission()
         bind()
         setMapLongPressRecRecognizer()
-
-        NotificationCenter.default.addObserver(self, selector: #selector(toForeGround(notification:)), name: UIApplication.willEnterForegroundNotification, object: nil)
-
-        NotificationCenter.default.addObserver(self, selector: #selector(toBackGround(notification:)), name: UIApplication.didEnterBackgroundNotification, object: nil)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -171,15 +167,6 @@ extension MainViewController {
         }
         return determinedPin
     }
-
-    @objc func toForeGround(notification: Notification) {
-        print("フォアグラウンド")
-    }
-
-    @objc func toBackGround(notification: Notification) {
-        print("バックグラウンド")
-    }
-
 }
 
 // MARK: MKMapViewDelegate
