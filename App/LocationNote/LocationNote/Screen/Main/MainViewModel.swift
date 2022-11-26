@@ -35,6 +35,11 @@ final class MainViewModel {
         _editMemoDriver.asObservable()
     }
 
+    private var _nearbyPinDriver = BehaviorRelay<MKPointAnnotation?>(value: nil)
+    var nearbyPinObservable: Observable<MKPointAnnotation?> {
+        _nearbyPinDriver.asObservable()
+    }
+
     func onLocationButtonTapped(location: CLLocationCoordinate2D) {
         locationDriver.accept(location)
     }
@@ -78,13 +83,11 @@ final class MainViewModel {
 
         _editMemoDriver.accept(memo)
     }
-    
-    // 近いピンがあるか判定を行う
-    func didUpdateLocations(location: CLLocationCoordinate2D) -> MKPointAnnotation? {
-        var determinedPin: MKPointAnnotation?
 
+    // 近いピンがあるか判定を行う
+    func didUpdateLocations(location: CLLocationCoordinate2D) {
         if _memoListDriver.value.isEmpty {
-            return nil
+            return
         }
 
         let clLocation = CLLocation(latitude: location.latitude, longitude: location.longitude)
@@ -93,9 +96,9 @@ final class MainViewModel {
             let distance = clLocation.distance(from: pinLocation)
 
             if distance < DETERMINE_AREA {
-                determinedPin =  pin
+                _nearbyPinDriver.accept(pin)
+                return
             }
         }
-        return determinedPin
     }
 }

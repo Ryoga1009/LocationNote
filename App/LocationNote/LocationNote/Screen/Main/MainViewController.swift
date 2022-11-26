@@ -85,6 +85,14 @@ extension MainViewController {
             }
             self.navigateToEditMemoScreen(memo: memo)
         }).disposed(by: disposeBag)
+
+        mainViewmodel.nearbyPinObservable.bind(onNext: { pin in
+            guard let nearbyPin = pin else {
+                return
+            }
+            // TODO 通知出す?
+            print(nearbyPin)
+        }).disposed(by: disposeBag)
     }
 
     func checkLocationPermission() {
@@ -146,7 +154,6 @@ extension MainViewController {
         self.modalViewController(nextView, animated: true)
     }
 
-    
 }
 
 // MARK: MKMapViewDelegate
@@ -191,7 +198,7 @@ extension MainViewController: CLLocationManagerDelegate {
             guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
             print("locations = \(locValue.latitude) \(locValue.longitude)")
 
-            print(mainViewmodel.determineNearbyPin(location: locValue))
+            mainViewmodel.didUpdateLocations(location: locValue)
         }
 
     }
