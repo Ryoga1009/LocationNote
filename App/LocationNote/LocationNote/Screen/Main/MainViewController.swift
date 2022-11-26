@@ -19,7 +19,6 @@ class MainViewController: BaseViewController {
     private var mainViewmodel = MainViewModel()
     private var locationManager = CLLocationManager()
     private var showingAnnotationList: [MKPointAnnotation] = []
-
     private let disposeBag = DisposeBag()
 
     static func initFromStoryboard() -> UIViewController {
@@ -86,19 +85,19 @@ extension MainViewController {
             self.navigateToEditMemoScreen(memo: memo)
         }).disposed(by: disposeBag)
 
-        mainViewmodel.nearbyPinObservable.bind(onNext: { pin in
-            guard let nearbyPin = pin else {
+        mainViewmodel.notificationRequestObservable.bind(onNext: { request in
+            guard let request = request else {
                 return
             }
-            // TODO 通知出す?
-            print(nearbyPin)
+            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
         }).disposed(by: disposeBag)
     }
 
     func checkLocationPermission() {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-        locationManager.distanceFilter = 5 // 5mごとに通知
+        // 距離10mごとに位置の変更を通知
+        locationManager.distanceFilter = 10
 
         switch locationManager.authorizationStatus {
         case .notDetermined:

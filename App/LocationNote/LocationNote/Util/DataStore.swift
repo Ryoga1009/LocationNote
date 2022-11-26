@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import MapKit
 
 enum DataStoreKey: String {
     case MEMO = "Memo"
@@ -39,6 +40,7 @@ struct DataStore {
         data?[index].title = memo.title
         data?[index].detail = memo.detail
         data?[index].tag = memo.tag
+        data?[index].lastNoticeDate = memo.lastNoticeDate
 
         saveMmemoList(memoList: data ?? [])
     }
@@ -48,6 +50,20 @@ struct DataStore {
             return try? JSONDecoder().decode([Memo].self, from: data)
         }
         return []
+    }
+
+    func loadMemo(from: MKPointAnnotation) -> Memo? {
+        var matchedMemo: Memo?
+        guard let data = loadMemo() else {
+            return nil
+        }
+
+        data.forEach { memo in
+            if memo.latitude == from.coordinate.latitude && memo.longitude == from.coordinate.longitude {
+                matchedMemo = memo
+            }
+        }
+        return matchedMemo
     }
 
     func deleteMemo(memo: Memo) {

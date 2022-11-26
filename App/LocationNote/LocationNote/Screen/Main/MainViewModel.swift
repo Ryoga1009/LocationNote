@@ -35,9 +35,9 @@ final class MainViewModel {
         _editMemoDriver.asObservable()
     }
 
-    private var _nearbyPinDriver = BehaviorRelay<MKPointAnnotation?>(value: nil)
-    var nearbyPinObservable: Observable<MKPointAnnotation?> {
-        _nearbyPinDriver.asObservable()
+    private var _notificationRequestDriver = BehaviorRelay<UNNotificationRequest?>(value: nil)
+    var notificationRequestObservable: Observable<UNNotificationRequest?> {
+        _notificationRequestDriver.asObservable()
     }
 
     func onLocationButtonTapped(location: CLLocationCoordinate2D) {
@@ -96,9 +96,32 @@ final class MainViewModel {
             let distance = clLocation.distance(from: pinLocation)
 
             if distance < DETERMINE_AREA {
-                _nearbyPinDriver.accept(pin)
-                return
+               onDeterminedArea(pin: pin)
             }
         }
+    }
+
+    private func onDeterminedArea(pin: MKPointAnnotation) {
+        guard var memo = dataStore.loadMemo(from: pin) else {
+            return
+        }
+        // 最後に通知を出したのが12時間前であれば通知を出す
+        if Date().compare(Calendar.current.date(byAdding: .hour, value: 12, to: memo.lastNoticeDate)!) == ComparisonResult.orderedDescending {
+            createUserNotificationRequest(memo: memo)
+            // 最終通知表示時間を更新
+            memo.lastNoticeDate = Date()
+            dataStore.editMemo(memo: memo)
+        }
+    }
+
+     private func createUserNotificationRequest(memo: Memo) {
+        let notificationContent = UNMutableNotificationContent()
+        notificationContent.title = memo.title
+         notificationContent.body = String(describing: "\(memo.detail) \(memo.tag)")
+        notificationContent.sound = UNNotificationSound.default
+
+        let request = UNNotificationRequest(identifier: "LocationNote", content: notificationContent, trigger: nil)
+
+        _notificationRequestDriver.accept(request)
     }
 }
