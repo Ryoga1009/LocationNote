@@ -19,6 +19,7 @@ class MainViewController: BaseViewController {
     private var mainViewmodel = MainViewModel()
     private var locationManager = CLLocationManager()
     private var showingAnnotationList: [MKPointAnnotation] = []
+    private var hasShowNotification = false
 
     private let disposeBag = DisposeBag()
 
@@ -86,12 +87,16 @@ extension MainViewController {
             self.navigateToEditMemoScreen(memo: memo)
         }).disposed(by: disposeBag)
 
-        mainViewmodel.nearbyPinObservable.bind(onNext: { pin in
-            guard let nearbyPin = pin else {
+        mainViewmodel.notificationRequestObservable.bind(onNext: { request in
+            guard let request = request else {
                 return
             }
-            // TODO 通知出す?
-            print(nearbyPin)
+
+            if !self.hasShowNotification {
+                self.hasShowNotification = true
+
+                UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+            }
         }).disposed(by: disposeBag)
     }
 

@@ -35,9 +35,9 @@ final class MainViewModel {
         _editMemoDriver.asObservable()
     }
 
-    private var _nearbyPinDriver = BehaviorRelay<MKPointAnnotation?>(value: nil)
-    var nearbyPinObservable: Observable<MKPointAnnotation?> {
-        _nearbyPinDriver.asObservable()
+    private var _notificationRequestDriver = BehaviorRelay<UNNotificationRequest?>(value: nil)
+    var notificationRequestObservable: Observable<UNNotificationRequest?> {
+        _notificationRequestDriver.asObservable()
     }
 
     func onLocationButtonTapped(location: CLLocationCoordinate2D) {
@@ -96,9 +96,29 @@ final class MainViewModel {
             let distance = clLocation.distance(from: pinLocation)
 
             if distance < DETERMINE_AREA {
-                _nearbyPinDriver.accept(pin)
+                createUserNotificationRequest(pin: pin)
                 return
             }
         }
+    }
+
+     private func createUserNotificationRequest(pin: MKPointAnnotation) {
+        let notificationContent = UNMutableNotificationContent()
+        notificationContent.title = pin.title!
+
+        let detailTagArray = pin.subtitle!.components(separatedBy: Memo.SEPARATOR)
+        var subtitle = ""
+        detailTagArray.forEach { sub in
+            print(sub)
+            if !sub.isEmpty {
+                subtitle += "\(sub) "
+            }
+        }
+        notificationContent.body = String(describing: subtitle)
+        notificationContent.sound = UNNotificationSound.default
+
+        let request = UNNotificationRequest(identifier: "LocationNote", content: notificationContent, trigger: nil)
+
+        _notificationRequestDriver.accept(request)
     }
 }
