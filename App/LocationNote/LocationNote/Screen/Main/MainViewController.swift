@@ -17,9 +17,12 @@ class MainViewController: BaseViewController {
     @IBOutlet weak var addButton: UIButton!
 
     private var mainViewmodel = MainViewModel()
-    private let disposeBag = DisposeBag()
     private var locationManager = CLLocationManager()
     private var showingAnnotationList: [MKPointAnnotation] = []
+
+    private let disposeBag = DisposeBag()
+    // ピントとの距離が近いと判定する範囲
+    private let DETERMINE_AREA: Double = 80.0
 
     static func initFromStoryboard() -> UIViewController {
         let storyboard = UIStoryboard(name: R.storyboard.main.name, bundle: nil)
@@ -93,6 +96,7 @@ extension MainViewController {
     func checkLocationPermission() {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        locationManager.distanceFilter = 5 // 5mごとに通知
 
         switch locationManager.authorizationStatus {
         case .notDetermined:
@@ -148,6 +152,26 @@ extension MainViewController {
         self.modalViewController(nextView, animated: true)
     }
 
+    // 近いピンがあるか判定を行う
+    func determineNearbyPin(location: CLLocationCoordinate2D) -> MKPointAnnotation? {
+        var determinedPin: MKPointAnnotation?
+
+        if showingAnnotationList.isEmpty {
+            return nil
+        }
+
+        let clLocation = CLLocation(latitude: location.latitude, longitude: location.longitude)
+        showingAnnotationList.forEach { pin in
+            let pinLocation = CLLocation(latitude: pin.coordinate.latitude, longitude: pin.coordinate.longitude)
+            let distance = clLocation.distance(from: pinLocation)
+
+            if distance < DETERMINE_AREA {
+                determinedPin =  pin
+            }
+        }
+        return determinedPin
+    }
+
     @objc func toForeGround(notification: Notification) {
         print("フォアグラウンド")
     }
@@ -199,6 +223,8 @@ extension MainViewController: CLLocationManagerDelegate {
         if horizontalAccuracy != nil && horizontalAccuracy! >= 0 {
             guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
             print("locations = \(locValue.latitude) \(locValue.longitude)")
+
+            print(self.determineNearbyPin(location: locValue))
         }
 
     }
