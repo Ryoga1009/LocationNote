@@ -18,4 +18,5 @@ struct Memo: Codable {
     var tag: String
     let latitude: Double
     let longitude: Double
+    var lastNoticeDate: Date = Date()
 }
