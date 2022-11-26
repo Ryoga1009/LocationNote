@@ -21,8 +21,6 @@ class MainViewController: BaseViewController {
     private var showingAnnotationList: [MKPointAnnotation] = []
 
     private let disposeBag = DisposeBag()
-    // ピントとの距離が近いと判定する範囲
-    private let DETERMINE_AREA: Double = 80.0
 
     static func initFromStoryboard() -> UIViewController {
         let storyboard = UIStoryboard(name: R.storyboard.main.name, bundle: nil)
@@ -148,25 +146,7 @@ extension MainViewController {
         self.modalViewController(nextView, animated: true)
     }
 
-    // 近いピンがあるか判定を行う
-    func determineNearbyPin(location: CLLocationCoordinate2D) -> MKPointAnnotation? {
-        var determinedPin: MKPointAnnotation?
-
-        if showingAnnotationList.isEmpty {
-            return nil
-        }
-
-        let clLocation = CLLocation(latitude: location.latitude, longitude: location.longitude)
-        showingAnnotationList.forEach { pin in
-            let pinLocation = CLLocation(latitude: pin.coordinate.latitude, longitude: pin.coordinate.longitude)
-            let distance = clLocation.distance(from: pinLocation)
-
-            if distance < DETERMINE_AREA {
-                determinedPin =  pin
-            }
-        }
-        return determinedPin
-    }
+    
 }
 
 // MARK: MKMapViewDelegate
@@ -211,7 +191,7 @@ extension MainViewController: CLLocationManagerDelegate {
             guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
             print("locations = \(locValue.latitude) \(locValue.longitude)")
 
-            print(self.determineNearbyPin(location: locValue))
+            print(mainViewmodel.determineNearbyPin(location: locValue))
         }
 
     }
