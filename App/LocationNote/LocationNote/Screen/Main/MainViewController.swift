@@ -28,6 +28,7 @@ class MainViewController: BaseViewController {
         return viewController
     }
 
+// MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
@@ -38,6 +39,10 @@ class MainViewController: BaseViewController {
         checkLocationPermission()
         bind()
         setMapLongPressRecRecognizer()
+
+        NotificationCenter.default.addObserver(self, selector: #selector(toForeGround(notification:)), name: UIApplication.willEnterForegroundNotification, object: nil)
+
+        NotificationCenter.default.addObserver(self, selector: #selector(toBackGround(notification:)), name: UIApplication.didEnterBackgroundNotification, object: nil)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -59,6 +64,7 @@ class MainViewController: BaseViewController {
     }
 }
 
+// MARK: Methods
 extension MainViewController {
     func bind() {
         mainViewmodel.locationObservable.bind(onNext: { location in
@@ -142,8 +148,17 @@ extension MainViewController {
         self.modalViewController(nextView, animated: true)
     }
 
+    @objc func toForeGround(notification: Notification) {
+        print("フォアグラウンド")
+    }
+
+    @objc func toBackGround(notification: Notification) {
+        print("バックグラウンド")
+    }
+
 }
 
+// MARK: MKMapViewDelegate
 extension MainViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard annotation as? MKUserLocation != mapView.userLocation else { return nil }
@@ -169,12 +184,14 @@ extension MainViewController: MKMapViewDelegate {
     }
 }
 
+// MARK: UIAdaptivePresentationControllerDelegate
 extension MainViewController: UIAdaptivePresentationControllerDelegate {
     func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
         self.mainViewmodel.onPresentationControllerDidDismiss()
     }
 }
 
+// MARK: CLLocationManagerDelegate
 extension MainViewController: CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
