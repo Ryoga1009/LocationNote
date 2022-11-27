@@ -5,6 +5,7 @@
 //  Created by k17124kk on 2022/11/05.
 //
 
+import GoogleMobileAds
 import UIKit
 import CoreLocation
 import RxSwift
@@ -18,9 +19,9 @@ class AddMemoViewController: BaseViewController {
     @IBOutlet weak var addButton: PrimaryButton!
 
     private var closeButtonItem: UIBarButtonItem!
-
     private var addMemoViewModel: AddMemoViewModel?
     private var location: CLLocationCoordinate2D?
+    private var interstitial: GADInterstitialAd?
 
     private let disposeBag = DisposeBag()
 
@@ -35,6 +36,20 @@ class AddMemoViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        let request = GADRequest()
+        GADInterstitialAd.load(withAdUnitID: "ca-app-pub-3940256099942544/4411468910", request: request,
+            completionHandler: { [self] ad, error in
+
+            if let error = error {
+                print("Failed to load interstitial ad with error: \(error.localizedDescription)")
+                return
+            }
+            interstitial = ad
+            interstitial?.fullScreenContentDelegate = self
+
+        })
+
         title = "メモ追加"
 
         closeButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(closeButtonTapped(_:)))
@@ -96,8 +111,9 @@ extension AddMemoViewController {
         addButton.rx.tap
             .asDriver()
             .drive(onNext: {
-                self.addMemoViewModel?.onAddButtonTapped()
-                self.dismiss(animated: true)
+                if let interstitial = self.interstitial {
+                    interstitial.present(fromRootViewController: self)
+                }
             })
             .disposed(by: disposeBag)
 
@@ -105,5 +121,25 @@ extension AddMemoViewController {
             .drive(addButton.rx.isEnabled)
             .disposed(by: disposeBag)
 
+    }
+}
+
+extension AddMemoViewController: GADFullScreenContentDelegate {
+
+    /// Tells the delegate that the ad failed to present full screen content.
+    func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
+      print("Ad did fail to present full screen content.")
+    }
+
+    /// Tells the delegate that the ad will present full screen content.
+    func adWillPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+      print("Ad will present full screen content.")
+    }
+
+    /// Tells the delegate that the ad dismissed full screen content.
+    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+      print("Ad did dismiss full screen content.")
+        self.addMemoViewModel?.onAddButtonTapped()
+        self.dismiss(animated: true)
     }
 }
