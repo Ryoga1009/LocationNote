@@ -39,7 +39,7 @@ class EditMemoViewController: BaseViewController {
         viewModel = EditMemoViewModel(memo: self.memo!)
 
         let request = GADRequest()
-        GADInterstitialAd.load(withAdUnitID: "ca-app-pub-3940256099942544/4411468910", request: request,
+        GADInterstitialAd.load(withAdUnitID: "ca-app-pub-1997214677690601/8845994353", request: request,
             completionHandler: { [self] ad, error in
             viewModel?.onAdLoadEnd()
 
