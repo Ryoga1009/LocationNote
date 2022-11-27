@@ -7,9 +7,12 @@
 
 import CoreData
 import UIKit
+import CoreLocation
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    var locationManager: CLLocationManager!
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
@@ -20,6 +23,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     UNUserNotificationCenter.current().delegate = self
                 }
             }
+
+        locationManager = CLLocationManager()
+        locationManager.allowsBackgroundLocationUpdates = true
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.distanceFilter = 10
+        locationManager.delegate = self
+
+        // 位置情報起因で起動した場合のみ処理する
+        if launchOptions?[.location] != nil {
+            locationManager.startMonitoringSignificantLocationChanges()
+        }
 
         return true
     }
@@ -82,10 +96,51 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        // バックグラウンドに入る前
+        locationManager.startMonitoringSignificantLocationChanges()
+    }
+
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        // フォアグランド
+        locationManager.startMonitoringSignificantLocationChanges()
+    }
+
+    func applicationWillTerminate(_ application: UIApplication) {
+        // アプリが終了（キル）される前
+        locationManager.startMonitoringSignificantLocationChanges()
+    }
+
 }
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler([.sound, .banner, .list])
+    }
+}
+
+extension AppDelegate: CLLocationManagerDelegate {
+
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        // TODO 処理
+        print(locations.last!)
+    }
+
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("error:\(error)")
+    }
+
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .restricted {
+            print("機能制限している")
+        } else if status == .denied {
+            print("許可していない")
+        } else if status == .authorizedWhenInUse {
+            print("このアプリ使用中のみ許可している")
+        } else if status == .authorizedAlways {
+            print("常に許可している")
+            locationManager.startUpdatingLocation()
+        }
     }
 }
