@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         locationManager = CLLocationManager()
         locationManager.allowsBackgroundLocationUpdates = true
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.distanceFilter = 25
+        locationManager.distanceFilter = 100
         locationManager.delegate = self
 
         return true
