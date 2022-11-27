@@ -27,13 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         locationManager = CLLocationManager()
         locationManager.allowsBackgroundLocationUpdates = true
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.distanceFilter = 10
+        locationManager.distanceFilter = 25
         locationManager.delegate = self
-
-        // 位置情報起因で起動した場合のみ処理する
-        if launchOptions?[.location] != nil {
-            locationManager.startMonitoringSignificantLocationChanges()
-        }
 
         return true
     }
@@ -98,20 +93,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        // バックグラウンドに入る前
-        locationManager.startMonitoringSignificantLocationChanges()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
-        // フォアグランド
-        locationManager.startMonitoringSignificantLocationChanges()
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
         // アプリが終了（キル）される前
+        locationManager.stopUpdatingLocation()
         locationManager.startMonitoringSignificantLocationChanges()
     }
 
+    private func createUserNotificationRequest(memo: Memo) {
+       let notificationContent = UNMutableNotificationContent()
+       notificationContent.title = memo.title
+        notificationContent.body = String(describing: "\(memo.detail) \(memo.tag)")
+       notificationContent.sound = UNNotificationSound.default
+
+       let request = UNNotificationRequest(identifier: "LocationNote", content: notificationContent, trigger: nil)
+
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+   }
 }
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
@@ -123,8 +125,8 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 extension AppDelegate: CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        // TODO 処理
-        print(locations.last!)
+        // TODO ピンの情報と比較　通知
+//        createUserNotificationRequest(memo: Memo(title: "テストテスト", detail: "aaa", tag: "", latitude: 0.0, longitude: 0.0))
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -141,6 +143,7 @@ extension AppDelegate: CLLocationManagerDelegate {
         } else if status == .authorizedAlways {
             print("常に許可している")
             locationManager.startUpdatingLocation()
+            locationManager.startMonitoringSignificantLocationChanges()
         }
     }
 }
