@@ -112,7 +112,12 @@ extension AddMemoViewController {
             .asDriver()
             .drive(onNext: {
                 if let interstitial = self.interstitial {
+                    // 広告表示
                     interstitial.present(fromRootViewController: self)
+                }else{
+                    // 広告が読み込まれなければ通常の動作に
+                    self.addMemoViewModel?.onAddButtonTapped()
+                    self.dismiss(animated: true)
                 }
             })
             .disposed(by: disposeBag)
