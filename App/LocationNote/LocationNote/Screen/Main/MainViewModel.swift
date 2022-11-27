@@ -73,9 +73,8 @@ final class MainViewModel {
 
     func onCalloutAccessoryTapped(annotation: MKAnnotation) {
         var memo: Memo
-        let detailTagArray = annotation.subtitle??.components(separatedBy: Memo.SEPARATOR)
 
-        memo = Memo(title: (annotation.title ?? "") ?? "", detail: detailTagArray?[0] ?? "", latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude)
+        memo = Memo(title: (annotation.title ?? "") ?? "", detail: (annotation.subtitle ?? "") ?? "", latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude)
 
         _editMemoDriver.accept(memo)
     }
