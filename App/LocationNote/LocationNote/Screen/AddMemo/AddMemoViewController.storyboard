@@ -64,19 +64,19 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bhf-m6-gtc" userLabel="memo">
-                                        <rect key="frame" x="0.0" y="116" width="342" height="361"/>
+                                        <rect key="frame" x="0.0" y="116" width="342" height="417"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="KYC-PH-oid">
-                                                <rect key="frame" x="0.0" y="0.0" width="342" height="361"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="342" height="417"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="詳細" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4WK-uw-U73">
-                                                        <rect key="frame" x="0.0" y="0.0" width="342" height="17"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="342" height="0.0"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" name="black2"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BTp-4k-IxZ">
-                                                        <rect key="frame" x="0.0" y="25" width="342" height="336"/>
+                                                        <rect key="frame" x="0.0" y="8" width="342" height="409"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <color key="textColor" systemColor="labelColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -92,46 +92,11 @@
                                             <constraint firstItem="KYC-PH-oid" firstAttribute="top" secondItem="bhf-m6-gtc" secondAttribute="top" id="xPR-h7-Ku5"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bDW-1d-fVC" userLabel="margin">
-                                        <rect key="frame" x="0.0" y="477" width="342" height="24"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="24" id="D1p-aa-KCn"/>
-                                        </constraints>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QKM-lC-S46" userLabel="tag">
-                                        <rect key="frame" x="0.0" y="501" width="342" height="56"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="deK-g1-lAo">
-                                                <rect key="frame" x="0.0" y="0.0" width="342" height="56"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タグ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UdR-yp-Boq">
-                                                        <rect key="frame" x="0.0" y="0.0" width="342" height="14"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <color key="textColor" name="black2"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="タグを入力('#'で区切ってください)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T2x-rv-vIm">
-                                                        <rect key="frame" x="0.0" y="22" width="342" height="34"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
-                                                </subviews>
-                                            </stackView>
-                                        </subviews>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="56" id="47a-Cn-OEo"/>
-                                            <constraint firstItem="deK-g1-lAo" firstAttribute="leading" secondItem="QKM-lC-S46" secondAttribute="leading" id="9G6-Dn-6X3"/>
-                                            <constraint firstAttribute="trailing" secondItem="deK-g1-lAo" secondAttribute="trailing" id="9dm-NO-Jeq"/>
-                                            <constraint firstAttribute="bottom" secondItem="deK-g1-lAo" secondAttribute="bottom" id="ISL-zc-qHE"/>
-                                            <constraint firstItem="deK-g1-lAo" firstAttribute="top" secondItem="QKM-lC-S46" secondAttribute="top" id="LGN-qI-srq"/>
-                                        </constraints>
-                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nVT-AN-0lx" userLabel="margin">
-                                        <rect key="frame" x="0.0" y="557" width="342" height="24"/>
+                                        <rect key="frame" x="0.0" y="533" width="342" height="48"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="24" id="BCR-2c-57a"/>
+                                            <constraint firstAttribute="height" constant="48" id="BCR-2c-57a"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="olf-M8-ds0" userLabel="lat_lon">
@@ -211,7 +176,6 @@
                         <outlet property="addButton" destination="pH2-PQ-g1O" id="7b0-Xj-aPA"/>
                         <outlet property="detailTextView" destination="BTp-4k-IxZ" id="z2D-tk-0Sn"/>
                         <outlet property="locationLabel" destination="wni-WF-FCk" id="Csc-Za-42R"/>
-                        <outlet property="tagTextField" destination="T2x-rv-vIm" id="Pg5-Nd-EOf"/>
                         <outlet property="titleTextField" destination="hMO-9U-LmX" id="VlK-hL-2sp"/>
                     </connections>
                 </viewController>
