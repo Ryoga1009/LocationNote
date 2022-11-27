@@ -40,14 +40,14 @@ class AddMemoViewController: BaseViewController {
         let request = GADRequest()
         GADInterstitialAd.load(withAdUnitID: "ca-app-pub-3940256099942544/4411468910", request: request,
             completionHandler: { [self] ad, error in
-
+            addMemoViewModel?.onAdLoadEnd()
+            
             if let error = error {
                 print("Failed to load interstitial ad with error: \(error.localizedDescription)")
                 return
             }
             interstitial = ad
             interstitial?.fullScreenContentDelegate = self
-
         })
 
         title = "メモ追加"
@@ -128,17 +128,16 @@ extension AddMemoViewController: GADFullScreenContentDelegate {
 
     /// Tells the delegate that the ad failed to present full screen content.
     func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
-      print("Ad did fail to present full screen content.")
+        self.addMemoViewModel?.onAddButtonTapped()
+        self.dismiss(animated: true)
     }
 
     /// Tells the delegate that the ad will present full screen content.
     func adWillPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
-      print("Ad will present full screen content.")
     }
 
     /// Tells the delegate that the ad dismissed full screen content.
     func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
-      print("Ad did dismiss full screen content.")
         self.addMemoViewModel?.onAddButtonTapped()
         self.dismiss(animated: true)
     }
