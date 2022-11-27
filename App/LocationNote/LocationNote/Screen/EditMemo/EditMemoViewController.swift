@@ -9,6 +9,7 @@ import UIKit
 import CoreLocation
 import RxSwift
 import RxCocoa
+import GoogleMobileAds
 
 // MARK: LifeCycle
 class EditMemoViewController: BaseViewController {
@@ -16,6 +17,7 @@ class EditMemoViewController: BaseViewController {
     @IBOutlet weak var detailTextView: UITextView!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var editButton: PrimaryButton!
+    private var interstitial: GADInterstitialAd?
 
     private var memo: Memo?
 
@@ -35,6 +37,20 @@ class EditMemoViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = EditMemoViewModel(memo: self.memo!)
+
+        let request = GADRequest()
+        let adUnitId = Bundle.main.infoDictionary?["AdUnitId"]! as! String
+        GADInterstitialAd.load(withAdUnitID: adUnitId, request: request,
+            completionHandler: { [self] ad, error in
+            viewModel?.onAdLoadEnd()
+
+            if let error = error {
+                print("Failed to load interstitial ad with error: \(error.localizedDescription)")
+                return
+            }
+            interstitial = ad
+            interstitial?.fullScreenContentDelegate = self
+        })
         title = "編集"
 
         setNavigationBarItem()
@@ -113,8 +129,14 @@ extension EditMemoViewController {
         editButton.rx.tap
             .asDriver()
             .drive(onNext: {
-                self.viewModel?.onEditButtonTapped()
-                self.dismiss(animated: true)
+                if let interstitial = self.interstitial {
+                    // 広告表示
+                    interstitial.present(fromRootViewController: self)
+                }else{
+                    // 広告が読み込まれなければ通常の動作に
+                    self.viewModel?.onEditButtonTapped()
+                    self.dismiss(animated: true)
+                }
             })
             .disposed(by: disposeBag)
 
@@ -122,5 +144,24 @@ extension EditMemoViewController {
             .drive(editButton.rx.isEnabled)
             .disposed(by: disposeBag)
 
+    }
+}
+
+extension EditMemoViewController: GADFullScreenContentDelegate {
+
+    /// Tells the delegate that the ad failed to present full screen content.
+    func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
+        self.viewModel?.onEditButtonTapped()
+        self.dismiss(animated: true)
+    }
+
+    /// Tells the delegate that the ad will present full screen content.
+    func adWillPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+    }
+
+    /// Tells the delegate that the ad dismissed full screen content.
+    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+        self.viewModel?.onEditButtonTapped()
+        self.dismiss(animated: true)
     }
 }

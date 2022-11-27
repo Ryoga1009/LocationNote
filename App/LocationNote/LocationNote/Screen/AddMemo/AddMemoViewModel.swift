@@ -25,6 +25,8 @@ final class AddMemoViewModel {
         _detail.asObserver()
     }
 
+    private var _isAdLoaded = false
+
     // OutPut
     private let _buttonEnabled = BehaviorRelay<Bool>(value: false)
     var buttonEnabled: Driver<Bool> {
@@ -38,7 +40,7 @@ final class AddMemoViewModel {
         self.location = location
 
         _title.asObserver()
-            .map({!$0.isEmpty})
+            .map({!$0.isEmpty && self._isAdLoaded})
             .bind(to: _buttonEnabled)
             .disposed(by: disposeBag)
     }
@@ -53,5 +55,9 @@ extension AddMemoViewModel {
         let memo = Memo.init(title: title, detail: detail, latitude: location.latitude, longitude: location.longitude)
 
         dataStore.saveMmemo(memo: memo)
+    }
+
+    func onAdLoadEnd() {
+        self._isAdLoaded = true
     }
 }

@@ -9,6 +9,7 @@ import UIKit
 import CoreLocation
 import RxSwift
 import RxCocoa
+import GoogleMobileAds
 
 class AddMemoViewController: BaseViewController {
 
@@ -18,9 +19,9 @@ class AddMemoViewController: BaseViewController {
     @IBOutlet weak var addButton: PrimaryButton!
 
     private var closeButtonItem: UIBarButtonItem!
-
     private var addMemoViewModel: AddMemoViewModel?
     private var location: CLLocationCoordinate2D?
+    private var interstitial: GADInterstitialAd?
 
     private let disposeBag = DisposeBag()
 
@@ -35,6 +36,20 @@ class AddMemoViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        let request = GADRequest()
+        let adUnitId = Bundle.main.infoDictionary?["AdUnitId"]! as! String
+        GADInterstitialAd.load(withAdUnitID: adUnitId, request: request, completionHandler: { [self] ad, error in
+            addMemoViewModel?.onAdLoadEnd()
+
+            if let error = error {
+                print("Failed to load interstitial ad with error: \(error.localizedDescription)")
+                return
+            }
+            interstitial = ad
+            interstitial?.fullScreenContentDelegate = self
+        })
+
         title = "メモ追加"
 
         closeButtonItem = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(closeButtonTapped(_:)))
@@ -96,8 +111,14 @@ extension AddMemoViewController {
         addButton.rx.tap
             .asDriver()
             .drive(onNext: {
-                self.addMemoViewModel?.onAddButtonTapped()
-                self.dismiss(animated: true)
+                if let interstitial = self.interstitial {
+                    // 広告表示
+                    interstitial.present(fromRootViewController: self)
+                }else{
+                    // 広告が読み込まれなければ通常の動作に
+                    self.addMemoViewModel?.onAddButtonTapped()
+                    self.dismiss(animated: true)
+                }
             })
             .disposed(by: disposeBag)
 
@@ -105,5 +126,24 @@ extension AddMemoViewController {
             .drive(addButton.rx.isEnabled)
             .disposed(by: disposeBag)
 
+    }
+}
+
+extension AddMemoViewController: GADFullScreenContentDelegate {
+
+    /// Tells the delegate that the ad failed to present full screen content.
+    func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
+        self.addMemoViewModel?.onAddButtonTapped()
+        self.dismiss(animated: true)
+    }
+
+    /// Tells the delegate that the ad will present full screen content.
+    func adWillPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+    }
+
+    /// Tells the delegate that the ad dismissed full screen content.
+    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+        self.addMemoViewModel?.onAddButtonTapped()
+        self.dismiss(animated: true)
     }
 }
