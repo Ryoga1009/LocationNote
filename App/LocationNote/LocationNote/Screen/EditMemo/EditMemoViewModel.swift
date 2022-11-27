@@ -23,11 +23,6 @@ final class EditMemoViewModel {
         _detail.asObserver()
     }
 
-    private let _tag = BehaviorSubject<String>(value: "")
-    var tag: AnyObserver<String> {
-        _tag.asObserver()
-    }
-
     // OutPut
     private let _buttonEnabled = BehaviorRelay<Bool>(value: false)
     var buttonEnabled: Driver<Bool> {
@@ -49,11 +44,11 @@ final class EditMemoViewModel {
 
 extension EditMemoViewModel {
     func createMemo() -> Memo? {
-        guard let title = try? _title.value(), let detail = try? _detail.value(), let tag = try? _tag.value() else {
+        guard let title = try? _title.value(), let detail = try? _detail.value() else {
             return nil
         }
 
-        return Memo.init(title: title, detail: detail, tag: tag, latitude: memo.latitude, longitude: memo.longitude)
+        return Memo.init(title: title, detail: detail, latitude: memo.latitude, longitude: memo.longitude)
     }
 
     func onDeleteButtonTapped() {
