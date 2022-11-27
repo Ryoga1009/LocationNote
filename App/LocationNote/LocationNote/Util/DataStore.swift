@@ -39,7 +39,6 @@ struct DataStore {
 
         data?[index].title = memo.title
         data?[index].detail = memo.detail
-        data?[index].tag = memo.tag
         data?[index].lastNoticeDate = memo.lastNoticeDate
 
         saveMmemoList(memoList: data ?? [])

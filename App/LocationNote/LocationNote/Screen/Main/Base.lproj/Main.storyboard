@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
@@ -23,13 +23,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BVP-Hn-ftq" customClass="SearchBar" customModule="LocationNote" customModuleProvider="target">
-                                <rect key="frame" x="24" y="47" width="342" height="44"/>
-                                <color key="backgroundColor" name="white1"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="3sX-mw-5Te"/>
-                                </constraints>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OLw-NZ-Eik">
                                 <rect key="frame" x="311" y="707" width="55" height="55"/>
                                 <constraints>
@@ -60,7 +53,6 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="white1"/>
                         <constraints>
-                            <constraint firstItem="BVP-Hn-ftq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="3gl-hA-V91"/>
                             <constraint firstItem="n5R-c8-iYt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="68K-3C-8q2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rbo-Ct-al8" secondAttribute="trailing" constant="24" id="865-hA-OGi"/>
                             <constraint firstItem="n5R-c8-iYt" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="AMH-70-Egt"/>
@@ -70,16 +62,13 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OLw-NZ-Eik" secondAttribute="bottom" constant="48" id="Ouu-48-Ue3"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OLw-NZ-Eik" secondAttribute="trailing" constant="24" id="aGb-EH-Iri"/>
                             <constraint firstAttribute="bottom" secondItem="n5R-c8-iYt" secondAttribute="bottom" id="ejy-g3-pLq"/>
-                            <constraint firstAttribute="trailing" secondItem="BVP-Hn-ftq" secondAttribute="trailing" constant="24" id="phv-2q-6sa"/>
                             <constraint firstAttribute="trailing" secondItem="n5R-c8-iYt" secondAttribute="trailing" id="tkI-lc-Ks1"/>
-                            <constraint firstItem="BVP-Hn-ftq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="w9v-sM-ASs"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="addButton" destination="OLw-NZ-Eik" id="0E1-D0-JWW"/>
                         <outlet property="locateButton" destination="rbo-Ct-al8" id="BkW-Q5-3TD"/>
                         <outlet property="mapView" destination="n5R-c8-iYt" id="KLe-L9-DVP"/>
-                        <outlet property="searchBar" destination="BVP-Hn-ftq" id="3nd-UK-SGT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

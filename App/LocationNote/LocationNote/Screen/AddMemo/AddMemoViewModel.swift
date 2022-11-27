@@ -25,11 +25,6 @@ final class AddMemoViewModel {
         _detail.asObserver()
     }
 
-    private let _tag = BehaviorSubject<String>(value: "")
-    var tag: AnyObserver<String> {
-        _tag.asObserver()
-    }
-
     // OutPut
     private let _buttonEnabled = BehaviorRelay<Bool>(value: false)
     var buttonEnabled: Driver<Bool> {
@@ -51,11 +46,11 @@ final class AddMemoViewModel {
 
 extension AddMemoViewModel {
     func onAddButtonTapped() {
-        guard let title = try? _title.value(), let detail = try? _detail.value(), let tag = try? _tag.value() else {
+        guard let title = try? _title.value(), let detail = try? _detail.value() else {
             return
         }
 
-        let memo = Memo.init(title: title, detail: detail, tag: tag, latitude: location.latitude, longitude: location.longitude)
+        let memo = Memo.init(title: title, detail: detail, latitude: location.latitude, longitude: location.longitude)
 
         dataStore.saveMmemo(memo: memo)
     }

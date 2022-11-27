@@ -185,7 +185,7 @@ extension AppDelegate {
     private func createUserNotificationRequest(memo: Memo) {
        let notificationContent = UNMutableNotificationContent()
        notificationContent.title = memo.title
-        notificationContent.body = String(describing: "\(memo.detail) \(memo.tag)")
+        notificationContent.body = memo.detail
        notificationContent.sound = UNNotificationSound.default
 
        let request = UNNotificationRequest(identifier: "LocationNote", content: notificationContent, trigger: nil)

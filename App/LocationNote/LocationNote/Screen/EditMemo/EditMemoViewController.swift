@@ -14,7 +14,6 @@ import RxCocoa
 class EditMemoViewController: BaseViewController {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var detailTextView: UITextView!
-    @IBOutlet weak var tagTextField: UITextField!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var editButton: PrimaryButton!
 
@@ -69,11 +68,6 @@ extension EditMemoViewController {
         detailTextView.layer.borderColor = R.color.white2()?.cgColor
         detailTextView.layer.cornerRadius = 4
         detailTextView.text = memo?.detail
-
-        tagTextField.layer.borderColor = R.color.white2()?.cgColor
-        tagTextField.layer.borderWidth = 1
-        tagTextField.layer.cornerRadius = 4
-        tagTextField.text = memo?.tag
     }
 }
 
@@ -114,11 +108,6 @@ extension EditMemoViewController {
         detailTextView.rx.text.orEmpty
             .asDriver()
             .drive(viewModel.detail)
-            .disposed(by: disposeBag)
-
-        tagTextField.rx.text.orEmpty
-            .asDriver()
-            .drive(viewModel.tag)
             .disposed(by: disposeBag)
 
         editButton.rx.tap

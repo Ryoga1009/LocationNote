@@ -14,7 +14,6 @@ class AddMemoViewController: BaseViewController {
 
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var detailTextView: UITextView!
-    @IBOutlet weak var tagTextField: UITextField!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var addButton: PrimaryButton!
 
@@ -77,10 +76,6 @@ extension AddMemoViewController {
         detailTextView.layer.borderWidth = 1
         detailTextView.layer.borderColor = R.color.white2()?.cgColor
         detailTextView.layer.cornerRadius = 4
-
-        tagTextField.layer.borderColor = R.color.white2()?.cgColor
-        tagTextField.layer.borderWidth = 1
-        tagTextField.layer.cornerRadius = 4
     }
 
     func bind() {
@@ -96,11 +91,6 @@ extension AddMemoViewController {
         detailTextView.rx.text.orEmpty
             .asDriver()
             .drive(addMemoViewModel.detail)
-            .disposed(by: disposeBag)
-
-        tagTextField.rx.text.orEmpty
-            .asDriver()
-            .drive(addMemoViewModel.tag)
             .disposed(by: disposeBag)
 
         addButton.rx.tap

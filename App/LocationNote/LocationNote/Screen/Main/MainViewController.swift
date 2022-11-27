@@ -12,7 +12,6 @@ import MapKit
 class MainViewController: BaseViewController {
 
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var searchBar: SearchBar!
     @IBOutlet weak var locateButton: UIButton!
     @IBOutlet weak var addButton: UIButton!
 
