@@ -828,6 +828,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
+				GADApplicationIdentifier = "ca-app-pub-3940256099942544~1458002511";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LocationNote/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
@@ -867,6 +868,7 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
+				GADApplicationIdentifier = "ca-app-pub-1997214677690601~9085420082";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LocationNote/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
