@@ -5,11 +5,11 @@
 //  Created by k17124kk on 2022/11/05.
 //
 
-import GoogleMobileAds
 import UIKit
 import CoreLocation
 import RxSwift
 import RxCocoa
+import GoogleMobileAds
 
 class AddMemoViewController: BaseViewController {
 
@@ -41,7 +41,7 @@ class AddMemoViewController: BaseViewController {
         GADInterstitialAd.load(withAdUnitID: "ca-app-pub-3940256099942544/4411468910", request: request,
             completionHandler: { [self] ad, error in
             addMemoViewModel?.onAdLoadEnd()
-            
+
             if let error = error {
                 print("Failed to load interstitial ad with error: \(error.localizedDescription)")
                 return
