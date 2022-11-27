@@ -830,6 +830,8 @@
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LocationNote/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "通知を出すのに位置情報を利用します。";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "通知を出すのに位置情報を利用します。";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "メモに関する通知を出すために利用します";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
@@ -863,6 +865,8 @@
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LocationNote/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "通知を出すのに位置情報を利用します。";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "通知を出すのに位置情報を利用します。";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "メモに関する通知を出すために利用します";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
