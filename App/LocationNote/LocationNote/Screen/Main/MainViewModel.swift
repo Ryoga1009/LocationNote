@@ -63,12 +63,8 @@ final class MainViewModel {
        savedMemoList.forEach { memo in
            let annotation = MKPointAnnotation()
            annotation.coordinate = CLLocationCoordinate2DMake(memo.latitude, memo.longitude)
-
            annotation.title = memo.title
-
-           // タグがある場合はセパレータをつけて合体させる
-           annotation.subtitle = memo.detail  + Memo.SEPARATOR + memo.tag
-
+           annotation.subtitle = memo.detail
            annotationArray.append(annotation)
        }
 
@@ -79,7 +75,7 @@ final class MainViewModel {
         var memo: Memo
         let detailTagArray = annotation.subtitle??.components(separatedBy: Memo.SEPARATOR)
 
-        memo = Memo(title: (annotation.title ?? "") ?? "", detail: detailTagArray?[0] ?? "", tag: detailTagArray?[1] ?? "", latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude)
+        memo = Memo(title: (annotation.title ?? "") ?? "", detail: detailTagArray?[0] ?? "", latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude)
 
         _editMemoDriver.accept(memo)
     }
@@ -117,7 +113,7 @@ final class MainViewModel {
      private func createUserNotificationRequest(memo: Memo) {
         let notificationContent = UNMutableNotificationContent()
         notificationContent.title = memo.title
-         notificationContent.body = String(describing: "\(memo.detail) \(memo.tag)")
+         notificationContent.body = memo.detail
         notificationContent.sound = UNNotificationSound.default
 
         let request = UNNotificationRequest(identifier: "LocationNote", content: notificationContent, trigger: nil)

@@ -11,11 +11,8 @@ import CoreLocation
 // データ保存用のメモクラス
 // CLLocationCoordinate2DがCodableに対応していないためlat/lonをDoubleで保持
 struct Memo: Codable {
-    static let SEPARATOR = "\n #"
-
     var title: String
     var detail: String
-    var tag: String
     let latitude: Double
     let longitude: Double
     var lastNoticeDate: Date = Date()
