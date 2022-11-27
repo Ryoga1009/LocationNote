@@ -10,6 +10,7 @@ target 'LocationNote' do
   pod 'R.swift'
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'Google-Mobile-Ads-SDK'
 
   target 'LocationNoteTests' do
     inherit! :search_paths
