@@ -8,10 +8,13 @@
 import CoreData
 import UIKit
 import CoreLocation
+import MapKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    var locationManager: CLLocationManager!
+    private var locationManager: CLLocationManager!
+    private var dataStore: DataStore!
+    private var memoList: [Memo]?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -23,6 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     UNUserNotificationCenter.current().delegate = self
                 }
             }
+
+        dataStore = DataStore()
+        memoList = dataStore.loadMemo()
 
         locationManager = CLLocationManager()
         locationManager.allowsBackgroundLocationUpdates = true
@@ -103,30 +109,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         locationManager.stopUpdatingLocation()
         locationManager.startMonitoringSignificantLocationChanges()
     }
-
-    private func createUserNotificationRequest(memo: Memo) {
-       let notificationContent = UNMutableNotificationContent()
-       notificationContent.title = memo.title
-        notificationContent.body = String(describing: "\(memo.detail) \(memo.tag)")
-       notificationContent.sound = UNNotificationSound.default
-
-       let request = UNNotificationRequest(identifier: "LocationNote", content: notificationContent, trigger: nil)
-
-        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-   }
 }
 
+// MARK: UNUserNotificationCenterDelegate
 extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler([.sound, .banner, .list])
     }
 }
 
+// MARK: CLLocationManagerDelegate
 extension AppDelegate: CLLocationManagerDelegate {
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        // TODO ピンの情報と比較　通知
-//        createUserNotificationRequest(memo: Memo(title: "テストテスト", detail: "aaa", tag: "", latitude: 0.0, longitude: 0.0))
+
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        memoList = dataStore.loadMemo()
+        didUpdateLocations(location: locValue)
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -146,4 +145,50 @@ extension AppDelegate: CLLocationManagerDelegate {
             locationManager.startMonitoringSignificantLocationChanges()
         }
     }
+}
+
+// MARK: ピンとの距離判定
+extension AppDelegate {
+    // 近いピンがあるか判定を行う
+    private func didUpdateLocations(location: CLLocationCoordinate2D) {
+        guard let memoList =  memoList else {
+            return
+        }
+
+        if memoList.count == 0 {
+            return
+        }
+
+        let clLocation = CLLocation(latitude: location.latitude, longitude: location.longitude)
+        memoList.forEach { memo in
+            let memoLocation = CLLocation(latitude: memo.latitude, longitude:
+                    memo.longitude)
+            let distance = clLocation.distance(from: memoLocation)
+
+            if distance < MainViewModel.DETERMINE_AREA {
+               onDeterminedArea(memo: memo)
+            }
+        }
+    }
+
+    private func onDeterminedArea(memo: Memo) {
+        var memo = memo
+        // 最後に通知を出したのが12時間前であれば通知を出す
+        if Date().compare(Calendar.current.date(byAdding: .minute, value: 1, to: memo.lastNoticeDate)!) == ComparisonResult.orderedDescending {
+            createUserNotificationRequest(memo: memo)
+            // 最終通知表示時間を更新
+            memo.lastNoticeDate = Date()
+            dataStore.editMemo(memo: memo)
+        }
+    }
+
+    private func createUserNotificationRequest(memo: Memo) {
+       let notificationContent = UNMutableNotificationContent()
+       notificationContent.title = memo.title
+        notificationContent.body = String(describing: "\(memo.detail) \(memo.tag)")
+       notificationContent.sound = UNNotificationSound.default
+
+       let request = UNNotificationRequest(identifier: "LocationNote", content: notificationContent, trigger: nil)
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+   }
 }
