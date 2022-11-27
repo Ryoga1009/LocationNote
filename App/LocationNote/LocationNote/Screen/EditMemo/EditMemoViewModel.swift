@@ -32,11 +32,13 @@ final class EditMemoViewModel {
     private let disposeBag = DisposeBag()
     private let dataStore = DataStore()
 
+    private var _isAdLoaded = false
+
     init(memo: Memo) {
         self.memo = memo
 
         _title.asObserver()
-            .map({!$0.isEmpty})
+            .map({!$0.isEmpty && self._isAdLoaded})
             .bind(to: _buttonEnabled)
             .disposed(by: disposeBag)
     }
@@ -63,5 +65,9 @@ extension EditMemoViewModel {
             return
         }
         dataStore.editMemo(memo: memo)
+    }
+
+    func onAdLoadEnd() {
+        self._isAdLoaded = true
     }
 }

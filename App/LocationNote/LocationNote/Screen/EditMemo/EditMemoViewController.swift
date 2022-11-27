@@ -9,6 +9,7 @@ import UIKit
 import CoreLocation
 import RxSwift
 import RxCocoa
+import GoogleMobileAds
 
 // MARK: LifeCycle
 class EditMemoViewController: BaseViewController {
@@ -16,6 +17,7 @@ class EditMemoViewController: BaseViewController {
     @IBOutlet weak var detailTextView: UITextView!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var editButton: PrimaryButton!
+    private var interstitial: GADInterstitialAd?
 
     private var memo: Memo?
 
@@ -35,6 +37,19 @@ class EditMemoViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel = EditMemoViewModel(memo: self.memo!)
+
+        let request = GADRequest()
+        GADInterstitialAd.load(withAdUnitID: "ca-app-pub-3940256099942544/4411468910", request: request,
+            completionHandler: { [self] ad, error in
+            viewModel?.onAdLoadEnd()
+
+            if let error = error {
+                print("Failed to load interstitial ad with error: \(error.localizedDescription)")
+                return
+            }
+            interstitial = ad
+            interstitial?.fullScreenContentDelegate = self
+        })
         title = "編集"
 
         setNavigationBarItem()
@@ -113,8 +128,9 @@ extension EditMemoViewController {
         editButton.rx.tap
             .asDriver()
             .drive(onNext: {
-                self.viewModel?.onEditButtonTapped()
-                self.dismiss(animated: true)
+                if let interstitial = self.interstitial {
+                    interstitial.present(fromRootViewController: self)
+                }
             })
             .disposed(by: disposeBag)
 
@@ -122,5 +138,24 @@ extension EditMemoViewController {
             .drive(editButton.rx.isEnabled)
             .disposed(by: disposeBag)
 
+    }
+}
+
+extension EditMemoViewController: GADFullScreenContentDelegate {
+
+    /// Tells the delegate that the ad failed to present full screen content.
+    func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
+        self.viewModel?.onEditButtonTapped()
+        self.dismiss(animated: true)
+    }
+
+    /// Tells the delegate that the ad will present full screen content.
+    func adWillPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+    }
+
+    /// Tells the delegate that the ad dismissed full screen content.
+    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+        self.viewModel?.onEditButtonTapped()
+        self.dismiss(animated: true)
     }
 }
