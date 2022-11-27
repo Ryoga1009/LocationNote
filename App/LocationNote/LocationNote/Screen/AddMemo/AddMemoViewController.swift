@@ -38,7 +38,8 @@ class AddMemoViewController: BaseViewController {
         super.viewDidLoad()
 
         let request = GADRequest()
-        GADInterstitialAd.load(withAdUnitID: "ca-app-pub-1997214677690601/8845994353", request: request, completionHandler: { [self] ad, error in
+        let adUnitId = Bundle.main.infoDictionary?["AdUnitId"]! as! String
+        GADInterstitialAd.load(withAdUnitID: adUnitId, request: request, completionHandler: { [self] ad, error in
             addMemoViewModel?.onAdLoadEnd()
 
             if let error = error {
