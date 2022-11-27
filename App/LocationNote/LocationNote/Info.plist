@@ -3,11 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>GADApplicationIdentifier</key>
-	<string>ca-app-pub-1997214677690601~9085420082</string>
+	<string>$(GADApplicationIdentifier)</string>
 	<key>SKAdNetworkItems</key>
 	<dict>
 		<key>SKAdNetworkIdentifier</key>
-		<string>cstr6suwn9.skadnetwork</string>
+		<string>cstr6suwn9.skadnetwork
+cstr6suwn9.skadnetwork
+cstr6suwn9.skadnetwork</string>
 	</dict>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
