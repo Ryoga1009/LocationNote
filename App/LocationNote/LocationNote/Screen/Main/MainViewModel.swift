@@ -15,7 +15,7 @@ final class MainViewModel {
     private let dataStore = DataStore()
     private let disposeBag = DisposeBag()
     // ピントとの距離が近いと判定する範囲
-    private let DETERMINE_AREA: Double = 80.0
+    static let DETERMINE_AREA: Double = 80.0
 
     // Input
 
@@ -95,7 +95,7 @@ final class MainViewModel {
             let pinLocation = CLLocation(latitude: pin.coordinate.latitude, longitude: pin.coordinate.longitude)
             let distance = clLocation.distance(from: pinLocation)
 
-            if distance < DETERMINE_AREA {
+            if distance < MainViewModel.DETERMINE_AREA {
                onDeterminedArea(pin: pin)
             }
         }
