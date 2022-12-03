@@ -13,10 +13,11 @@ import GoogleMobileAds
 
 // MARK: LifeCycle
 class EditMemoViewController: BaseViewController {
-    @IBOutlet weak var titleTextField: UITextField!
-    @IBOutlet weak var detailTextView: UITextView!
-    @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var editButton: PrimaryButton!
+    @IBOutlet private weak var titleTextField: UITextField!
+    @IBOutlet private weak var detailTextView: UITextView!
+    @IBOutlet private weak var locationLabel: UILabel!
+    @IBOutlet private weak var editButton: PrimaryButton!
+    @IBOutlet private weak var noticeSwitch: UISwitch!
     private var interstitial: GADInterstitialAd?
 
     private var memo: Memo?
@@ -84,6 +85,8 @@ extension EditMemoViewController {
         detailTextView.layer.borderColor = R.color.white2()?.cgColor
         detailTextView.layer.cornerRadius = 4
         detailTextView.text = memo?.detail
+
+        noticeSwitch.isSelected = memo?.isSendNotice ?? true
     }
 }
 
@@ -126,13 +129,18 @@ extension EditMemoViewController {
             .drive(viewModel.detail)
             .disposed(by: disposeBag)
 
+        noticeSwitch.rx.isOn
+            .asDriver()
+            .drive(viewModel.isSendNotice)
+            .disposed(by: disposeBag)
+
         editButton.rx.tap
             .asDriver()
             .drive(onNext: {
                 if let interstitial = self.interstitial {
                     // 広告表示
                     interstitial.present(fromRootViewController: self)
-                }else{
+                } else {
                     // 広告が読み込まれなければ通常の動作に
                     self.viewModel?.onEditButtonTapped()
                     self.dismiss(animated: true)
