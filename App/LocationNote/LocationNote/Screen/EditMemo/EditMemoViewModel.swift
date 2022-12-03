@@ -11,6 +11,9 @@ import RxCocoa
 
 final class EditMemoViewModel {
     private var memo: Memo
+    private var adCount: Int {
+        dataStore.loadCount()
+    }
 
     // Input
     private let _title = BehaviorSubject<String>(value: "")
@@ -28,10 +31,14 @@ final class EditMemoViewModel {
         _isSendNotice.asObserver()
     }
 
+    let isAdAllReady = PublishRelay<Bool>()
+
     // OutPut
     private let _buttonEnabled = BehaviorRelay<Bool>(value: false)
-    var buttonEnabled: Driver<Bool> {
-        _buttonEnabled.asDriver()
+    var buttonEnabled: Observable<Bool> {
+        return Observable.combineLatest(_title, isAdAllReady) { title, isAdAllReady in
+            return !title.isEmpty  && isAdAllReady
+        }
     }
 
     private let disposeBag = DisposeBag()
@@ -39,15 +46,25 @@ final class EditMemoViewModel {
 
     init(memo: Memo) {
         self.memo = memo
-
-        _title.asObserver()
-            .map({!$0.isEmpty})
-            .bind(to: _buttonEnabled)
-            .disposed(by: disposeBag)
     }
 }
 
 extension EditMemoViewModel {
+    func isNeedShowAd() -> Bool {
+        if adCount == 0 {
+            dataStore.saveCount(count: adCount + 1)
+            return true
+        } else {
+            let next = adCount + 1
+            if adCount >= 2 {
+                dataStore.saveCount(count: 0)
+            } else {
+                dataStore.saveCount(count: next)
+            }
+            return false
+        }
+    }
+
     func createMemo() -> Memo? {
         guard let title = try? _title.value(), let detail = try? _detail.value(), let isSendNotice = try? _isSendNotice.value() else {
             return nil

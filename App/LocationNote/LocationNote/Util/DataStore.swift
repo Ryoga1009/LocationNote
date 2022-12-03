@@ -10,6 +10,7 @@ import MapKit
 
 enum DataStoreKey: String {
     case MEMO = "Memo"
+    case AD_COUNT = "AdCount"
 }
 
 struct DataStore {
@@ -84,5 +85,16 @@ struct DataStore {
 
     func clearMemo() {
         UserDefaults.standard.set([], forKey: DataStoreKey.MEMO.rawValue)
+    }
+}
+
+// MARK: show AD count
+extension DataStore {
+    func saveCount(count: Int) {
+        UserDefaults.standard.set(count, forKey: DataStoreKey.AD_COUNT.rawValue)
+    }
+
+    func loadCount() -> Int {
+        return UserDefaults.standard.integer(forKey: DataStoreKey.AD_COUNT.rawValue)
     }
 }

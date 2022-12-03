@@ -43,6 +43,7 @@ class EditMemoViewController: BaseViewController {
         let adUnitId = Bundle.main.infoDictionary?["AdUnitId"]! as! String
         GADInterstitialAd.load(withAdUnitID: adUnitId, request: request,
             completionHandler: { [self] ad, error in
+            viewModel?.isAdAllReady.accept(true)
 
             if let error = error {
                 print("Failed to load interstitial ad with error: \(error.localizedDescription)")
@@ -136,7 +137,7 @@ extension EditMemoViewController {
         editButton.rx.tap
             .asDriver()
             .drive(onNext: {
-                if let interstitial = self.interstitial {
+                if let interstitial = self.interstitial, viewModel.isNeedShowAd() {
                     // 広告表示
                     interstitial.present(fromRootViewController: self)
                 } else {
@@ -148,7 +149,7 @@ extension EditMemoViewController {
             .disposed(by: disposeBag)
 
         viewModel.buttonEnabled
-            .drive(editButton.rx.isEnabled)
+            .bind(to: editButton.rx.isEnabled)
             .disposed(by: disposeBag)
 
     }
