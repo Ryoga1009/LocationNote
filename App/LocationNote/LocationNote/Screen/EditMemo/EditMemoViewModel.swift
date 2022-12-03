@@ -31,10 +31,14 @@ final class EditMemoViewModel {
         _isSendNotice.asObserver()
     }
 
+    let isAdAllReady = PublishRelay<Bool>()
+
     // OutPut
     private let _buttonEnabled = BehaviorRelay<Bool>(value: false)
-    var buttonEnabled: Driver<Bool> {
-        _buttonEnabled.asDriver()
+    var buttonEnabled: Observable<Bool> {
+        return Observable.combineLatest(_title, isAdAllReady) { title, isAdAllReady in
+            return !title.isEmpty  && isAdAllReady
+        }
     }
 
     private let disposeBag = DisposeBag()
@@ -42,11 +46,6 @@ final class EditMemoViewModel {
 
     init(memo: Memo) {
         self.memo = memo
-
-        _title.asObserver()
-            .map({!$0.isEmpty})
-            .bind(to: _buttonEnabled)
-            .disposed(by: disposeBag)
     }
 }
 

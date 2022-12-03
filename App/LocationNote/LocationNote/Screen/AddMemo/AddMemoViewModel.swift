@@ -30,7 +30,7 @@ final class AddMemoViewModel {
         _isSendNotice.asObserver()
     }
 
-    private var _isAdLoaded = false
+    let isAdAllReady = PublishRelay<Bool>()
 
     private var adCount: Int {
         dataStore.loadCount()
@@ -38,8 +38,10 @@ final class AddMemoViewModel {
 
     // OutPut
     private let _buttonEnabled = BehaviorRelay<Bool>(value: false)
-    var buttonEnabled: Driver<Bool> {
-        _buttonEnabled.asDriver()
+    var buttonEnabled: Observable<Bool> {
+        return Observable.combineLatest(_title, isAdAllReady) { title, isAdAllReady in
+            return !title.isEmpty  && isAdAllReady
+        }
     }
 
     private let disposeBag = DisposeBag()
@@ -47,11 +49,6 @@ final class AddMemoViewModel {
 
     init(location: CLLocationCoordinate2D) {
         self.location = location
-
-        _title.asObserver()
-            .map({!$0.isEmpty && self._isAdLoaded})
-            .bind(to: _buttonEnabled)
-            .disposed(by: disposeBag)
     }
 }
 
@@ -80,9 +77,5 @@ extension AddMemoViewModel {
         let memo = Memo.init(title: title, detail: detail, latitude: location.latitude, longitude: location.longitude, isSendNotice: isSendNotice)
 
         dataStore.saveMmemo(memo: memo)
-    }
-
-    func onAdLoadEnd() {
-        self._isAdLoaded = true
     }
 }

@@ -41,7 +41,7 @@ class AddMemoViewController: BaseViewController {
         let request = GADRequest()
         let adUnitId = Bundle.main.infoDictionary?["AdUnitId"]! as! String
         GADInterstitialAd.load(withAdUnitID: adUnitId, request: request, completionHandler: { [self] ad, error in
-            addMemoViewModel?.onAdLoadEnd()
+            addMemoViewModel?.isAdAllReady.accept(true)
 
             if let error = error {
                 print("Failed to load interstitial ad with error: \(error.localizedDescription)")
@@ -129,7 +129,7 @@ extension AddMemoViewController {
             .disposed(by: disposeBag)
 
         addMemoViewModel.buttonEnabled
-            .drive(addButton.rx.isEnabled)
+            .bind(to: addButton.rx.isEnabled)
             .disposed(by: disposeBag)
 
     }
