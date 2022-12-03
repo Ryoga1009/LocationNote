@@ -13,10 +13,11 @@ import GoogleMobileAds
 
 class AddMemoViewController: BaseViewController {
 
-    @IBOutlet weak var titleTextField: UITextField!
-    @IBOutlet weak var detailTextView: UITextView!
-    @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var addButton: PrimaryButton!
+    @IBOutlet private weak var titleTextField: UITextField!
+    @IBOutlet private weak var detailTextView: UITextView!
+    @IBOutlet private weak var locationLabel: UILabel!
+    @IBOutlet private weak var addButton: PrimaryButton!
+    @IBOutlet private weak var noticeSwitch: UISwitch!
 
     private var closeButtonItem: UIBarButtonItem!
     private var addMemoViewModel: AddMemoViewModel?
@@ -108,13 +109,18 @@ extension AddMemoViewController {
             .drive(addMemoViewModel.detail)
             .disposed(by: disposeBag)
 
+        noticeSwitch.rx.isOn
+            .asDriver()
+            .drive(addMemoViewModel.isSendNotice)
+            .disposed(by: disposeBag)
+
         addButton.rx.tap
             .asDriver()
             .drive(onNext: {
                 if let interstitial = self.interstitial {
                     // 広告表示
                     interstitial.present(fromRootViewController: self)
-                }else{
+                } else {
                     // 広告が読み込まれなければ通常の動作に
                     self.addMemoViewModel?.onAddButtonTapped()
                     self.dismiss(animated: true)

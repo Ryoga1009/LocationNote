@@ -25,6 +25,11 @@ final class AddMemoViewModel {
         _detail.asObserver()
     }
 
+    private let _isSendNotice = BehaviorSubject<Bool>(value: true)
+    var isSendNotice: AnyObserver<Bool> {
+        _isSendNotice.asObserver()
+    }
+
     private var _isAdLoaded = false
 
     // OutPut
@@ -48,11 +53,11 @@ final class AddMemoViewModel {
 
 extension AddMemoViewModel {
     func onAddButtonTapped() {
-        guard let title = try? _title.value(), let detail = try? _detail.value() else {
+        guard let title = try? _title.value(), let detail = try? _detail.value(), let isSendNotice = try? _isSendNotice.value() else {
             return
         }
 
-        let memo = Memo.init(title: title, detail: detail, latitude: location.latitude, longitude: location.longitude)
+        let memo = Memo.init(title: title, detail: detail, latitude: location.latitude, longitude: location.longitude, isSendNotice: isSendNotice)
 
         dataStore.saveMmemo(memo: memo)
     }

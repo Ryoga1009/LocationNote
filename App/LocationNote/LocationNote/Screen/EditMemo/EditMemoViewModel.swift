@@ -23,6 +23,11 @@ final class EditMemoViewModel {
         _detail.asObserver()
     }
 
+    private let _isSendNotice = BehaviorSubject<Bool>(value: true)
+    var isSendNotice: AnyObserver<Bool> {
+        _isSendNotice.asObserver()
+    }
+
     // OutPut
     private let _buttonEnabled = BehaviorRelay<Bool>(value: false)
     var buttonEnabled: Driver<Bool> {
@@ -32,13 +37,11 @@ final class EditMemoViewModel {
     private let disposeBag = DisposeBag()
     private let dataStore = DataStore()
 
-    private var _isAdLoaded = false
-
     init(memo: Memo) {
         self.memo = memo
 
         _title.asObserver()
-            .map({!$0.isEmpty && self._isAdLoaded})
+            .map({!$0.isEmpty})
             .bind(to: _buttonEnabled)
             .disposed(by: disposeBag)
     }
@@ -46,11 +49,11 @@ final class EditMemoViewModel {
 
 extension EditMemoViewModel {
     func createMemo() -> Memo? {
-        guard let title = try? _title.value(), let detail = try? _detail.value() else {
+        guard let title = try? _title.value(), let detail = try? _detail.value(), let isSendNotice = try? _isSendNotice.value() else {
             return nil
         }
 
-        return Memo.init(title: title, detail: detail, latitude: memo.latitude, longitude: memo.longitude)
+        return Memo.init(title: title, detail: detail, latitude: memo.latitude, longitude: memo.longitude, isSendNotice: isSendNotice)
     }
 
     func onDeleteButtonTapped() {
@@ -65,9 +68,5 @@ extension EditMemoViewModel {
             return
         }
         dataStore.editMemo(memo: memo)
-    }
-
-    func onAdLoadEnd() {
-        self._isAdLoaded = true
     }
 }

@@ -72,10 +72,9 @@ final class MainViewModel {
     }
 
     func onCalloutAccessoryTapped(annotation: MKAnnotation) {
-        var memo: Memo
-
-        memo = Memo(title: (annotation.title ?? "") ?? "", detail: (annotation.subtitle ?? "") ?? "", latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude)
-
+        guard let  memo = dataStore.loadMemo(from: annotation as! MKPointAnnotation) else {
+            return
+        }
         _editMemoDriver.accept(memo)
     }
 
