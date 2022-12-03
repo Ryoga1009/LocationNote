@@ -37,7 +37,10 @@ class MainViewController: BaseViewController {
         locateButton.addShadow()
         addButton.addShadow()
 
-        checkLocationPermission()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            self.checkLocationPermission()
+        }
+
         bind()
         setMapLongPressRecRecognizer()
         setBannerAdSetting()
