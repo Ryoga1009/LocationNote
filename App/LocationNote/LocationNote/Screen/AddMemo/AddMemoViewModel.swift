@@ -54,7 +54,6 @@ final class AddMemoViewModel {
 
 extension AddMemoViewModel {
     func isNeedShowAd() -> Bool {
-        print(adCount)
         if adCount == 0 {
             dataStore.saveCount(count: adCount + 1)
             return true
