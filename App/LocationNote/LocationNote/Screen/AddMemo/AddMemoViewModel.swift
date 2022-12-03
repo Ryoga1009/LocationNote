@@ -32,6 +32,10 @@ final class AddMemoViewModel {
 
     private var _isAdLoaded = false
 
+    private var adCount: Int {
+        dataStore.loadCount()
+    }
+
     // OutPut
     private let _buttonEnabled = BehaviorRelay<Bool>(value: false)
     var buttonEnabled: Driver<Bool> {
@@ -52,6 +56,22 @@ final class AddMemoViewModel {
 }
 
 extension AddMemoViewModel {
+    func isNeedShowAd() -> Bool {
+        print(adCount)
+        if adCount == 0 {
+            dataStore.saveCount(count: adCount + 1)
+            return true
+        } else {
+            let next = adCount + 1
+            if adCount >= 3 {
+                dataStore.saveCount(count: 0)
+            } else {
+                dataStore.saveCount(count: next)
+            }
+            return false
+        }
+    }
+
     func onAddButtonTapped() {
         guard let title = try? _title.value(), let detail = try? _detail.value(), let isSendNotice = try? _isSendNotice.value() else {
             return

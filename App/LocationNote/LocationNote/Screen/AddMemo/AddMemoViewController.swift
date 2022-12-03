@@ -117,7 +117,7 @@ extension AddMemoViewController {
         addButton.rx.tap
             .asDriver()
             .drive(onNext: {
-                if let interstitial = self.interstitial {
+                if let interstitial = self.interstitial, addMemoViewModel.isNeedShowAd() {
                     // 広告表示
                     interstitial.present(fromRootViewController: self)
                 } else {
