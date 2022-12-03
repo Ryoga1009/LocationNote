@@ -169,7 +169,7 @@ extension AppDelegate {
                     memo.longitude)
             let distance = clLocation.distance(from: memoLocation)
 
-            if distance < MainViewModel.DETERMINE_AREA {
+            if (distance < MainViewModel.DETERMINE_AREA) && memo.isSendNotice {
                onDeterminedArea(memo: memo)
             }
         }
