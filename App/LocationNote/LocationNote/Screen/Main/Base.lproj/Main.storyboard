@@ -8,6 +8,7 @@
         <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,11 +21,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n5R-c8-iYt">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="760"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ys9-d1-Ctb">
+                                <rect key="frame" x="0.0" y="760" width="390" height="50"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ChB-Wq-m5P" customClass="GADBannerView">
+                                        <rect key="frame" x="45" y="0.0" width="300" height="50"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="300" id="rHA-6M-eD0"/>
+                                            <constraint firstAttribute="height" constant="50" id="w7J-aa-xPt"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="NTU-54-q5n"/>
+                                    <constraint firstItem="ChB-Wq-m5P" firstAttribute="centerY" secondItem="Ys9-d1-Ctb" secondAttribute="centerY" id="ZTN-dc-aNX"/>
+                                    <constraint firstItem="ChB-Wq-m5P" firstAttribute="centerX" secondItem="Ys9-d1-Ctb" secondAttribute="centerX" id="f6V-Ii-biR"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OLw-NZ-Eik">
-                                <rect key="frame" x="311" y="707" width="55" height="55"/>
+                                <rect key="frame" x="311" y="673" width="55" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="OLw-NZ-Eik" secondAttribute="height" multiplier="1:1" id="HFu-bu-cjj"/>
                                     <constraint firstAttribute="height" constant="55" id="v9K-OU-JCt"/>
@@ -38,7 +58,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rbo-Ct-al8">
-                                <rect key="frame" x="311" y="616" width="55" height="55"/>
+                                <rect key="frame" x="311" y="582" width="55" height="55"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="rbo-Ct-al8" secondAttribute="height" multiplier="1:1" id="JfY-5Z-ncR"/>
                                     <constraint firstAttribute="height" constant="55" id="slW-kV-ENZ"/>
@@ -56,17 +76,21 @@
                             <constraint firstItem="n5R-c8-iYt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="68K-3C-8q2"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rbo-Ct-al8" secondAttribute="trailing" constant="24" id="865-hA-OGi"/>
                             <constraint firstItem="n5R-c8-iYt" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="AMH-70-Egt"/>
-                            <constraint firstItem="rbo-Ct-al8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" symbolic="YES" id="CNa-zm-uzH"/>
                             <constraint firstItem="OLw-NZ-Eik" firstAttribute="top" secondItem="rbo-Ct-al8" secondAttribute="bottom" constant="36" id="EGW-le-66s"/>
-                            <constraint firstItem="OLw-NZ-Eik" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" symbolic="YES" id="Kb9-3c-Bvz"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="OLw-NZ-Eik" secondAttribute="bottom" constant="48" id="Ouu-48-Ue3"/>
+                            <constraint firstItem="Ys9-d1-Ctb" firstAttribute="bottom" secondItem="OLw-NZ-Eik" secondAttribute="bottom" constant="82" id="Ouu-48-Ue3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ys9-d1-Ctb" secondAttribute="trailing" id="S8X-KC-wah"/>
+                            <constraint firstItem="Ys9-d1-Ctb" firstAttribute="top" secondItem="n5R-c8-iYt" secondAttribute="bottom" id="VMx-CJ-uTI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OLw-NZ-Eik" secondAttribute="trailing" constant="24" id="aGb-EH-Iri"/>
-                            <constraint firstAttribute="bottom" secondItem="n5R-c8-iYt" secondAttribute="bottom" id="ejy-g3-pLq"/>
+                            <constraint firstItem="Ys9-d1-Ctb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="c7H-Ez-vfX"/>
+                            <constraint firstItem="Ys9-d1-Ctb" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="cXT-sD-ZNe"/>
+                            <constraint firstItem="OLw-NZ-Eik" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" symbolic="YES" id="grO-b8-2Rg"/>
+                            <constraint firstItem="rbo-Ct-al8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" symbolic="YES" id="laO-O5-hCD"/>
                             <constraint firstAttribute="trailing" secondItem="n5R-c8-iYt" secondAttribute="trailing" id="tkI-lc-Ks1"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="addButton" destination="OLw-NZ-Eik" id="0E1-D0-JWW"/>
+                        <outlet property="bannerView" destination="ChB-Wq-m5P" id="tPz-Nz-Scf"/>
                         <outlet property="locateButton" destination="rbo-Ct-al8" id="BkW-Q5-3TD"/>
                         <outlet property="mapView" destination="n5R-c8-iYt" id="KLe-L9-DVP"/>
                     </connections>
@@ -82,5 +106,8 @@
         <namedColor name="white1">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
