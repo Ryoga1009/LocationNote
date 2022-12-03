@@ -43,7 +43,6 @@ class EditMemoViewController: BaseViewController {
         let adUnitId = Bundle.main.infoDictionary?["AdUnitId"]! as! String
         GADInterstitialAd.load(withAdUnitID: adUnitId, request: request,
             completionHandler: { [self] ad, error in
-            viewModel?.onAdLoadEnd()
 
             if let error = error {
                 print("Failed to load interstitial ad with error: \(error.localizedDescription)")
@@ -86,7 +85,7 @@ extension EditMemoViewController {
         detailTextView.layer.cornerRadius = 4
         detailTextView.text = memo?.detail
 
-        noticeSwitch.isSelected = memo?.isSendNotice ?? true
+        noticeSwitch.isOn = memo?.isSendNotice ?? true
     }
 }
 
@@ -129,7 +128,7 @@ extension EditMemoViewController {
             .drive(viewModel.detail)
             .disposed(by: disposeBag)
 
-        noticeSwitch.rx.isOn
+        noticeSwitch.rx.value
             .asDriver()
             .drive(viewModel.isSendNotice)
             .disposed(by: disposeBag)

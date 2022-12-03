@@ -28,11 +28,6 @@ final class EditMemoViewModel {
         _isSendNotice.asObserver()
     }
 
-    private var _isAdLoaded = BehaviorSubject<Bool>(value: false)
-    var isAdLoaded: AnyObserver<Bool> {
-        _isAdLoaded.asObserver()
-    }
-
     // OutPut
     private let _buttonEnabled = BehaviorRelay<Bool>(value: false)
     var buttonEnabled: Driver<Bool> {
@@ -43,12 +38,10 @@ final class EditMemoViewModel {
     private let dataStore = DataStore()
 
     init(memo: Memo) {
-        var isAdLoaded = try? _isAdLoaded.value()
-
         self.memo = memo
 
         _title.asObserver()
-            .map({!$0.isEmpty && isAdLoaded ?? false})
+            .map({!$0.isEmpty})
             .bind(to: _buttonEnabled)
             .disposed(by: disposeBag)
     }
@@ -75,9 +68,5 @@ extension EditMemoViewModel {
             return
         }
         dataStore.editMemo(memo: memo)
-    }
-
-    func onAdLoadEnd() {
-        self.isAdLoaded.onNext(true)
     }
 }

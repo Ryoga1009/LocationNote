@@ -121,7 +121,6 @@
                                         <constraints>
                                             <constraint firstItem="kSp-nF-2JE" firstAttribute="top" secondItem="Rt5-Dg-nUD" secondAttribute="top" id="Bi6-tF-EWI"/>
                                             <constraint firstItem="kSp-nF-2JE" firstAttribute="leading" secondItem="Rt5-Dg-nUD" secondAttribute="leading" id="Idn-FU-jNV"/>
-                                            <constraint firstAttribute="width" constant="32" id="UEH-Th-Hfz"/>
                                             <constraint firstAttribute="height" constant="32" id="esl-xC-Oep"/>
                                             <constraint firstAttribute="trailing" secondItem="kSp-nF-2JE" secondAttribute="trailing" id="ig8-us-5jE"/>
                                             <constraint firstAttribute="bottom" secondItem="kSp-nF-2JE" secondAttribute="bottom" id="qc0-go-5gX"/>
