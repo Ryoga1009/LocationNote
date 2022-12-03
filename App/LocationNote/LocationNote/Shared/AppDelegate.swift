@@ -10,6 +10,7 @@ import UIKit
 import CoreLocation
 import MapKit
 import GoogleMobileAds
+import AppTrackingTransparency
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,8 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
-        if launchOptions?[.location] == nil {
-            GADMobileAds.sharedInstance().start(completionHandler: nil)
+        // トラッキングの許可
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            ATTrackingManager.requestTrackingAuthorization(completionHandler: { _ in
+                // AdMobの初期化
+                GADMobileAds.sharedInstance().start(completionHandler: nil)
+            })
         }
         // 通知許可の取得
         UNUserNotificationCenter.current().requestAuthorization(
