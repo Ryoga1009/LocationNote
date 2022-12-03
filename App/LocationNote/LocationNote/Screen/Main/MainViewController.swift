@@ -8,12 +8,14 @@
 import UIKit
 import RxSwift
 import MapKit
+import GoogleMobileAds
 
 class MainViewController: BaseViewController {
 
-    @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var locateButton: UIButton!
-    @IBOutlet weak var addButton: UIButton!
+    @IBOutlet private weak var mapView: MKMapView!
+    @IBOutlet private weak var locateButton: UIButton!
+    @IBOutlet private weak var addButton: UIButton!
+    @IBOutlet private weak var bannerView: GADBannerView!
 
     private var mainViewmodel = MainViewModel()
     private var locationManager = CLLocationManager()
@@ -38,6 +40,7 @@ class MainViewController: BaseViewController {
         checkLocationPermission()
         bind()
         setMapLongPressRecRecognizer()
+        setBannerAdSetting()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -90,6 +93,15 @@ extension MainViewController {
             }
             UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
         }).disposed(by: disposeBag)
+    }
+
+    func setBannerAdSetting() {
+        bannerView.delegate = self
+
+        let adUnitId = Bundle.main.infoDictionary?["BannerAdUnitId"]! as! String
+        bannerView.adUnitID = adUnitId
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
     }
 
     func checkLocationPermission() {
@@ -208,5 +220,15 @@ extension MainViewController: CLLocationManagerDelegate {
             locationManager.allowsBackgroundLocationUpdates = true
             locationManager.startUpdatingLocation()
         }
+    }
+}
+
+// MARK: GADBannerViewDelegate
+extension MainViewController: GADBannerViewDelegate {
+    func bannerViewDidReceiveAd(_ bannerView: GADBannerView) {
+      bannerView.alpha = 0
+      UIView.animate(withDuration: 1, animations: {
+        bannerView.alpha = 1
+      })
     }
 }
