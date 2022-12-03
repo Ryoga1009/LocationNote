@@ -57,7 +57,7 @@ extension EditMemoViewModel {
             return true
         } else {
             let next = adCount + 1
-            if adCount >= 3 {
+            if adCount >= 2 {
                 dataStore.saveCount(count: 0)
             } else {
                 dataStore.saveCount(count: next)
