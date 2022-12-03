@@ -64,19 +64,19 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bhf-m6-gtc" userLabel="memo">
-                                        <rect key="frame" x="0.0" y="116" width="342" height="417"/>
+                                        <rect key="frame" x="0.0" y="116" width="342" height="407"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="KYC-PH-oid">
-                                                <rect key="frame" x="0.0" y="0.0" width="342" height="417"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="342" height="407"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="詳細" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4WK-uw-U73">
-                                                        <rect key="frame" x="0.0" y="0.0" width="342" height="0.0"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="342" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" name="black2"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BTp-4k-IxZ">
-                                                        <rect key="frame" x="0.0" y="8" width="342" height="409"/>
+                                                        <rect key="frame" x="0.0" y="25" width="342" height="382"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <color key="textColor" systemColor="labelColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -93,14 +93,48 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nVT-AN-0lx" userLabel="margin">
-                                        <rect key="frame" x="0.0" y="533" width="342" height="48"/>
+                                        <rect key="frame" x="0.0" y="523" width="342" height="24"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="48" id="BCR-2c-57a"/>
+                                            <constraint firstAttribute="height" constant="24" id="BCR-2c-57a"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6oC-j6-uiL" userLabel="notice_toggle">
+                                        <rect key="frame" x="0.0" y="547" width="342" height="32"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EZA-F2-Z6J">
+                                                <rect key="frame" x="0.0" y="0.0" width="342" height="32"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="通知" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HAo-CD-2rE">
+                                                        <rect key="frame" x="0.0" y="0.0" width="293" height="32"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" name="black2"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vb1-Ly-TX9">
+                                                        <rect key="frame" x="293" y="0.0" width="51" height="32"/>
+                                                    </switch>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="EZA-F2-Z6J" firstAttribute="leading" secondItem="6oC-j6-uiL" secondAttribute="leading" id="bi5-eB-lSU"/>
+                                            <constraint firstItem="EZA-F2-Z6J" firstAttribute="top" secondItem="6oC-j6-uiL" secondAttribute="top" id="dmw-Fi-ghn"/>
+                                            <constraint firstAttribute="bottom" secondItem="EZA-F2-Z6J" secondAttribute="bottom" id="ft6-oD-DKX"/>
+                                            <constraint firstAttribute="height" constant="32" id="qjf-xI-ra3"/>
+                                            <constraint firstAttribute="trailing" secondItem="EZA-F2-Z6J" secondAttribute="trailing" id="tge-pE-IIE"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8xE-oQ-X4r" userLabel="margin">
+                                        <rect key="frame" x="0.0" y="579" width="342" height="24"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="rvt-Ps-w9I"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="olf-M8-ds0" userLabel="lat_lon">
-                                        <rect key="frame" x="0.0" y="581" width="342" height="60"/>
+                                        <rect key="frame" x="0.0" y="603" width="342" height="60"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="8z2-s6-EkU">
                                                 <rect key="frame" x="0.0" y="0.0" width="342" height="60"/>
@@ -129,10 +163,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3nf-fU-rct" userLabel="margin">
-                                        <rect key="frame" x="0.0" y="641" width="342" height="50"/>
+                                        <rect key="frame" x="0.0" y="663" width="342" height="28"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="mjh-F8-mVF"/>
+                                            <constraint firstAttribute="height" constant="28" id="mjh-F8-mVF"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pod-dx-7Dh" userLabel="button">
@@ -176,12 +210,13 @@
                         <outlet property="addButton" destination="pH2-PQ-g1O" id="7b0-Xj-aPA"/>
                         <outlet property="detailTextView" destination="BTp-4k-IxZ" id="z2D-tk-0Sn"/>
                         <outlet property="locationLabel" destination="wni-WF-FCk" id="Csc-Za-42R"/>
+                        <outlet property="noticeSwitch" destination="vb1-Ly-TX9" id="ZBH-eA-O3K"/>
                         <outlet property="titleTextField" destination="hMO-9U-LmX" id="VlK-hL-2sp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="58" y="-2"/>
+            <point key="canvasLocation" x="56.92307692307692" y="-2.1327014218009479"/>
         </scene>
     </scenes>
     <resources>
