@@ -16,7 +16,5 @@ struct Memo: Codable {
     let latitude: Double
     let longitude: Double
     var isSendNotice: Bool
-    var lastNoticeDate: Date = Date()
-    // １回目の通知を出しているかどうか(登録後は時間に関わらず出すように)
-    var didsendFirstNotice: Bool = false
+    var lastNoticeDate: Date?
 }

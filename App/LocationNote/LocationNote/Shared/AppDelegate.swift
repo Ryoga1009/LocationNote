@@ -184,7 +184,7 @@ extension AppDelegate {
     private func onDeterminedArea(memo: Memo) {
         var memo = memo
         // 最後に通知を出したのが12時間前であれば通知を出す
-        if (Date().compare(Calendar.current.date(byAdding: .hour, value: 12, to: memo.lastNoticeDate)!) == ComparisonResult.orderedDescending) || !memo.didsendFirstNotice {
+        if memo.lastNoticeDate == nil || (Date().compare(Calendar.current.date(byAdding: .hour, value: 12, to: memo.lastNoticeDate!)!) == ComparisonResult.orderedDescending) {
             createUserNotificationRequest(memo: memo)
             // 最終通知表示時間を更新
             memo.lastNoticeDate = Date()
