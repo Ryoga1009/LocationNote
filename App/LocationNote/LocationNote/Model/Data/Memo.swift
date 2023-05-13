@@ -16,5 +16,5 @@ struct Memo: Codable {
     let latitude: Double
     let longitude: Double
     var isSendNotice: Bool
-    var lastNoticeDate: Date = Date()
+    var lastNoticeDate: Date?
 }
