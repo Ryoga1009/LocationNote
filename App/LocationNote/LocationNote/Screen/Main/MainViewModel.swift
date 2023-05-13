@@ -15,7 +15,7 @@ final class MainViewModel {
     private let dataStore = DataStore()
     private let disposeBag = DisposeBag()
     // ピントとの距離が近いと判定する範囲
-    static let DETERMINE_AREA: Double = 80.0
+    static let DETERMINE_AREA: Double = 50.0
 
     // Input
 
