@@ -161,7 +161,7 @@ extension AppDelegate: CLLocationManagerDelegate {
 extension AppDelegate {
     // 近いピンがあるか判定を行う
     private func didUpdateLocations(location: CLLocationCoordinate2D) {
-        guard let memoList =  memoList else {
+        guard let memoList = dataStore.loadMemo() else {
             return
         }
 
@@ -184,10 +184,11 @@ extension AppDelegate {
     private func onDeterminedArea(memo: Memo) {
         var memo = memo
         // 最後に通知を出したのが12時間前であれば通知を出す
-        if Date().compare(Calendar.current.date(byAdding: .hour, value: 12, to: memo.lastNoticeDate)!) == ComparisonResult.orderedDescending {
+        if (Date().compare(Calendar.current.date(byAdding: .hour, value: 12, to: memo.lastNoticeDate)!) == ComparisonResult.orderedDescending) || !memo.didsendFirstNotice {
             createUserNotificationRequest(memo: memo)
             // 最終通知表示時間を更新
             memo.lastNoticeDate = Date()
+            memo.didsendFirstNotice = true
             dataStore.editMemo(memo: memo)
         }
     }
