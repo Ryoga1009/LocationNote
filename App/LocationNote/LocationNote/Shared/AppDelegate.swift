@@ -188,7 +188,6 @@ extension AppDelegate {
             createUserNotificationRequest(memo: memo)
             // 最終通知表示時間を更新
             memo.lastNoticeDate = Date()
-            memo.didsendFirstNotice = true
             dataStore.editMemo(memo: memo)
         }
     }

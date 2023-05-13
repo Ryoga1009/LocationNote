@@ -42,7 +42,6 @@ struct DataStore {
         data?[index].detail = memo.detail
         data?[index].isSendNotice = memo.isSendNotice
         data?[index].lastNoticeDate = memo.lastNoticeDate
-        data?[index].didsendFirstNotice = memo.didsendFirstNotice
 
         saveMmemoList(memoList: data ?? [])
     }
